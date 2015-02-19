@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ZGCAppDelegate.h
 //  iOS_Quiz
 //
 //  Created by EvilKernel on 2/16/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface ZGCAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

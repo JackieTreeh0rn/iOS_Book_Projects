@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E23FB20F1A95AD5C0047644E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2BC3D5A1A92FEBC0092B6EB /* Images.xcassets */; };
+		E23FB2101A95AD5C0047644E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BC3D751A9302D90092B6EB /* ViewController.xib */; };
 		E2BC3D561A92FEBC0092B6EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BC3D551A92FEBC0092B6EB /* main.m */; };
-		E2BC3D591A92FEBC0092B6EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BC3D581A92FEBC0092B6EB /* AppDelegate.m */; };
-		E2BC3D5B1A92FEBC0092B6EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2BC3D5A1A92FEBC0092B6EB /* Images.xcassets */; };
-		E2BC3D5E1A92FEBC0092B6EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BC3D5C1A92FEBC0092B6EB /* LaunchScreen.xib */; };
+		E2BC3D591A92FEBC0092B6EB /* ZGCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BC3D581A92FEBC0092B6EB /* ZGCAppDelegate.m */; };
 		E2BC3D6A1A92FEBC0092B6EB /* iOS_QuizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BC3D691A92FEBC0092B6EB /* iOS_QuizTests.m */; };
+		E2BC3D761A9302D90092B6EB /* ZGCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BC3D741A9302D90092B6EB /* ZGCViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,13 +29,15 @@
 		E2BC3D501A92FEBC0092B6EB /* iOS_Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2BC3D541A92FEBC0092B6EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2BC3D551A92FEBC0092B6EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E2BC3D571A92FEBC0092B6EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E2BC3D581A92FEBC0092B6EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E2BC3D571A92FEBC0092B6EB /* ZGCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZGCAppDelegate.h; sourceTree = "<group>"; };
+		E2BC3D581A92FEBC0092B6EB /* ZGCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZGCAppDelegate.m; sourceTree = "<group>"; };
 		E2BC3D5A1A92FEBC0092B6EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E2BC3D5D1A92FEBC0092B6EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E2BC3D631A92FEBC0092B6EB /* iOS_QuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_QuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2BC3D681A92FEBC0092B6EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2BC3D691A92FEBC0092B6EB /* iOS_QuizTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizTests.m; sourceTree = "<group>"; };
+		E2BC3D731A9302D90092B6EB /* ZGCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCViewController.h; sourceTree = "<group>"; };
+		E2BC3D741A9302D90092B6EB /* ZGCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCViewController.m; sourceTree = "<group>"; };
+		E2BC3D751A9302D90092B6EB /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +79,12 @@
 		E2BC3D521A92FEBC0092B6EB /* iOS_Quiz */ = {
 			isa = PBXGroup;
 			children = (
-				E2BC3D571A92FEBC0092B6EB /* AppDelegate.h */,
-				E2BC3D581A92FEBC0092B6EB /* AppDelegate.m */,
+				E2BC3D571A92FEBC0092B6EB /* ZGCAppDelegate.h */,
+				E2BC3D581A92FEBC0092B6EB /* ZGCAppDelegate.m */,
 				E2BC3D5A1A92FEBC0092B6EB /* Images.xcassets */,
-				E2BC3D5C1A92FEBC0092B6EB /* LaunchScreen.xib */,
+				E2BC3D731A9302D90092B6EB /* ZGCViewController.h */,
+				E2BC3D741A9302D90092B6EB /* ZGCViewController.m */,
+				E2BC3D751A9302D90092B6EB /* ViewController.xib */,
 				E2BC3D531A92FEBC0092B6EB /* Supporting Files */,
 			);
 			path = iOS_Quiz;
@@ -191,8 +196,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2BC3D5E1A92FEBC0092B6EB /* LaunchScreen.xib in Resources */,
-				E2BC3D5B1A92FEBC0092B6EB /* Images.xcassets in Resources */,
+				E23FB20F1A95AD5C0047644E /* Images.xcassets in Resources */,
+				E23FB2101A95AD5C0047644E /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2BC3D591A92FEBC0092B6EB /* AppDelegate.m in Sources */,
+				E2BC3D761A9302D90092B6EB /* ZGCViewController.m in Sources */,
+				E2BC3D591A92FEBC0092B6EB /* ZGCAppDelegate.m in Sources */,
 				E2BC3D561A92FEBC0092B6EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,17 +238,6 @@
 			targetProxy = E2BC3D641A92FEBC0092B6EB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E2BC3D5C1A92FEBC0092B6EB /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2BC3D5D1A92FEBC0092B6EB /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E2BC3D6B1A92FEBC0092B6EB /* Debug */ = {
@@ -394,6 +389,7 @@
 				E2BC3D6F1A92FEBC0092B6EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2BC3D701A92FEBC0092B6EB /* Build configuration list for PBXNativeTarget "iOS_QuizTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +398,7 @@
 				E2BC3D721A92FEBC0092B6EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

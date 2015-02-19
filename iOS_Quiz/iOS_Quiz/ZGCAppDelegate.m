@@ -1,18 +1,18 @@
 //
-//  AppDelegate.m
+//  ZGCAppDelegate.m
 //  iOS_Quiz
 //
 //  Created by EvilKernel on 2/16/15.
 //  Copyright (c) 2015 Zerogravity. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "ZGCAppDelegate.h"
 
-@interface AppDelegate ()
+@interface ZGCAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation ZGCAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
