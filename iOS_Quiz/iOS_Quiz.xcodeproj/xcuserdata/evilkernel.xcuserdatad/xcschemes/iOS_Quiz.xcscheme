@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E2BC3D4F1A92FEBC0092B6EB"
+               BlueprintIdentifier = "E22B320B1A95B81300F114E0"
                BuildableName = "iOS_Quiz.app"
                BlueprintName = "iOS_Quiz"
                ReferencedContainer = "container:iOS_Quiz.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E2BC3D621A92FEBC0092B6EB"
+               BlueprintIdentifier = "E22B321E1A95B81300F114E0"
                BuildableName = "iOS_QuizTests.xctest"
                BlueprintName = "iOS_QuizTests"
                ReferencedContainer = "container:iOS_Quiz.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E2BC3D621A92FEBC0092B6EB"
+               BlueprintIdentifier = "E22B321E1A95B81300F114E0"
                BuildableName = "iOS_QuizTests.xctest"
                BlueprintName = "iOS_QuizTests"
                ReferencedContainer = "container:iOS_Quiz.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2BC3D4F1A92FEBC0092B6EB"
+            BlueprintIdentifier = "E22B320B1A95B81300F114E0"
             BuildableName = "iOS_Quiz.app"
             BlueprintName = "iOS_Quiz"
             ReferencedContainer = "container:iOS_Quiz.xcodeproj">
@@ -75,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2BC3D4F1A92FEBC0092B6EB"
+            BlueprintIdentifier = "E22B320B1A95B81300F114E0"
             BuildableName = "iOS_Quiz.app"
             BlueprintName = "iOS_Quiz"
             ReferencedContainer = "container:iOS_Quiz.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2BC3D4F1A92FEBC0092B6EB"
+            BlueprintIdentifier = "E22B320B1A95B81300F114E0"
             BuildableName = "iOS_Quiz.app"
             BlueprintName = "iOS_Quiz"
             ReferencedContainer = "container:iOS_Quiz.xcodeproj">

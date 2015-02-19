@@ -2,15 +2,15 @@
 //  main.m
 //  iOS_Quiz
 //
-//  Created by EvilKernel on 2/16/15.
+//  Created by EvilKernel on 2/19/15.
 //  Copyright (c) 2015 Zerogravity. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "ZGCAppDelegate.h"
+#import "AppDelegate.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([ZGCAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

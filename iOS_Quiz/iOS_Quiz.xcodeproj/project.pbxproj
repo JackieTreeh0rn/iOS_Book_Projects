@@ -7,48 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E23FB20F1A95AD5C0047644E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2BC3D5A1A92FEBC0092B6EB /* Images.xcassets */; };
-		E23FB2101A95AD5C0047644E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BC3D751A9302D90092B6EB /* ViewController.xib */; };
-		E2BC3D561A92FEBC0092B6EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BC3D551A92FEBC0092B6EB /* main.m */; };
-		E2BC3D591A92FEBC0092B6EB /* ZGCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BC3D581A92FEBC0092B6EB /* ZGCAppDelegate.m */; };
-		E2BC3D6A1A92FEBC0092B6EB /* iOS_QuizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BC3D691A92FEBC0092B6EB /* iOS_QuizTests.m */; };
-		E2BC3D761A9302D90092B6EB /* ZGCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BC3D741A9302D90092B6EB /* ZGCViewController.m */; };
+		E22B32121A95B81300F114E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E22B32111A95B81300F114E0 /* main.m */; };
+		E22B32151A95B81300F114E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E22B32141A95B81300F114E0 /* AppDelegate.m */; };
+		E22B32171A95B81300F114E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22B32161A95B81300F114E0 /* Images.xcassets */; };
+		E22B321A1A95B81300F114E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22B32181A95B81300F114E0 /* LaunchScreen.xib */; };
+		E22B32261A95B81300F114E0 /* iOS_QuizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E22B32251A95B81300F114E0 /* iOS_QuizTests.m */; };
+		E22B32321A95B83300F114E0 /* ZGCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22B32301A95B83300F114E0 /* ZGCViewController.m */; };
+		E22B32331A95B83300F114E0 /* ZGCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22B32311A95B83300F114E0 /* ZGCViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E2BC3D641A92FEBC0092B6EB /* PBXContainerItemProxy */ = {
+		E22B32201A95B81300F114E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E2BC3D481A92FEBC0092B6EB /* Project object */;
+			containerPortal = E22B32041A95B81300F114E0 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E2BC3D4F1A92FEBC0092B6EB;
+			remoteGlobalIDString = E22B320B1A95B81300F114E0;
 			remoteInfo = iOS_Quiz;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E2BC3D501A92FEBC0092B6EB /* iOS_Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2BC3D541A92FEBC0092B6EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2BC3D551A92FEBC0092B6EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E2BC3D571A92FEBC0092B6EB /* ZGCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZGCAppDelegate.h; sourceTree = "<group>"; };
-		E2BC3D581A92FEBC0092B6EB /* ZGCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZGCAppDelegate.m; sourceTree = "<group>"; };
-		E2BC3D5A1A92FEBC0092B6EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		E2BC3D631A92FEBC0092B6EB /* iOS_QuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_QuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2BC3D681A92FEBC0092B6EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2BC3D691A92FEBC0092B6EB /* iOS_QuizTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizTests.m; sourceTree = "<group>"; };
-		E2BC3D731A9302D90092B6EB /* ZGCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCViewController.h; sourceTree = "<group>"; };
-		E2BC3D741A9302D90092B6EB /* ZGCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCViewController.m; sourceTree = "<group>"; };
-		E2BC3D751A9302D90092B6EB /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		E22B320C1A95B81300F114E0 /* iOS_Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E22B32101A95B81300F114E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E22B32111A95B81300F114E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E22B32131A95B81300F114E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E22B32141A95B81300F114E0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E22B32161A95B81300F114E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E22B32191A95B81300F114E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		E22B321F1A95B81300F114E0 /* iOS_QuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_QuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E22B32241A95B81300F114E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E22B32251A95B81300F114E0 /* iOS_QuizTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizTests.m; sourceTree = "<group>"; };
+		E22B322F1A95B83300F114E0 /* ZGCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCViewController.h; sourceTree = "<group>"; };
+		E22B32301A95B83300F114E0 /* ZGCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCViewController.m; sourceTree = "<group>"; };
+		E22B32311A95B83300F114E0 /* ZGCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZGCViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E2BC3D4D1A92FEBC0092B6EB /* Frameworks */ = {
+		E22B32091A95B81300F114E0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2BC3D601A92FEBC0092B6EB /* Frameworks */ = {
+		E22B321C1A95B81300F114E0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -58,60 +60,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E2BC3D471A92FEBC0092B6EB = {
+		E22B32031A95B81300F114E0 = {
 			isa = PBXGroup;
 			children = (
-				E2BC3D521A92FEBC0092B6EB /* iOS_Quiz */,
-				E2BC3D661A92FEBC0092B6EB /* iOS_QuizTests */,
-				E2BC3D511A92FEBC0092B6EB /* Products */,
+				E22B322F1A95B83300F114E0 /* ZGCViewController.h */,
+				E22B32301A95B83300F114E0 /* ZGCViewController.m */,
+				E22B32311A95B83300F114E0 /* ZGCViewController.xib */,
+				E22B320E1A95B81300F114E0 /* iOS_Quiz */,
+				E22B32221A95B81300F114E0 /* iOS_QuizTests */,
+				E22B320D1A95B81300F114E0 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E2BC3D511A92FEBC0092B6EB /* Products */ = {
+		E22B320D1A95B81300F114E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E2BC3D501A92FEBC0092B6EB /* iOS_Quiz.app */,
-				E2BC3D631A92FEBC0092B6EB /* iOS_QuizTests.xctest */,
+				E22B320C1A95B81300F114E0 /* iOS_Quiz.app */,
+				E22B321F1A95B81300F114E0 /* iOS_QuizTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E2BC3D521A92FEBC0092B6EB /* iOS_Quiz */ = {
+		E22B320E1A95B81300F114E0 /* iOS_Quiz */ = {
 			isa = PBXGroup;
 			children = (
-				E2BC3D571A92FEBC0092B6EB /* ZGCAppDelegate.h */,
-				E2BC3D581A92FEBC0092B6EB /* ZGCAppDelegate.m */,
-				E2BC3D5A1A92FEBC0092B6EB /* Images.xcassets */,
-				E2BC3D731A9302D90092B6EB /* ZGCViewController.h */,
-				E2BC3D741A9302D90092B6EB /* ZGCViewController.m */,
-				E2BC3D751A9302D90092B6EB /* ViewController.xib */,
-				E2BC3D531A92FEBC0092B6EB /* Supporting Files */,
+				E22B32131A95B81300F114E0 /* AppDelegate.h */,
+				E22B32141A95B81300F114E0 /* AppDelegate.m */,
+				E22B32161A95B81300F114E0 /* Images.xcassets */,
+				E22B32181A95B81300F114E0 /* LaunchScreen.xib */,
+				E22B320F1A95B81300F114E0 /* Supporting Files */,
 			);
 			path = iOS_Quiz;
 			sourceTree = "<group>";
 		};
-		E2BC3D531A92FEBC0092B6EB /* Supporting Files */ = {
+		E22B320F1A95B81300F114E0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E2BC3D541A92FEBC0092B6EB /* Info.plist */,
-				E2BC3D551A92FEBC0092B6EB /* main.m */,
+				E22B32101A95B81300F114E0 /* Info.plist */,
+				E22B32111A95B81300F114E0 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E2BC3D661A92FEBC0092B6EB /* iOS_QuizTests */ = {
+		E22B32221A95B81300F114E0 /* iOS_QuizTests */ = {
 			isa = PBXGroup;
 			children = (
-				E2BC3D691A92FEBC0092B6EB /* iOS_QuizTests.m */,
-				E2BC3D671A92FEBC0092B6EB /* Supporting Files */,
+				E22B32251A95B81300F114E0 /* iOS_QuizTests.m */,
+				E22B32231A95B81300F114E0 /* Supporting Files */,
 			);
 			path = iOS_QuizTests;
 			sourceTree = "<group>";
 		};
-		E2BC3D671A92FEBC0092B6EB /* Supporting Files */ = {
+		E22B32231A95B81300F114E0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E2BC3D681A92FEBC0092B6EB /* Info.plist */,
+				E22B32241A95B81300F114E0 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -119,13 +122,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E2BC3D4F1A92FEBC0092B6EB /* iOS_Quiz */ = {
+		E22B320B1A95B81300F114E0 /* iOS_Quiz */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2BC3D6D1A92FEBC0092B6EB /* Build configuration list for PBXNativeTarget "iOS_Quiz" */;
+			buildConfigurationList = E22B32291A95B81300F114E0 /* Build configuration list for PBXNativeTarget "iOS_Quiz" */;
 			buildPhases = (
-				E2BC3D4C1A92FEBC0092B6EB /* Sources */,
-				E2BC3D4D1A92FEBC0092B6EB /* Frameworks */,
-				E2BC3D4E1A92FEBC0092B6EB /* Resources */,
+				E22B32081A95B81300F114E0 /* Sources */,
+				E22B32091A95B81300F114E0 /* Frameworks */,
+				E22B320A1A95B81300F114E0 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -133,46 +136,46 @@
 			);
 			name = iOS_Quiz;
 			productName = iOS_Quiz;
-			productReference = E2BC3D501A92FEBC0092B6EB /* iOS_Quiz.app */;
+			productReference = E22B320C1A95B81300F114E0 /* iOS_Quiz.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E2BC3D621A92FEBC0092B6EB /* iOS_QuizTests */ = {
+		E22B321E1A95B81300F114E0 /* iOS_QuizTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2BC3D701A92FEBC0092B6EB /* Build configuration list for PBXNativeTarget "iOS_QuizTests" */;
+			buildConfigurationList = E22B322C1A95B81300F114E0 /* Build configuration list for PBXNativeTarget "iOS_QuizTests" */;
 			buildPhases = (
-				E2BC3D5F1A92FEBC0092B6EB /* Sources */,
-				E2BC3D601A92FEBC0092B6EB /* Frameworks */,
-				E2BC3D611A92FEBC0092B6EB /* Resources */,
+				E22B321B1A95B81300F114E0 /* Sources */,
+				E22B321C1A95B81300F114E0 /* Frameworks */,
+				E22B321D1A95B81300F114E0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E2BC3D651A92FEBC0092B6EB /* PBXTargetDependency */,
+				E22B32211A95B81300F114E0 /* PBXTargetDependency */,
 			);
 			name = iOS_QuizTests;
 			productName = iOS_QuizTests;
-			productReference = E2BC3D631A92FEBC0092B6EB /* iOS_QuizTests.xctest */;
+			productReference = E22B321F1A95B81300F114E0 /* iOS_QuizTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E2BC3D481A92FEBC0092B6EB /* Project object */ = {
+		E22B32041A95B81300F114E0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Zerogravity;
 				TargetAttributes = {
-					E2BC3D4F1A92FEBC0092B6EB = {
+					E22B320B1A95B81300F114E0 = {
 						CreatedOnToolsVersion = 6.1;
 					};
-					E2BC3D621A92FEBC0092B6EB = {
+					E22B321E1A95B81300F114E0 = {
 						CreatedOnToolsVersion = 6.1;
-						TestTargetID = E2BC3D4F1A92FEBC0092B6EB;
+						TestTargetID = E22B320B1A95B81300F114E0;
 					};
 				};
 			};
-			buildConfigurationList = E2BC3D4B1A92FEBC0092B6EB /* Build configuration list for PBXProject "iOS_Quiz" */;
+			buildConfigurationList = E22B32071A95B81300F114E0 /* Build configuration list for PBXProject "iOS_Quiz" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -180,28 +183,29 @@
 				en,
 				Base,
 			);
-			mainGroup = E2BC3D471A92FEBC0092B6EB;
-			productRefGroup = E2BC3D511A92FEBC0092B6EB /* Products */;
+			mainGroup = E22B32031A95B81300F114E0;
+			productRefGroup = E22B320D1A95B81300F114E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E2BC3D4F1A92FEBC0092B6EB /* iOS_Quiz */,
-				E2BC3D621A92FEBC0092B6EB /* iOS_QuizTests */,
+				E22B320B1A95B81300F114E0 /* iOS_Quiz */,
+				E22B321E1A95B81300F114E0 /* iOS_QuizTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E2BC3D4E1A92FEBC0092B6EB /* Resources */ = {
+		E22B320A1A95B81300F114E0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E23FB20F1A95AD5C0047644E /* Images.xcassets in Resources */,
-				E23FB2101A95AD5C0047644E /* ViewController.xib in Resources */,
+				E22B321A1A95B81300F114E0 /* LaunchScreen.xib in Resources */,
+				E22B32171A95B81300F114E0 /* Images.xcassets in Resources */,
+				E22B32331A95B83300F114E0 /* ZGCViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2BC3D611A92FEBC0092B6EB /* Resources */ = {
+		E22B321D1A95B81300F114E0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -211,36 +215,47 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E2BC3D4C1A92FEBC0092B6EB /* Sources */ = {
+		E22B32081A95B81300F114E0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2BC3D761A9302D90092B6EB /* ZGCViewController.m in Sources */,
-				E2BC3D591A92FEBC0092B6EB /* ZGCAppDelegate.m in Sources */,
-				E2BC3D561A92FEBC0092B6EB /* main.m in Sources */,
+				E22B32151A95B81300F114E0 /* AppDelegate.m in Sources */,
+				E22B32121A95B81300F114E0 /* main.m in Sources */,
+				E22B32321A95B83300F114E0 /* ZGCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2BC3D5F1A92FEBC0092B6EB /* Sources */ = {
+		E22B321B1A95B81300F114E0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2BC3D6A1A92FEBC0092B6EB /* iOS_QuizTests.m in Sources */,
+				E22B32261A95B81300F114E0 /* iOS_QuizTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E2BC3D651A92FEBC0092B6EB /* PBXTargetDependency */ = {
+		E22B32211A95B81300F114E0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E2BC3D4F1A92FEBC0092B6EB /* iOS_Quiz */;
-			targetProxy = E2BC3D641A92FEBC0092B6EB /* PBXContainerItemProxy */;
+			target = E22B320B1A95B81300F114E0 /* iOS_Quiz */;
+			targetProxy = E22B32201A95B81300F114E0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		E22B32181A95B81300F114E0 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E22B32191A95B81300F114E0 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		E2BC3D6B1A92FEBC0092B6EB /* Debug */ = {
+		E22B32271A95B81300F114E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -281,7 +296,7 @@
 			};
 			name = Debug;
 		};
-		E2BC3D6C1A92FEBC0092B6EB /* Release */ = {
+		E22B32281A95B81300F114E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -316,7 +331,7 @@
 			};
 			name = Release;
 		};
-		E2BC3D6E1A92FEBC0092B6EB /* Debug */ = {
+		E22B322A1A95B81300F114E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -326,7 +341,7 @@
 			};
 			name = Debug;
 		};
-		E2BC3D6F1A92FEBC0092B6EB /* Release */ = {
+		E22B322B1A95B81300F114E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -336,7 +351,7 @@
 			};
 			name = Release;
 		};
-		E2BC3D711A92FEBC0092B6EB /* Debug */ = {
+		E22B322D1A95B81300F114E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -355,7 +370,7 @@
 			};
 			name = Debug;
 		};
-		E2BC3D721A92FEBC0092B6EB /* Release */ = {
+		E22B322E1A95B81300F114E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -373,34 +388,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E2BC3D4B1A92FEBC0092B6EB /* Build configuration list for PBXProject "iOS_Quiz" */ = {
+		E22B32071A95B81300F114E0 /* Build configuration list for PBXProject "iOS_Quiz" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E2BC3D6B1A92FEBC0092B6EB /* Debug */,
-				E2BC3D6C1A92FEBC0092B6EB /* Release */,
+				E22B32271A95B81300F114E0 /* Debug */,
+				E22B32281A95B81300F114E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2BC3D6D1A92FEBC0092B6EB /* Build configuration list for PBXNativeTarget "iOS_Quiz" */ = {
+		E22B32291A95B81300F114E0 /* Build configuration list for PBXNativeTarget "iOS_Quiz" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E2BC3D6E1A92FEBC0092B6EB /* Debug */,
-				E2BC3D6F1A92FEBC0092B6EB /* Release */,
+				E22B322A1A95B81300F114E0 /* Debug */,
+				E22B322B1A95B81300F114E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		E2BC3D701A92FEBC0092B6EB /* Build configuration list for PBXNativeTarget "iOS_QuizTests" */ = {
+		E22B322C1A95B81300F114E0 /* Build configuration list for PBXNativeTarget "iOS_QuizTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E2BC3D711A92FEBC0092B6EB /* Debug */,
-				E2BC3D721A92FEBC0092B6EB /* Release */,
+				E22B322D1A95B81300F114E0 /* Debug */,
+				E22B322E1A95B81300F114E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E2BC3D481A92FEBC0092B6EB /* Project object */;
+	rootObject = E22B32041A95B81300F114E0 /* Project object */;
 }
