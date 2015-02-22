@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ZGCViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    // initiating main view controller
+    ZGCViewController *quizVC = [[ZGCViewController alloc] init]; // initiating viewcontroller
+    self.window.rootViewController = quizVC;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

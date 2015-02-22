@@ -24,7 +24,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="showQuestion:" destination="-1" eventType="touchUpInside" id="MUL-2y-DJl"/>
+                        <action selector="showAnswer:" destination="-1" eventType="touchUpInside" id="4FN-Hl-YG1"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBX-zH-U7R">

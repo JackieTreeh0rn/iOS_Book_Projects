@@ -338,6 +338,7 @@
 				INFOPLIST_FILE = iOS_Quiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -348,6 +349,7 @@
 				INFOPLIST_FILE = iOS_Quiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -404,6 +406,7 @@
 				E22B322B1A95B81300F114E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E22B322C1A95B81300F114E0 /* Build configuration list for PBXNativeTarget "iOS_QuizTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +415,7 @@
 				E22B322E1A95B81300F114E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
