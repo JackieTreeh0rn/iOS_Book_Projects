@@ -70,7 +70,8 @@
     path.lineWidth = 10; // configure the line to 10 points
     [[UIColor lightGrayColor] setStroke]; // UIColor method, defines color for future strokes
     [path stroke]; // using stroke method to draw the actual circles!
-    //---
+    
+    
     // ADDING and IMAGE w/SHADOW to the view (must use CoreGraphics API directly for shadows and gradients operations like these) //
     UIImage *logoImage = [UIImage imageNamed:@"logo.png"]; // define image
     // Get current drawing context for the view
@@ -79,15 +80,17 @@
     CGContextSaveGState(currentContext);
     // Apply shadow to current context (everything drawn within this context gets a shadow now)
     CGContextSetShadow(currentContext, CGSizeMake(4, 8), 3);
-    // Compositing image to the view
+    // Compositing image to the view //
+    // Made a new smaller frame/cgrect to compensate for the wrong logo image size on new iphone6 simulator
     CGRect imageRect = CGRectMake(bounds.origin.x + 60, bounds.origin.y + 60, bounds.size.width / 1.5, bounds.size.height / 1.5);
-    [logoImage drawInRect:imageRect]; // made a new smaller frae/cgrect to compensate for the wrong logo image size on new iphone6 simulator
+    // Draw image
+    [logoImage drawInRect:imageRect];
     // Restoring currentContext (everything drawn after this does not get shadow)
     CGContextRestoreGState(currentContext);
     
     
 
-/*
+//
     // ADDING A Gradient //
     // gradients allow you to do shading that movies smoothly through a list of colors requires Core graphics API use directly as well.
     // Build parameters for gradient function
@@ -101,15 +104,16 @@
     // Define a Starting and Endpoints for gradient (required parameter for gradient draw function
     CGPoint startPoint = { imageRect.origin.x + imageRect.size.width / 2, imageRect.origin.y };
     CGPoint endPoint = { imageRect.origin.x + imageRect.size.width / 2, imageRect.origin.y + imageRect.size.height };
-    // Apply Gradient to context
-    CGContextDrawLinearGradient(currentContext, gradient, startPoint, endPoint, kCGGradientDrawsBeforeStartLocation & kCGGradientDrawsAfterEndLocation); // bitwised-AND last two contants together to form last argument for this function
-    CGGradientRelease(gradient);
-    CGColorSpaceRelease(colorSpace);
+
+    // Apply Gradient to context //
     
+//
     // Saving current context first
     CGContextSaveGState(currentContext);
+//
     
-    /// Add new subpath to existing Bezier Path to draw a triangle (a clipping for the gradient)
+//
+    /// Add new subpath to existing Bezier Path to draw a triangle (a clipping path for the gradient)
     [path moveToPoint:startPoint]; // start out at point representing tip of triangle
     [path addLineToPoint:CGPointMake(imageRect.origin.x + imageRect.size.width, imageRect.origin.y + imageRect.size.height)]; // bottom right point
     [path addLineToPoint:CGPointMake(imageRect.origin.x, imageRect.origin.y + imageRect.size.height)]; // bottom left point
@@ -118,12 +122,17 @@
     path.lineWidth = 1; // thickness of line to 1 point
     [UIColor clearColor]; // line color
     [path stroke]; // draw it
+//
     
+    // draw gradient
+    CGContextDrawLinearGradient(currentContext, gradient, startPoint, endPoint, kCGGradientDrawsBeforeStartLocation & kCGGradientDrawsAfterEndLocation); // bitwised-AND last two contants together to form last argument for this function
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorSpace);
 
-    
+//
     // Restore CurrentContext (everything drawn after this does not get the gradient
     CGContextRestoreGState(currentContext);
-*/
+//
     
     
     
