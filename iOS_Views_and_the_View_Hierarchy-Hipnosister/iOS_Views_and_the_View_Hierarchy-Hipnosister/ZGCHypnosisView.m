@@ -72,32 +72,15 @@
     // Draw the Paths (multiple circles)
     [path stroke];
 //////// FINISH DRAW CONCENTRIC CIRCLES //////////
-    
-    
-//////// START DRAW A LOGO IMAGE W / SHADOW //////////
-/*  Define Image */
-    // instance of UIImage
-    UIImage *logoImage = [UIImage imageNamed:@"logo.png"]; // define image
-    
-/*  Get current image context and saving it - CoreGraphics API functions required here */
+
+//-------- To be used by subsequent code -------
+/*  Get current image context - CoreGraphics API required here */
     // Get current drawing context for the view
     CGContextRef currentContext = UIGraphicsGetCurrentContext();
-    // Saving current context first
-    CGContextSaveGState(currentContext);
-    
-/*  Apply a Shadow to curren Context - CoreGraphics API functions required here, no ObjC abstracted yet */
-    // Everything drawn within this context gets a shadow after this, the logo in this case
-    CGContextSetShadow(currentContext, CGSizeMake(4, 8), 3); //func takes 3 arguments: context, CGSize, and offset
-    
-/*  Compositing UIImage to the view */
-    // Made a new smaller frame to compensate for the wrong logo image size on new iphone6 simulator
+/*  Made a new smaller frame to compensate for the wrong logo image size on new iphone6 simulator */
     CGRect imageRect = CGRectMake(bounds.origin.x + 60, bounds.origin.y + 60, bounds.size.width / 1.5, bounds.size.height / 1.5);
-    // Draw image
-    [logoImage drawInRect:imageRect];
-    
-/*  Restoring currentContext (everything drawn after this does not get shadow) */
-    CGContextRestoreGState(currentContext);
-//////// FINISH DRAW A LOGO IMAGE W / SHADOW //////////
+//---------------------------------------------
+
 
     
 //////// START DRAW A GRADIENT //////////
@@ -163,6 +146,27 @@
 /* Restore CurrentContext (everything drawn after this does not get the gradient) */
     CGContextRestoreGState(currentContext);
 //////// FINISH DRAW A GRADIENT //////////
+    
+    
+//////// START DRAW A LOGO IMAGE W / SHADOW //////////
+    /*  Define Image */
+    // instance of UIImage
+    UIImage *logoImage = [UIImage imageNamed:@"logo.png"]; // define image
+    
+    /*  Saving current context first - CoreGraphics API functions required here */
+    CGContextSaveGState(currentContext);
+    
+    /*  Apply a Shadow to curren Context - CoreGraphics API functions required here, no ObjC abstracted yet */
+    // Everything drawn within this context gets a shadow after this, the logo in this case
+    CGContextSetShadow(currentContext, CGSizeMake(4, 8), 3); //func takes 3 arguments: context, CGSize, and offset
+    
+    /*  Compositing UIImage to the view */
+    // Draw image on fixed rectangle
+    [logoImage drawInRect:imageRect];
+    
+    /*  Restoring currentContext (everything drawn after this does not get shadow) */
+    CGContextRestoreGState(currentContext);
+//////// FINISH DRAW A LOGO IMAGE W / SHADOW //////////
     
 }
 
