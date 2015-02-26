@@ -83,7 +83,7 @@
 
 
     
-//////// START DRAW A GRADIENT //////////
+//////// GOLD - START DRAW A GRADIENT //////////
 /*  Define a Gradient  - Gradients, like shadows, require CoreGraphics API directly */
     // Gradients allow you to do shading that moves smoothly through a list of colors.
     // Build parameters for gradient function
@@ -117,7 +117,7 @@
     // Draw the line
     [path stroke];
     // Making the path a "clipping" for the gradient via 'addClip' method
-    [path addClip];  ****/
+    [path addClip];  ***/
     
 /*  Define Triangle Path */
     // Coordinates / Path for triangle
@@ -148,7 +148,7 @@
 //////// FINISH DRAW A GRADIENT //////////
     
     
-//////// START DRAW A LOGO IMAGE W / SHADOW //////////
+//////// BRONZE - START DRAW A LOGO IMAGE W / SHADOW //////////
     /*  Define Image */
     // instance of UIImage
     UIImage *logoImage = [UIImage imageNamed:@"logo.png"]; // define image
