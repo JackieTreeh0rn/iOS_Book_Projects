@@ -21,7 +21,9 @@
     // Override point for customization after application launch.
     
     // initiating main view controller
-    ZGCViewController *quizVC = [[ZGCViewController alloc] init]; // initiating viewcontroller
+    ZGCViewController *quizVC = [[ZGCViewController alloc] init];
+    
+    // assigning viewcontroller as root viewcontroller for the root window view
     self.window.rootViewController = quizVC;
     
     self.window.backgroundColor = [UIColor whiteColor];

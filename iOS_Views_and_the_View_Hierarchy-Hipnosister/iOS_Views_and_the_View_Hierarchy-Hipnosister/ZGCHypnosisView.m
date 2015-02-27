@@ -8,17 +8,52 @@
 
 #import "ZGCHypnosisView.h"
 
+@interface ZGCHypnosisView ()
+
+@property (nonatomic, strong) UIColor *circleColor; //new property as class extension
+
+@end
+
 @implementation ZGCHypnosisView
 
+#pragma - init method
 /* Overwritting designated initializer for a UIView to add a background color 'clear' for all instances of this view */
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         // All ZGCHypnosisView vies start with a clear background
         self.backgroundColor = [UIColor clearColor];
+        // setting default setting for circlecolor proper via the init
+        self.circleColor = [UIColor lightGrayColor];
     }
     return self;
 }
 
+#pragma - touch method
+// Views overwrite this UIREsponder method, to hande a touch event upon themselves
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    // When a finger touches the screen
+    NSLog(@"%@ was touched", self);
+    // Get 3 random numbers between 0 and 1
+    float red = (arc4random() % 100) / 100.0;
+    float green = (arc4random() % 100) / 100.0;
+    float blue = (arc4random() % 100) / 100.0;
+    // build a Color with the random values
+    UIColor *randomColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+    // set the color for the circle color property
+    self.circleColor = randomColor;
+
+}
+
+#pragma - custom accessor circleColor property
+// subclasses of UIView within the iOS SDK send themselves
+// setNetDisplay whenever their content changes (ie. a UILabel view sends it to itself when its text is set/changed)
+// this custom accessor for the circleColor property does just that
+- (void)setCircleColor:(UIColor *)circleColor {
+    _circleColor = circleColor;
+    [self setNeedsDisplay]; //adds view to the list of dirty views needing a redisplay.
+}
+
+#pragma - main draw method
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 
@@ -68,7 +103,8 @@
     // Set line thickness
     path.lineWidth = 10;
     // Set Color - UIColor method, defines color for future strokes
-    [[UIColor lightGrayColor] setStroke];
+    // [[UIColor lightGrayColor] setStroke];
+    [self.circleColor setStroke]; // using new circle property instead
     // Draw the Paths (multiple circles)
     [path stroke];
 //////// FINISH DRAW CONCENTRIC CIRCLES //////////

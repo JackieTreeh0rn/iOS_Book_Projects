@@ -19,14 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //* Creating Frame for ZGCHypnosis view
+    /* Creating Frame for ZGCHypnosis view
     __unused CGRect firstFrame = CGRectMake(160, 240, 100, 150); //not using now
-    //* Create instance of ZGCHypnosisview
+    // Create instance of ZGCHypnosisview
     ZGCHypnosisView *firstView = [[ZGCHypnosisView alloc] initWithFrame:self.window.bounds]; //using window bounds as frame (full size frame)
-    //* Set backgroundcolor for the view
+    // Set backgroundcolor for the view
     // firstView.backgroundColor = [UIColor redColor];
-    //* finally, add the view as a subview of the window to make it part of the hierarchy
-    [self.window addSubview:firstView];
+    // finally, add the view as a subview of the window to make it part of the hierarchy
+    [self.window addSubview:firstView]; */
     
     /* Creating a Frame for ZGCHypnosis view 2
     CGRect secondFrame = CGRectMake(20, 30, 50, 50);
@@ -37,6 +37,30 @@
     // add as subview to first view (to illustrate how view's frame is relateive to superview
     [firstView addSubview:secondView]; */
     
+    // Create CGRects for frames
+    CGRect screenRect = self.window.bounds;
+    CGRect bigRect = screenRect;
+    bigRect.size.width *= 2.0;
+    // bigRect.size.height *= 2.0; // making bigRect twice as wide, but same height (for the two side-by-side subviews)
+    
+    // Create a screen-sized scroll view
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    scrollView.pagingEnabled = YES; // you can turn this on/off to disable paging (you can't stop between views while scrolling)
+    // Add it to the window
+    [self.window addSubview:scrollView];
+    
+    // Create first hypnosis view
+    ZGCHypnosisView *hypnosisView1 = [[ZGCHypnosisView alloc] initWithFrame:screenRect];
+    // Add it to the scroll view
+    [scrollView addSubview:hypnosisView1];
+    
+    // Create second hypnosis view / add it to the scroll view just off to the right of first view
+    screenRect.origin.x += screenRect.size.width; // x origin + width
+    ZGCHypnosisView *hypnosisView2 = [[ZGCHypnosisView alloc] initWithFrame:screenRect];
+    [scrollView addSubview:hypnosisView2];
+    
+    // Tell the scroll view how big its content area is
+    scrollView.contentSize = bigRect.size; // size of the viewing port. typically set to the size of the UIScrollView subview size
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

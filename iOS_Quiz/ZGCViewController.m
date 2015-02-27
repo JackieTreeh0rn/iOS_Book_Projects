@@ -20,7 +20,7 @@
 @implementation ZGCViewController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    // Call the  init method implemented by the superclass
+    // Call the init method implemented by the superclass
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
