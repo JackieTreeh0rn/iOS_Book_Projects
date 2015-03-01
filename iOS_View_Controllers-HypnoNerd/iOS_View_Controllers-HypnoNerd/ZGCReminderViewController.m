@@ -1,54 +1,39 @@
 //
-//  ZGCHypnosisViewController.m
+//  ZGCReminderViewController.m
 //  iOS_View_Controllers-HypnoNerd
 //
 //  Created by EvilKernel on 2/28/15.
 //  Copyright (c) 2015 Zerogravity. All rights reserved.
 //
 
-#import "ZGCHypnosisViewController.h"
-#import "ZGCHypnosisView.h" //my view class
+#import "ZGCReminderViewController.h"
 
-@interface ZGCHypnosisViewController ()
+@interface ZGCReminderViewController ()
+// Class extension
+@property (nonatomic, weak) IBOutlet UIDatePicker *datePicker;
 
 @end
 
-@implementation ZGCHypnosisViewController
+@implementation ZGCReminderViewController
 
-/* Overriding UIViewContrllers designated initializer to get and set a tab bar item
- for this controller */
+/* Overriding UIViewControllers designated initializer to include
+ tab bar item */
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
     if (self) {
-    
-    // Set the tab bar item's title
-    self.tabBarItem.title = @"@Hypnotize";
-    
-    // Create a UIImage from a file
-    // this will use Hypno@2x.png on retin display devices
-    UIImage *i = [UIImage imageNamed:@"Hypno.png"];
-    
-    // Put that image on the tab bar item
-    self.tabBarItem.image = i;
+        // Get the tab bar item
+        UITabBarItem *tbi = self.tabBarItem;
         
+        // Give it a label
+        tbi.title = @"Reminder";
+        
+        // Give it an image
+        UIImage *i = [UIImage imageNamed:@"Time.png"];
+        tbi.image = i;
     }
-    
     return self;
-
 }
 
-
-/* Creating view hierarchy programmatically, not using XIB/NIB */
-    // not using NIB so no initWithNIB is called
-- (void)loadView {
-    // Create View
-    ZGCHypnosisView *backgroundView = [[ZGCHypnosisView alloc] init];
-    // Set it as *the* root view of this view controller
-    self.view = backgroundView;
-
-    
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -58,6 +43,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma - Target Action
+- (IBAction)addReminder:(id)sender {
+    NSDate *date = self.datePicker.date;
+    NSLog(@"Setting a reminder for %@", date);
 }
 
 /*

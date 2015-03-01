@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ZGCHypnosisViewController.h"
+#import "ZGCReminderViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,10 +20,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // Create instance of viewcontroller
-    ZGCHypnosisViewController *rootController = [[ZGCHypnosisViewController alloc] init];
-    // make subview of window (resizes view to the same size of the window)
-    self.window.rootViewController = rootController;
+    // Create instance of ZGCHypnosisviewcontroller
+    ZGCHypnosisViewController *hvc = [[ZGCHypnosisViewController alloc] init];
+    
+    // Create instance of ZGCReminderViewController
+    ZGCReminderViewController *rvc = [[ZGCReminderViewController alloc] init];
+    
+    // UITabControllers keep array of view controllers and also maintain
+    // a tab bar at the botom of the screen with a tab for each view controller
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[hvc, rvc];
+    
+    self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

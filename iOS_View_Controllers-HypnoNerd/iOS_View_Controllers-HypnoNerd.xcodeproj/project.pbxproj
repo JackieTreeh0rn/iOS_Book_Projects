@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2C009B51AA2CD7D00D4BB74 /* ZGCReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C009B31AA2CD7D00D4BB74 /* ZGCReminderViewController.m */; };
+		E2C009B61AA2CD7D00D4BB74 /* ZGCReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C009B41AA2CD7D00D4BB74 /* ZGCReminderViewController.xib */; };
 		E2ECC9961AA1533700CF9DE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECC9951AA1533700CF9DE1 /* main.m */; };
 		E2ECC9991AA1533700CF9DE1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECC9981AA1533700CF9DE1 /* AppDelegate.m */; };
 		E2ECC99B1AA1533700CF9DE1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2ECC99A1AA1533700CF9DE1 /* Images.xcassets */; };
@@ -31,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E2C009B21AA2CD7D00D4BB74 /* ZGCReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCReminderViewController.h; sourceTree = "<group>"; };
+		E2C009B31AA2CD7D00D4BB74 /* ZGCReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCReminderViewController.m; sourceTree = "<group>"; };
+		E2C009B41AA2CD7D00D4BB74 /* ZGCReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZGCReminderViewController.xib; sourceTree = "<group>"; };
 		E2ECC9901AA1533700CF9DE1 /* iOS_View_Controllers-HypnoNerd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS_View_Controllers-HypnoNerd.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2ECC9941AA1533700CF9DE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2ECC9951AA1533700CF9DE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,6 +97,9 @@
 				E2ECC9B71AA18BB800CF9DE1 /* ZGCHypnosisViewController.h */,
 				E2ECC9B81AA18BB800CF9DE1 /* ZGCHypnosisViewController.m */,
 				E2ECC9B91AA18BB800CF9DE1 /* ZGCHypnosisViewController.xib */,
+				E2C009B21AA2CD7D00D4BB74 /* ZGCReminderViewController.h */,
+				E2C009B31AA2CD7D00D4BB74 /* ZGCReminderViewController.m */,
+				E2C009B41AA2CD7D00D4BB74 /* ZGCReminderViewController.xib */,
 				E2ECC9B31AA153E900CF9DE1 /* ZGCHypnosisView.h */,
 				E2ECC9B41AA153E900CF9DE1 /* ZGCHypnosisView.m */,
 				E2ECC99A1AA1533700CF9DE1 /* Images.xcassets */,
@@ -210,6 +218,7 @@
 				E2ECC9BC1AA18BB800CF9DE1 /* ZGCHypnosisViewController.xib in Resources */,
 				E2ECC99E1AA1533700CF9DE1 /* LaunchScreen.xib in Resources */,
 				E2ECC99B1AA1533700CF9DE1 /* Images.xcassets in Resources */,
+				E2C009B61AA2CD7D00D4BB74 /* ZGCReminderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +239,7 @@
 			files = (
 				E2ECC9991AA1533700CF9DE1 /* AppDelegate.m in Sources */,
 				E2ECC9B51AA153E900CF9DE1 /* ZGCHypnosisView.m in Sources */,
+				E2C009B51AA2CD7D00D4BB74 /* ZGCReminderViewController.m in Sources */,
 				E2ECC9BA1AA18BB800CF9DE1 /* ZGCHypnosisViewController.m in Sources */,
 				E2ECC9961AA1533700CF9DE1 /* main.m in Sources */,
 			);
@@ -416,6 +426,7 @@
 				E2ECC9AF1AA1533700CF9DE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2ECC9B01AA1533700CF9DE1 /* Build configuration list for PBXNativeTarget "iOS_View_Controllers-HypnoNerdTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +435,7 @@
 				E2ECC9B21AA1533700CF9DE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

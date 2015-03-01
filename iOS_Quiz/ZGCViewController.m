@@ -35,7 +35,6 @@
         
     }
     // Return the address of the new object
-    
     return self;
 }
 
