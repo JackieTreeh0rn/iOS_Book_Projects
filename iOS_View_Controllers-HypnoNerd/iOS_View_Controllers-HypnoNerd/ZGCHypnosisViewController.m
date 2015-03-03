@@ -53,7 +53,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // adding this to illustrate lazy loading, that is
+    // views load when they are needed - never call a class view in its init method to
+    // not break this.
+    NSLog(@"%@ loaded its view", NSStringFromClass(self.class)); // could've just used literal name
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

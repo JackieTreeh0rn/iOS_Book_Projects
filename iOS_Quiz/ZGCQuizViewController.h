@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZGCViewController : UIViewController
+@interface ZGCQuizViewController : UIViewController
 
 @end

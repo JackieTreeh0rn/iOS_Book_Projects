@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ZGCHypnosisViewController.h"
 #import "ZGCReminderViewController.h"
+#import "ZGCQuizViewController.h"
 
 @interface AppDelegate ()
 
@@ -26,10 +27,14 @@
     // Create instance of ZGCReminderViewController
     ZGCReminderViewController *rvc = [[ZGCReminderViewController alloc] init];
     
+    // Create an instance of ZGCQuizViewController
+    ZGCQuizViewController *qvc = [[ZGCQuizViewController alloc] init];
+    
+    
     // UITabControllers keep array of view controllers and also maintain
     // a tab bar at the botom of the screen with a tab for each view controller
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[hvc, rvc];
+    tabBarController.viewControllers = @[hvc, rvc, qvc];
     
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];

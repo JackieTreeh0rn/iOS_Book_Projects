@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Zerogravity. All rights reserved.
 //
 
-#import "ZGCViewController.h"
+#import "ZGCQuizViewController.h"
 
-@interface ZGCViewController ()
+@interface ZGCQuizViewController ()
 @property (nonatomic, weak) IBOutlet UILabel *questionLabel;
 @property (nonatomic, weak) IBOutlet UILabel *answerLabel;
 @property (nonatomic, copy) NSArray *questions;
@@ -17,7 +17,7 @@
 @end
 
 
-@implementation ZGCViewController
+@implementation ZGCQuizViewController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     // Call the init method implemented by the superclass

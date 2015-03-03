@@ -16,7 +16,6 @@
 
 @implementation ZGCHypnosisView
 
-
 #pragma - init method
 /* Overwritting designated initializer for a UIView to add a background color 'clear' for all instances of this view */
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -46,6 +45,7 @@
     
 
 }
+
 
 #pragma - custom accessor circleColor property
 // subclasses of UIView within the iOS SDK send themselves

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ZGCViewController.h"
+#import "ZGCQuizViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +21,7 @@
     // Override point for customization after application launch.
     
     // initiating main view controller
-    ZGCViewController *quizVC = [[ZGCViewController alloc] init];
+    ZGCQuizViewController *quizVC = [[ZGCQuizViewController alloc] init];
     
     // assigning viewcontroller as root viewcontroller for the root window view
     self.window.rootViewController = quizVC;

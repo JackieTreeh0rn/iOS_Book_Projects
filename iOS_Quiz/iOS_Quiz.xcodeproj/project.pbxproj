@@ -12,8 +12,8 @@
 		E22B32171A95B81300F114E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E22B32161A95B81300F114E0 /* Images.xcassets */; };
 		E22B321A1A95B81300F114E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22B32181A95B81300F114E0 /* LaunchScreen.xib */; };
 		E22B32261A95B81300F114E0 /* iOS_QuizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E22B32251A95B81300F114E0 /* iOS_QuizTests.m */; };
-		E22B32321A95B83300F114E0 /* ZGCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22B32301A95B83300F114E0 /* ZGCViewController.m */; };
-		E22B32331A95B83300F114E0 /* ZGCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22B32311A95B83300F114E0 /* ZGCViewController.xib */; };
+		E22B32321A95B83300F114E0 /* ZGCQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22B32301A95B83300F114E0 /* ZGCQuizViewController.m */; };
+		E22B32331A95B83300F114E0 /* ZGCQuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22B32311A95B83300F114E0 /* ZGCQuizViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +37,9 @@
 		E22B321F1A95B81300F114E0 /* iOS_QuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_QuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22B32241A95B81300F114E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E22B32251A95B81300F114E0 /* iOS_QuizTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_QuizTests.m; sourceTree = "<group>"; };
-		E22B322F1A95B83300F114E0 /* ZGCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCViewController.h; sourceTree = "<group>"; };
-		E22B32301A95B83300F114E0 /* ZGCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCViewController.m; sourceTree = "<group>"; };
-		E22B32311A95B83300F114E0 /* ZGCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZGCViewController.xib; sourceTree = "<group>"; };
+		E22B322F1A95B83300F114E0 /* ZGCQuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCQuizViewController.h; sourceTree = "<group>"; };
+		E22B32301A95B83300F114E0 /* ZGCQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCQuizViewController.m; sourceTree = "<group>"; };
+		E22B32311A95B83300F114E0 /* ZGCQuizViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZGCQuizViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +63,9 @@
 		E22B32031A95B81300F114E0 = {
 			isa = PBXGroup;
 			children = (
-				E22B322F1A95B83300F114E0 /* ZGCViewController.h */,
-				E22B32301A95B83300F114E0 /* ZGCViewController.m */,
-				E22B32311A95B83300F114E0 /* ZGCViewController.xib */,
+				E22B322F1A95B83300F114E0 /* ZGCQuizViewController.h */,
+				E22B32301A95B83300F114E0 /* ZGCQuizViewController.m */,
+				E22B32311A95B83300F114E0 /* ZGCQuizViewController.xib */,
 				E22B320E1A95B81300F114E0 /* iOS_Quiz */,
 				E22B32221A95B81300F114E0 /* iOS_QuizTests */,
 				E22B320D1A95B81300F114E0 /* Products */,
@@ -201,7 +201,7 @@
 			files = (
 				E22B321A1A95B81300F114E0 /* LaunchScreen.xib in Resources */,
 				E22B32171A95B81300F114E0 /* Images.xcassets in Resources */,
-				E22B32331A95B83300F114E0 /* ZGCViewController.xib in Resources */,
+				E22B32331A95B83300F114E0 /* ZGCQuizViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +221,7 @@
 			files = (
 				E22B32151A95B81300F114E0 /* AppDelegate.m in Sources */,
 				E22B32121A95B81300F114E0 /* main.m in Sources */,
-				E22B32321A95B83300F114E0 /* ZGCViewController.m in Sources */,
+				E22B32321A95B83300F114E0 /* ZGCQuizViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

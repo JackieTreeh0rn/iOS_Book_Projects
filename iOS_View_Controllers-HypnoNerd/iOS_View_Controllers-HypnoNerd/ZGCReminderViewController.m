@@ -37,7 +37,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view from its nib
+    // viewDidLoad gets run once when the viewcontroller is loaded
+    // ...Adding this to illustrate lazy loading, that is
+    // views load when they are needed - never call a class view in its init method to
+    // not break this.
+    NSLog(@"%@ loaded its view", NSStringFromClass(self.class)); // could've just used literal name
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    /* overriding viewWillAppear allows you to do additional initializations
+     on subviews before they appaer to the user (init methods dont work for this
+     as the views are not fully loaded yet) viewWillAppear gets executed everytime the
+     view controller appears onscreen */
+    // in this case, we want this customozation to ocur everytime this
+    // viewController is loaded, for its view
+    self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:60]; // no dates in the past allowed
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,6 +67,20 @@
 - (IBAction)addReminder:(id)sender {
     NSDate *date = self.datePicker.date;
     NSLog(@"Setting a reminder for %@", date);
+    // Adding a local notification
+    UILocalNotification *note = [[UILocalNotification alloc] init];
+    // Configuring local notification
+    note.alertBody = @"Hypnotize me!";
+    note.alertLaunchImage = @"Hypno.png"; // added an image for the pop-up
+    note.fireDate = date; // set for date
+    /* Scheduling with the shared application - the single instance of UIApplication */
+    // First have to register so user approves first
+    // Define a notification settings instance to pass as argument
+    UIUserNotificationSettings *noteSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert categories:[NSSet set]];
+    // register with notification settings the types of alerts your app needs
+    [[UIApplication sharedApplication] registerUserNotificationSettings:noteSettings];
+    // schedule the notification now that we have access
+    [[UIApplication sharedApplication] scheduleLocalNotification:note];
 }
 
 /*
