@@ -46,6 +46,25 @@
 
 }
 
+#pragma - target action method
+- (void)selectedCircleColor:(id)sender {
+    char colorIndex = [sender selectedSegmentIndex];
+    switch (colorIndex) {
+        case 0:
+            self.circleColor = [UIColor redColor];
+            break;
+        case 1:
+            self.circleColor = [UIColor greenColor];
+            break;
+        case 2:
+            self.circleColor = [UIColor blueColor];
+            break;
+            
+        default:
+           break;
+    }
+}
+
 
 #pragma - custom accessor circleColor property
 // subclasses of UIView within the iOS SDK send themselves
@@ -60,13 +79,13 @@
 #pragma - main draw method
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-
 /* Overriding UIView's "drawRect:" to render a custom view (to draw a circle, triangles, etc) */
-
 - (void)drawRect:(CGRect)rect {
     
 /*  Build a CGRect to the bounds of the instanciated view */
     CGRect bounds = self.bounds;
+    
+
     
 
 //////// START DRAW CONCENTRIC CIRCLES //////////

@@ -11,4 +11,10 @@
 @interface ZGCHypnosisView : UIView
 
 
+// target-action for segment controler
+- (void)selectedCircleColor:(id)sender;
+
+
 @end
+
+

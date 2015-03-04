@@ -30,7 +30,7 @@
     // Create an instance of ZGCQuizViewController
     ZGCQuizViewController *qvc = [[ZGCQuizViewController alloc] init];
     
-    
+    // BRONZE Challenge //
     // UITabControllers keep array of view controllers and also maintain
     // a tab bar at the botom of the screen with a tab for each view controller
     UITabBarController *tabBarController = [[UITabBarController alloc] init];

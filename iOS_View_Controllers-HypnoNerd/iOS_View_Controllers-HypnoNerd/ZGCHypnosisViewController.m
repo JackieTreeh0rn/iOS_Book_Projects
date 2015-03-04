@@ -13,6 +13,7 @@
 
 @end
 
+
 @implementation ZGCHypnosisViewController
 
 /* Overriding UIViewContrllers designated initializer to get and set a tab bar item
@@ -23,7 +24,7 @@
     if (self) {
     
     // Set the tab bar item's title
-    self.tabBarItem.title = @"@Hypnotize";
+    self.tabBarItem.title = @"Hypnotize";
     
     // Create a UIImage from a file
     // this will use Hypno@2x.png on retin display devices
@@ -47,17 +48,38 @@
     // Set it as *the* root view of this view controller
     self.view = backgroundView;
 
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    // adding this to illustrate lazy loading, that is
-    // views load when they are needed - never call a class view in its init method to
-    // not break this.
+    // Adding this to illustrate lazy loading, that is
+    // views load when they are needed - never call a class view in its
+    // init method to not break this.
     NSLog(@"%@ loaded its view", NSStringFromClass(self.class)); // could've just used literal name
+    
+    /* SILVER Challenge - adding a UISegmentedControl for red, green, blue
+     when the user taps a segmented control, circle color changes */
+    // Using viewDidLoad as per reference doc. you configure view elements here if overridinf loadView for manual view
+    // Adding new control
+    UISegmentedControl *colorControl = [[UISegmentedControl alloc] initWithItems:@[@"red", @"green", @"blue"]];
+    // Defining frame for control
+    colorControl.frame = CGRectMake((self.view.bounds.origin.x + 85), self.view.bounds.origin.y + 550, 200, 30);
+    // configuring control
+    colorControl.tintColor = [UIColor blackColor];
+    
+    // define target actions
+    [colorControl addTarget:self.view
+                     action:@selector(selectedCircleColor:)
+           forControlEvents:UIControlEventValueChanged];
+
+    
+    [self.view addSubview:colorControl];
+
+    // Key-value test //
+    //[self.view setValue:[UIColor redColor] forKey:@"circleColor"];
+    
+
 }
 
 
