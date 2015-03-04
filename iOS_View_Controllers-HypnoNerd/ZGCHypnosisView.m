@@ -46,8 +46,8 @@
 
 }
 
-#pragma - target action method
-- (void)selectedCircleColor:(id)sender {
+#pragma - target action method for selector control
+- (void)selectCircleColor:(id)sender {
     char colorIndex = [sender selectedSegmentIndex];
     switch (colorIndex) {
         case 0:

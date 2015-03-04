@@ -70,7 +70,7 @@
     
     // define target actions
     [colorControl addTarget:self.view
-                     action:@selector(selectedCircleColor:)
+                     action:@selector(selectCircleColor:)
            forControlEvents:UIControlEventValueChanged];
 
     

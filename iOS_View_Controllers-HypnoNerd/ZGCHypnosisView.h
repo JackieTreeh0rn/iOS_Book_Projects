@@ -12,7 +12,7 @@
 
 
 // target-action for segment controler
-- (void)selectedCircleColor:(id)sender;
+- (void)selectCircleColor:(id)sender;
 
 
 @end
