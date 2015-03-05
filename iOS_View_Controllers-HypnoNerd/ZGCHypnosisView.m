@@ -86,8 +86,6 @@
     CGRect bounds = self.bounds;
     
 
-    
-
 //////// START DRAW CONCENTRIC CIRCLES //////////
 /*  Find the center point of the bounds rectangle */
     CGPoint center;

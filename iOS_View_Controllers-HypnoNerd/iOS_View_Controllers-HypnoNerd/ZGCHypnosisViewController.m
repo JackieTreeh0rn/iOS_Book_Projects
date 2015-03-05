@@ -9,7 +9,7 @@
 #import "ZGCHypnosisViewController.h"
 #import "ZGCHypnosisView.h" //my view class
 
-@interface ZGCHypnosisViewController ()
+@interface ZGCHypnosisViewController () <UITextFieldDelegate> // conforms to TextField protocol
 
 @end
 
@@ -73,15 +73,34 @@
                      action:@selector(selectCircleColor:)
            forControlEvents:UIControlEventValueChanged];
 
-    
     [self.view addSubview:colorControl];
 
+   
+    //- Text Fields -//
+    // adding a text field
+    CGRect frame = CGRectMake(40, 70, 240, 30);
+    UITextField *textField = [[UITextField alloc] initWithFrame:frame];
+    // Setting the border style on the text field to see it more clearly
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.placeholder = @"Hypnotize me";
+    // UITextInputTrait class - here we set return keyboard key. "DONE" in this case.
+    textField.returnKeyType = UIReturnKeyDone;
+    // Defining delegate (for call backs)
+    textField.delegate = self; // delegate is the controller
+    
+    [self.view addSubview:textField];
+    
     // Key-value test //
     //[self.view setValue:[UIColor redColor] forKey:@"circleColor"];
     
 
 }
 
+#pragma  - textfield delegate method
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSLog(@"%@", textField.text);
+    return YES;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
