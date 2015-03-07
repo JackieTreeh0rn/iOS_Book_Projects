@@ -10,6 +10,5 @@
 
 @interface ZGCHipnosisterView : UIView
 
-@property (nonatomic, strong) UIColor *circleColor; //new property as class extension
 
 @end

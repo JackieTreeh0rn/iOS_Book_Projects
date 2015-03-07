@@ -8,6 +8,12 @@
 
 #import "ZGCHipnosisterView.h"
 
+@interface ZGCHipnosisterView ()
+
+@property (nonatomic, strong) UIColor *circleColor; //new property as class extension
+
+@end
+
 @implementation ZGCHipnosisterView
 
 #pragma - init method

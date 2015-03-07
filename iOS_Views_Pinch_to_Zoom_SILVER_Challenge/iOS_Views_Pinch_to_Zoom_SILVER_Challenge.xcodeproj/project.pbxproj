@@ -36,8 +36,8 @@
 		E28A30E61AAADCD2006FB3C8 /* iOS_Views_Pinch_to_Zoom_SILVER_ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_Views_Pinch_to_Zoom_SILVER_ChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E28A30EB1AAADCD2006FB3C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E28A30EC1AAADCD2006FB3C8 /* iOS_Views_Pinch_to_Zoom_SILVER_ChallengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_Views_Pinch_to_Zoom_SILVER_ChallengeTests.m; sourceTree = "<group>"; };
-		E28A30F61AAADD08006FB3C8 /* ZGCHipnosisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCHipnosisterView.h; sourceTree = "<group>"; };
-		E28A30F71AAADD08006FB3C8 /* ZGCHipnosisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCHipnosisterView.m; sourceTree = "<group>"; };
+		E28A30F61AAADD08006FB3C8 /* ZGCHipnosisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZGCHipnosisterView.h; path = ../ZGCHipnosisterView.h; sourceTree = "<group>"; };
+		E28A30F71AAADD08006FB3C8 /* ZGCHipnosisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZGCHipnosisterView.m; path = ../ZGCHipnosisterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,6 @@
 		E28A30CA1AAADCD2006FB3C8 = {
 			isa = PBXGroup;
 			children = (
-				E28A30F61AAADD08006FB3C8 /* ZGCHipnosisterView.h */,
-				E28A30F71AAADD08006FB3C8 /* ZGCHipnosisterView.m */,
 				E28A30D51AAADCD2006FB3C8 /* iOS_Views_Pinch_to_Zoom_SILVER_Challenge */,
 				E28A30E91AAADCD2006FB3C8 /* iOS_Views_Pinch_to_Zoom_SILVER_ChallengeTests */,
 				E28A30D41AAADCD2006FB3C8 /* Products */,
@@ -81,6 +79,8 @@
 		E28A30D51AAADCD2006FB3C8 /* iOS_Views_Pinch_to_Zoom_SILVER_Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				E28A30F71AAADD08006FB3C8 /* ZGCHipnosisterView.m */,
+				E28A30F61AAADD08006FB3C8 /* ZGCHipnosisterView.h */,
 				E28A30DA1AAADCD2006FB3C8 /* AppDelegate.h */,
 				E28A30DB1AAADCD2006FB3C8 /* AppDelegate.m */,
 				E28A30DD1AAADCD2006FB3C8 /* Images.xcassets */,

@@ -9,9 +9,9 @@
 #import "AppDelegate.h"
 #import "ZGCHipnosisterView.h"
 
-@interface AppDelegate () <UIScrollViewDelegate> // conforms to UIScrollViewDelegate to make this a delegate
+@interface AppDelegate () <UIScrollViewDelegate> // conforms to UIScrollViewDelegate protocol
 
-@property (nonatomic) ZGCHipnosisterView *theView; // adding this property so tha AppDelegate can function as a delegate
+@property (nonatomic) ZGCHipnosisterView *hypnoView; // a property for this pinch and zoom functionality
 
 @end
 
@@ -20,60 +20,49 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    /* Creating Frame for ZGCHypnosis view
-     __unused CGRect firstFrame = CGRectMake(160, 240, 100, 150); //not using now
-     // Create instance of ZGCHypnosisview
-     ZGCHypnosisView *firstView = [[ZGCHypnosisView alloc] initWithFrame:self.window.bounds]; //using window bounds as frame (full size frame)
-     // Set backgroundcolor for the view
-     // firstView.backgroundColor = [UIColor redColor];
-     // finally, add the view as a subview of the window to make it part of the hierarchy
-     [self.window addSubview:firstView]; */
-    
-    /* Creating a Frame for ZGCHypnosis view 2
-     CGRect secondFrame = CGRectMake(20, 30, 50, 50);
-     // Create a second instance of the view
-     ZGCHypnosisView *secondView = [[ZGCHypnosisView alloc] initWithFrame:secondFrame];
-     // set background color
-     secondView.backgroundColor = [UIColor blueColor];
-     // add as subview to first view (to illustrate how view's frame is relateive to superview
-     [firstView addSubview:secondView]; */
     
     // Create CGRects for frames
     CGRect screenRect = self.window.bounds;
     CGRect bigRect = screenRect;
     bigRect.size.width *= 2.0;
-    // bigRect.size.height *= 2.0; // making bigRect twice as wide, but same height (for the two side-by-side subviews)
+    bigRect.size.height *= 2.0;
     
     // Create a screen-sized scroll view
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
-    scrollView.pagingEnabled = YES; // you can turn this on/off to disable paging (you can't stop between views while scrolling)
+    //scrollView.pagingEnabled = NO; // you can turn this on/off to disable paging (you can't stop between views while scrolling)
+    
+    // Define ZOOM limits
+    //scrollView.zoomScale = 8.0;
+    scrollView.bouncesZoom = YES;
     
     // Setting delegate for scrollview object in order to implement Pinch-to-Zoom
     scrollView.delegate = self;
+    
+    // Tell the scroll view how big its content area is
+   // scrollView.contentSize = bigRect.size; // size of the viewing port. typically set to the size of the UIScrollView subview size
     
     // Add it to the window
     [self.window addSubview:scrollView];
     
     
-    
-    // Create first hypnosis view
-    ZGCHipnosisterView *hypnosisView1 = [[ZGCHipnosisterView alloc] initWithFrame:screenRect];
+    // Create a hypnosis view
+    self.hypnoView = [[ZGCHipnosisterView alloc] initWithFrame:screenRect];
     // Add it to the scroll view
-    [scrollView addSubview:hypnosisView1];
-    
-    // Create second hypnosis view / add it to the scroll view just off to the right of first view
-    screenRect.origin.x += screenRect.size.width; // x origin + width
-    ZGCHipnosisterView *hypnosisView2 = [[ZGCHipnosisterView alloc] initWithFrame:screenRect];
-    [scrollView addSubview:hypnosisView2];
-    
-    // Tell the scroll view how big its content area is
-    scrollView.contentSize = bigRect.size; // size of the viewing port. typically set to the size of the UIScrollView subview size
+    [scrollView addSubview:self.hypnoView];
+
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 
 }
+
+#pragma - scrollview delegate method
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.hypnoView;
+    
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
