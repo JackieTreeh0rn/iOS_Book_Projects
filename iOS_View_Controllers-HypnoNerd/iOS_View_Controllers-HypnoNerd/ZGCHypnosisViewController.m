@@ -11,6 +11,7 @@
 
 @interface ZGCHypnosisViewController () <UITextFieldDelegate> // conforms to TextField protocol
 
+
 @end
 
 
@@ -74,7 +75,6 @@
            forControlEvents:UIControlEventValueChanged];
 
     [self.view addSubview:colorControl];
-
    
     //- Text Fields -//
     // adding a text field
@@ -83,10 +83,11 @@
     // Setting the border style on the text field to see it more clearly
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.placeholder = @"Hypnotize me";
-    // UITextInputTrait class - here we set return keyboard key. "DONE" in this case.
+    // UITextInputTrait class, properties that define kbd - here we set return keyboard key. "DONE" in this case.
     textField.returnKeyType = UIReturnKeyDone;
+    
     // Defining delegate (for call backs)
-    textField.delegate = self; // delegate is the controller
+    textField.delegate = self; // delegate is the controller itself in this case
     
     [self.view addSubview:textField];
     
@@ -96,15 +97,75 @@
 
 }
 
-#pragma  - textfield delegate method
+#pragma  - textfield delegate protocol method
+//we are implementing it to take the action we want when RETURN (DONE in this case) is pressed
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    NSLog(@"%@", textField.text);
+    // NSLog(@"%@", textField.text);
+    
+    // Calling the random label method via this protocol method so it gets called on return
+    // for the text field
+    [self drawHypnoticMessage:textField.text];
+    textField.text = @"";     // blank out the text field afterwards
+    [textField resignFirstResponder];
+    
     return YES;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma - labels at random positions
+- (void)drawHypnoticMessage:(NSString *)message {
+    for (int i = 0; i < 20; i++) {
+        
+        UILabel *messageLabel = [[UILabel alloc] init];
+        
+        // Configure the label's color and text
+        messageLabel.backgroundColor = [UIColor clearColor];
+        messageLabel.textColor = [UIColor blackColor];
+        messageLabel.minimumScaleFactor = 5; // text size
+        messageLabel.text = message;
+        
+        // This method resizes the label, which will be relative
+        // to the text that it is displaying
+        [messageLabel sizeToFit];
+        
+        // Get a random x value that fits within the hypnosis view's width
+        int width = (int)(self.view.bounds.size.width - messageLabel.bounds.size.width);
+        int x = arc4random() % width;
+        
+        // Get a randome y value that fits within the hypnosis view height
+        int height = (int)(self.view.bounds.size.height - messageLabel.bounds.size.height);
+        int y = arc4random() % height;
+        
+        // Update the label's frame
+        CGRect frame = messageLabel.frame;
+        frame.origin = CGPointMake(x, y);
+        messageLabel.frame = frame;
+
+        // Finally, add the label to the hiearchy
+        [self.view addSubview:messageLabel];
+        // sending to back so it doesnr overlap over textfield
+        [self.view sendSubviewToBack:messageLabel];
+        
+        // adding a "paralax" for mption effect on this UIlabel view objects
+        UIInterpolatingMotionEffect *motionEffect; // class for tilting a view
+        motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+        motionEffect.minimumRelativeValue = @(-25);
+        motionEffect.maximumRelativeValue = @(25);
+        [messageLabel addMotionEffect:motionEffect];
+        
+        motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+        motionEffect.minimumRelativeValue = @(-25);
+        motionEffect.maximumRelativeValue = @(25);
+        [messageLabel addMotionEffect:motionEffect];
+        // The Parallax can only be tested on an actual device.  test on iPhone //
+                                               
+        
+    }
 }
 
 /*
