@@ -59,7 +59,7 @@
 
 }
 
-#pragma - scrollview delegate method
+#pragma - scrollview delegate method #1
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return scrollView.subviews[0];
     
