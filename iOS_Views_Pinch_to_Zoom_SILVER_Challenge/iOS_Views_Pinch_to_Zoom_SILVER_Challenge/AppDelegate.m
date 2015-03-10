@@ -35,7 +35,6 @@
     scrollView.maximumZoomScale = 5.0; // max zoom scale - required for zooming
     scrollView.minimumZoomScale = 1.0; // min zoom scale - required for zooming
     scrollView.multipleTouchEnabled = YES; // enable multi fingers for this view
-
     // scrollView.bouncesZoom = YES;
     
     // Setting delegate for scrollview object in order to implement Pinch-to-Zoom
