@@ -31,15 +31,18 @@
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
     //scrollView.pagingEnabled = NO; // you can turn this on/off to disable paging (you can't stop between views while scrolling)
     
-    // Define ZOOM limits
-    //scrollView.zoomScale = 8.0;
-    scrollView.bouncesZoom = YES;
+    // Define ZOOM limits and multitouch
+    scrollView.maximumZoomScale = 5.0; // max zoom scale - required for zooming
+    scrollView.minimumZoomScale = 1.0; // min zoom scale - required for zooming
+    scrollView.multipleTouchEnabled = YES; // enable multi fingers for this view
+
+    // scrollView.bouncesZoom = YES;
     
     // Setting delegate for scrollview object in order to implement Pinch-to-Zoom
     scrollView.delegate = self;
     
     // Tell the scroll view how big its content area is
-   // scrollView.contentSize = bigRect.size; // size of the viewing port. typically set to the size of the UIScrollView subview size
+    //scrollView.contentSize = bigRect.size; // size of the viewing port. typically set to the size of the UIScrollView subview size
     
     // Add it to the window
     [self.window addSubview:scrollView];
@@ -47,9 +50,9 @@
     
     // Create a hypnosis view
     self.hypnoView = [[ZGCHipnosisterView alloc] initWithFrame:screenRect];
+
     // Add it to the scroll view
     [scrollView addSubview:self.hypnoView];
-
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -59,8 +62,19 @@
 
 #pragma - scrollview delegate method
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.hypnoView;
+    return scrollView.subviews[0];
     
+}
+
+#pragma - scrollview delegate method #2
+- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view {
+    [scrollView zoomToRect:view.frame animated:NO];
+    NSLog(@"Current Zoom Scale: %f", scrollView.zoomScale);
+}
+
+#pragma - scrollview delegate method #3
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
+    NSLog(@"Current Zoom Scale: %f", scale);
 }
 
 

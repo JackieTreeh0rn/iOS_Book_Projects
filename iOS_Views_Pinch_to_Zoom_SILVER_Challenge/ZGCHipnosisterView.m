@@ -32,7 +32,7 @@
 // Views overwrite this UIREsponder method, to hande a touch event upon themselves
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     // When a finger touches the screen
-    NSLog(@"%@ was touched", self);
+    // NSLog(@"%@ was touched", self);
     // Get 3 random numbers between 0 and 1
     float red = (arc4random() % 100) / 100.0;
     float green = (arc4random() % 100) / 100.0;
@@ -102,12 +102,15 @@
     /*  Draw the Lines per the path */
     // Set line thickness
     path.lineWidth = 10;
+    
     // Set Color - UIColor method, defines color for future strokes
     // [[UIColor lightGrayColor] setStroke];
     [self.circleColor setStroke]; // using new circle property instead
+    
     // Draw the Paths (multiple circles)
     [path stroke];
     //////// FINISH DRAW CONCENTRIC CIRCLES //////////
+    
     
     //-------- To be used by subsequent code -------
     /*  Get current image context - CoreGraphics API required here */
