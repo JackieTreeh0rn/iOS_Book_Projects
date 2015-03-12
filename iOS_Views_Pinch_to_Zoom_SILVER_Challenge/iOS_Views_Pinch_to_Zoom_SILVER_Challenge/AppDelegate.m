@@ -61,19 +61,18 @@
 
 #pragma - scrollview delegate method #1
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return scrollView.subviews[0];
-    
+    return scrollView.subviews[0]; // using subsscripting to get the view instead of @property variable
 }
 
 #pragma - scrollview delegate method #2
 - (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(UIView *)view {
-    [scrollView zoomToRect:view.frame animated:NO];
     NSLog(@"Current Zoom Scale: %f", scrollView.zoomScale);
+    [scrollView zoomToRect:view.bounds animated:NO];
 }
 
 #pragma - scrollview delegate method #3
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
-    NSLog(@"Current Zoom Scale: %f", scale);
+    NSLog(@"Current Zoom Scale: %f", scale); // using this method to log zoom level on finger lift
 }
 
 
