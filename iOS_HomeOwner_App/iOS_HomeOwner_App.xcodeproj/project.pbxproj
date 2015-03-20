@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E20641E91ABBF94A00D9FE7C /* ZGCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E20641E81ABBF94A00D9FE7C /* ZGCItem.m */; };
+		E2BABF2C1ABB608300695DB6 /* ZGCItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BABF2A1ABB608300695DB6 /* ZGCItemsTableViewController.m */; };
+		E2BABF2D1ABB608300695DB6 /* ZGCItemsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BABF2B1ABB608300695DB6 /* ZGCItemsTableViewController.xib */; };
 		E2FB542C1AB1436B003DE90B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB542B1AB1436B003DE90B /* main.m */; };
 		E2FB542F1AB1436B003DE90B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB542E1AB1436B003DE90B /* AppDelegate.m */; };
 		E2FB54311AB1436B003DE90B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2FB54301AB1436B003DE90B /* Images.xcassets */; };
@@ -25,6 +28,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E20641E71ABBF94A00D9FE7C /* ZGCItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItem.h; sourceTree = "<group>"; };
+		E20641E81ABBF94A00D9FE7C /* ZGCItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItem.m; sourceTree = "<group>"; };
+		E2BABF291ABB608300695DB6 /* ZGCItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItemsTableViewController.h; sourceTree = "<group>"; };
+		E2BABF2A1ABB608300695DB6 /* ZGCItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItemsTableViewController.m; sourceTree = "<group>"; };
+		E2BABF2B1ABB608300695DB6 /* ZGCItemsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZGCItemsTableViewController.xib; sourceTree = "<group>"; };
 		E2FB54261AB1436B003DE90B /* iOS_HomeOwner_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_HomeOwner_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FB542A1AB1436B003DE90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2FB542B1AB1436B003DE90B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,6 +66,8 @@
 		E2FB541D1AB1436B003DE90B = {
 			isa = PBXGroup;
 			children = (
+				E20641E71ABBF94A00D9FE7C /* ZGCItem.h */,
+				E20641E81ABBF94A00D9FE7C /* ZGCItem.m */,
 				E2FB54281AB1436B003DE90B /* iOS_HomeOwner_App */,
 				E2FB543C1AB1436B003DE90B /* iOS_HomeOwner_AppTests */,
 				E2FB54271AB1436B003DE90B /* Products */,
@@ -78,6 +88,9 @@
 			children = (
 				E2FB542D1AB1436B003DE90B /* AppDelegate.h */,
 				E2FB542E1AB1436B003DE90B /* AppDelegate.m */,
+				E2BABF291ABB608300695DB6 /* ZGCItemsTableViewController.h */,
+				E2BABF2A1ABB608300695DB6 /* ZGCItemsTableViewController.m */,
+				E2BABF2B1ABB608300695DB6 /* ZGCItemsTableViewController.xib */,
 				E2FB54301AB1436B003DE90B /* Images.xcassets */,
 				E2FB54321AB1436B003DE90B /* LaunchScreen.xib */,
 				E2FB54291AB1436B003DE90B /* Supporting Files */,
@@ -193,6 +206,7 @@
 			files = (
 				E2FB54341AB1436B003DE90B /* LaunchScreen.xib in Resources */,
 				E2FB54311AB1436B003DE90B /* Images.xcassets in Resources */,
+				E2BABF2D1ABB608300695DB6 /* ZGCItemsTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +224,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2BABF2C1ABB608300695DB6 /* ZGCItemsTableViewController.m in Sources */,
 				E2FB542F1AB1436B003DE90B /* AppDelegate.m in Sources */,
 				E2FB542C1AB1436B003DE90B /* main.m in Sources */,
+				E20641E91ABBF94A00D9FE7C /* ZGCItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +412,7 @@
 				E2FB54451AB1436B003DE90B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2FB54461AB1436B003DE90B /* Build configuration list for PBXNativeTarget "iOS_HomeOwner_AppTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +421,7 @@
 				E2FB54481AB1436B003DE90B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

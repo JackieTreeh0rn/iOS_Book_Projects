@@ -68,7 +68,7 @@
 
 #pragma - custom accessor circleColor property
 // subclasses of UIView within the iOS SDK send themselves
-// setNetDisplay whenever their content changes (ie. a UILabel view sends it to itself when its text is set/changed)
+// setNeedsDisplay whenever their content changes (ie. a UILabel view sends it to itself when its text is set/changed)
 // this custom accessor for the circleColor property does just that
 - (void)setCircleColor:(UIColor *)circleColor {
     _circleColor = circleColor;
