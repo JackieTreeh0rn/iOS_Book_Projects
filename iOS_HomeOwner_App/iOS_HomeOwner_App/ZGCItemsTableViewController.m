@@ -22,7 +22,7 @@
     return self;
 }
 
-/* Override superclass designated initliazer to call mine */
+/* Override superclass designated initializer to call mine (rule) */
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     return [self init]; // all instances will now use plainviewstyle
 }
