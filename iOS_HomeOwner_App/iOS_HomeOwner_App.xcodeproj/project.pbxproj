@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E20641E91ABBF94A00D9FE7C /* ZGCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E20641E81ABBF94A00D9FE7C /* ZGCItem.m */; };
+		E269CE7D1ABD14D300C60E8E /* ZGCItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E269CE7C1ABD14D300C60E8E /* ZGCItemStore.m */; };
 		E2BABF2C1ABB608300695DB6 /* ZGCItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BABF2A1ABB608300695DB6 /* ZGCItemsTableViewController.m */; };
-		E2BABF2D1ABB608300695DB6 /* ZGCItemsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2BABF2B1ABB608300695DB6 /* ZGCItemsTableViewController.xib */; };
 		E2FB542C1AB1436B003DE90B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB542B1AB1436B003DE90B /* main.m */; };
 		E2FB542F1AB1436B003DE90B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB542E1AB1436B003DE90B /* AppDelegate.m */; };
 		E2FB54311AB1436B003DE90B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2FB54301AB1436B003DE90B /* Images.xcassets */; };
@@ -30,14 +30,15 @@
 /* Begin PBXFileReference section */
 		E20641E71ABBF94A00D9FE7C /* ZGCItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItem.h; sourceTree = "<group>"; };
 		E20641E81ABBF94A00D9FE7C /* ZGCItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItem.m; sourceTree = "<group>"; };
-		E2BABF291ABB608300695DB6 /* ZGCItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItemsTableViewController.h; sourceTree = "<group>"; };
-		E2BABF2A1ABB608300695DB6 /* ZGCItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItemsTableViewController.m; sourceTree = "<group>"; };
-		E2BABF2B1ABB608300695DB6 /* ZGCItemsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZGCItemsTableViewController.xib; sourceTree = "<group>"; };
+		E269CE7B1ABD14D300C60E8E /* ZGCItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItemStore.h; sourceTree = "<group>"; };
+		E269CE7C1ABD14D300C60E8E /* ZGCItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItemStore.m; sourceTree = "<group>"; };
+		E2BABF291ABB608300695DB6 /* ZGCItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZGCItemsTableViewController.h; path = iOS_HomeOwner_App/ZGCItemsTableViewController.h; sourceTree = "<group>"; };
+		E2BABF2A1ABB608300695DB6 /* ZGCItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZGCItemsTableViewController.m; path = iOS_HomeOwner_App/ZGCItemsTableViewController.m; sourceTree = "<group>"; };
 		E2FB54261AB1436B003DE90B /* iOS_HomeOwner_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_HomeOwner_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FB542A1AB1436B003DE90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2FB542B1AB1436B003DE90B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E2FB542D1AB1436B003DE90B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E2FB542E1AB1436B003DE90B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E2FB542D1AB1436B003DE90B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = iOS_HomeOwner_App/AppDelegate.h; sourceTree = "<group>"; };
+		E2FB542E1AB1436B003DE90B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = iOS_HomeOwner_App/AppDelegate.m; sourceTree = "<group>"; };
 		E2FB54301AB1436B003DE90B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E2FB54331AB1436B003DE90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E2FB54391AB1436B003DE90B /* iOS_HomeOwner_AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_HomeOwner_AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,11 +64,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E2FB541D1AB1436B003DE90B = {
+		E269CE781ABD13D500C60E8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				E20641E71ABBF94A00D9FE7C /* ZGCItem.h */,
 				E20641E81ABBF94A00D9FE7C /* ZGCItem.m */,
+				E269CE7B1ABD14D300C60E8E /* ZGCItemStore.h */,
+				E269CE7C1ABD14D300C60E8E /* ZGCItemStore.m */,
+			);
+			name = Model;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E269CE791ABD13E000C60E8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E2FB54321AB1436B003DE90B /* LaunchScreen.xib */,
+			);
+			name = View;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E269CE7A1ABD13EA00C60E8E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E2FB542D1AB1436B003DE90B /* AppDelegate.h */,
+				E2FB542E1AB1436B003DE90B /* AppDelegate.m */,
+				E2BABF291ABB608300695DB6 /* ZGCItemsTableViewController.h */,
+				E2BABF2A1ABB608300695DB6 /* ZGCItemsTableViewController.m */,
+			);
+			name = Controller;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E2FB541D1AB1436B003DE90B = {
+			isa = PBXGroup;
+			children = (
 				E2FB54281AB1436B003DE90B /* iOS_HomeOwner_App */,
 				E2FB543C1AB1436B003DE90B /* iOS_HomeOwner_AppTests */,
 				E2FB54271AB1436B003DE90B /* Products */,
@@ -86,13 +118,10 @@
 		E2FB54281AB1436B003DE90B /* iOS_HomeOwner_App */ = {
 			isa = PBXGroup;
 			children = (
-				E2FB542D1AB1436B003DE90B /* AppDelegate.h */,
-				E2FB542E1AB1436B003DE90B /* AppDelegate.m */,
-				E2BABF291ABB608300695DB6 /* ZGCItemsTableViewController.h */,
-				E2BABF2A1ABB608300695DB6 /* ZGCItemsTableViewController.m */,
-				E2BABF2B1ABB608300695DB6 /* ZGCItemsTableViewController.xib */,
+				E269CE7A1ABD13EA00C60E8E /* Controller */,
+				E269CE791ABD13E000C60E8E /* View */,
+				E269CE781ABD13D500C60E8E /* Model */,
 				E2FB54301AB1436B003DE90B /* Images.xcassets */,
-				E2FB54321AB1436B003DE90B /* LaunchScreen.xib */,
 				E2FB54291AB1436B003DE90B /* Supporting Files */,
 			);
 			path = iOS_HomeOwner_App;
@@ -206,7 +235,6 @@
 			files = (
 				E2FB54341AB1436B003DE90B /* LaunchScreen.xib in Resources */,
 				E2FB54311AB1436B003DE90B /* Images.xcassets in Resources */,
-				E2BABF2D1ABB608300695DB6 /* ZGCItemsTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +255,7 @@
 				E2BABF2C1ABB608300695DB6 /* ZGCItemsTableViewController.m in Sources */,
 				E2FB542F1AB1436B003DE90B /* AppDelegate.m in Sources */,
 				E2FB542C1AB1436B003DE90B /* main.m in Sources */,
+				E269CE7D1ABD14D300C60E8E /* ZGCItemStore.m in Sources */,
 				E20641E91ABBF94A00D9FE7C /* ZGCItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +285,7 @@
 				E2FB54331AB1436B003DE90B /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = iOS_HomeOwner_App;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -342,6 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iOS_HomeOwner_App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -353,6 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iOS_HomeOwner_App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

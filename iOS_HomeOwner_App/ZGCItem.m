@@ -16,7 +16,7 @@
 
 @implementation ZGCItem
 
-+ (id)randomItem
++ (instancetype)randomItem
 {
     // Create an array of three adjectives
     NSArray *randomAdjectiveList = @[@"Fluffy", @"Rusty", @"Shiny"];
@@ -47,7 +47,7 @@
     return newItem;
 }
 
-- (id)initWithItemName:(NSString *)name
+- (instancetype)initWithItemName:(NSString *)name
         valueInDollars:(int)value
           serialNumber:(NSString *)sNumber
 {
@@ -74,7 +74,7 @@
 }
 
 
-- (id)init {
+- (instancetype)init {
     return [self initWithItemName:@"Item"
                    valueInDollars:0
                      serialNumber:@""];
@@ -88,6 +88,7 @@
      self.serialNumber,
      self.valueInDollars,
      self.dateCreated];
+    
     return descriptionString;
 }
 

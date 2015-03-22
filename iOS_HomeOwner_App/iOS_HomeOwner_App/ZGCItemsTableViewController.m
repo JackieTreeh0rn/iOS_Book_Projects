@@ -7,6 +7,8 @@
 //
 
 #import "ZGCItemsTableViewController.h"
+#import "ZGCItemStore.h"
+#import "ZGCItem.h"
 
 @interface ZGCItemsTableViewController ()
 
@@ -14,11 +16,16 @@
 
 @implementation ZGCItemsTableViewController
 
-/* Changing designated initializer to "init" (default is initWithStyle:) 
+/* Changing designated initializer to "init" (default is initWithStyle:)
  then will override superclass' designated initializer to call this one */
 - (instancetype)init {
     // Call superclass designated initializer (rule)
     self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+        for (int i = 0; i < 5; i++) {
+            [[ZGCItemStore sharedStore] createItem]; // initiates store, create 5 items
+        }
+    }
     return self;
 }
 
@@ -29,6 +36,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    /* This is required to tell the tableview which kind of cell
+    it should instantiate if there are no cells in the reuse pool 
+     when cellForView protocol method is called */
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -51,20 +65,32 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+// #warning Incomplete method implementation.
+    // Return the number of rows in the section. equals n. of items in array
+    return [[[ZGCItemStore sharedStore] allItems] count];
+    
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    /*
+    // Create an instance of UITableViewCell, with default apperance
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+    */
+    
+    // Using conventional method to create UITableViewCell object via resuable indent.
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    
+    // Set the text on the cell with the descripton of the item
+    // that is at the nth index of items (n = row this cell will appear on)
+    NSArray *items = [[ZGCItemStore sharedStore] allItems];
+    ZGCItem *item = items[indexPath.row];
+    cell.textLabel.text = [item description];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -20,8 +20,6 @@
 		E2ECC9B61AA153E900CF9DE1 /* ZGCHypnosisView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECC9B41AA153E900CF9DE1 /* ZGCHypnosisView.m */; };
 		E2ECC9BA1AA18BB800CF9DE1 /* ZGCHypnosisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECC9B81AA18BB800CF9DE1 /* ZGCHypnosisViewController.m */; };
 		E2ECC9BB1AA18BB800CF9DE1 /* ZGCHypnosisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ECC9B81AA18BB800CF9DE1 /* ZGCHypnosisViewController.m */; };
-		E2ECC9BC1AA18BB800CF9DE1 /* ZGCHypnosisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2ECC9B91AA18BB800CF9DE1 /* ZGCHypnosisViewController.xib */; };
-		E2ECC9BD1AA18BB800CF9DE1 /* ZGCHypnosisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2ECC9B91AA18BB800CF9DE1 /* ZGCHypnosisViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +53,6 @@
 		E2ECC9B41AA153E900CF9DE1 /* ZGCHypnosisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZGCHypnosisView.m; path = ../ZGCHypnosisView.m; sourceTree = "<group>"; };
 		E2ECC9B71AA18BB800CF9DE1 /* ZGCHypnosisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCHypnosisViewController.h; sourceTree = "<group>"; };
 		E2ECC9B81AA18BB800CF9DE1 /* ZGCHypnosisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCHypnosisViewController.m; sourceTree = "<group>"; };
-		E2ECC9B91AA18BB800CF9DE1 /* ZGCHypnosisViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZGCHypnosisViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +98,6 @@
 				E2ECC9981AA1533700CF9DE1 /* AppDelegate.m */,
 				E2ECC9B71AA18BB800CF9DE1 /* ZGCHypnosisViewController.h */,
 				E2ECC9B81AA18BB800CF9DE1 /* ZGCHypnosisViewController.m */,
-				E2ECC9B91AA18BB800CF9DE1 /* ZGCHypnosisViewController.xib */,
 				E2C009B21AA2CD7D00D4BB74 /* ZGCReminderViewController.h */,
 				E2C009B31AA2CD7D00D4BB74 /* ZGCReminderViewController.m */,
 				E2C009B41AA2CD7D00D4BB74 /* ZGCReminderViewController.xib */,
@@ -224,7 +220,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2ECC9BC1AA18BB800CF9DE1 /* ZGCHypnosisViewController.xib in Resources */,
 				E2ECC99E1AA1533700CF9DE1 /* LaunchScreen.xib in Resources */,
 				E2ECC99B1AA1533700CF9DE1 /* Images.xcassets in Resources */,
 				E227A8B91AA57D8A00EFA606 /* ZGCQuizViewController.xib in Resources */,
@@ -236,7 +231,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2ECC9BD1AA18BB800CF9DE1 /* ZGCHypnosisViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
