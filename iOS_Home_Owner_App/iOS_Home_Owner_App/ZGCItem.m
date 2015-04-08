@@ -50,8 +50,8 @@
 }
 
 - (instancetype)initWithItemName:(NSString *)name
-        valueInDollars:(int)value
-          serialNumber:(NSString *)sNumber
+                  valueInDollars:(int)value
+                    serialNumber:(NSString *)sNumber
 {
     // Call the superclass's designated initializer
     self = [super init];

@@ -27,7 +27,7 @@
     return sharedStore;
 }
 
-/* If a programmer calls [[ZGCItemStore alloc] init], let him know 
+/* If a programmer calls [[ZGCItemStore alloc] init], let him know
  the error of his ways */
 - (instancetype)init {
     @throw [NSException exceptionWithName:@"Singleton" reason:@"User +[ZGCItemStore sharedStore]" userInfo:nil];

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0610"
+   LastUpgradeVersion = "0620"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,24 +14,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E2FB54251AB1436B003DE90B"
-               BuildableName = "iOS_HomeOwner_App.app"
-               BlueprintName = "iOS_HomeOwner_App"
-               ReferencedContainer = "container:iOS_HomeOwner_App.xcodeproj">
+               BlueprintIdentifier = "E2B96A281AD4A02A00BE08F1"
+               BuildableName = "iOS_Home_Owner_App.app"
+               BlueprintName = "iOS_Home_Owner_App"
+               ReferencedContainer = "container:iOS_Home_Owner_App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E2FB54381AB1436B003DE90B"
-               BuildableName = "iOS_HomeOwner_AppTests.xctest"
-               BlueprintName = "iOS_HomeOwner_AppTests"
-               ReferencedContainer = "container:iOS_HomeOwner_App.xcodeproj">
+               BlueprintIdentifier = "E2B96A3B1AD4A02A00BE08F1"
+               BuildableName = "iOS_Home_Owner_AppTests.xctest"
+               BlueprintName = "iOS_Home_Owner_AppTests"
+               ReferencedContainer = "container:iOS_Home_Owner_App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,20 +46,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E2FB54381AB1436B003DE90B"
-               BuildableName = "iOS_HomeOwner_AppTests.xctest"
-               BlueprintName = "iOS_HomeOwner_AppTests"
-               ReferencedContainer = "container:iOS_HomeOwner_App.xcodeproj">
+               BlueprintIdentifier = "E2B96A3B1AD4A02A00BE08F1"
+               BuildableName = "iOS_Home_Owner_AppTests.xctest"
+               BlueprintName = "iOS_Home_Owner_AppTests"
+               ReferencedContainer = "container:iOS_Home_Owner_App.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2FB54251AB1436B003DE90B"
-            BuildableName = "iOS_HomeOwner_App.app"
-            BlueprintName = "iOS_HomeOwner_App"
-            ReferencedContainer = "container:iOS_HomeOwner_App.xcodeproj">
+            BlueprintIdentifier = "E2B96A281AD4A02A00BE08F1"
+            BuildableName = "iOS_Home_Owner_App.app"
+            BlueprintName = "iOS_Home_Owner_App"
+            ReferencedContainer = "container:iOS_Home_Owner_App.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,10 +76,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2FB54251AB1436B003DE90B"
-            BuildableName = "iOS_HomeOwner_App.app"
-            BlueprintName = "iOS_HomeOwner_App"
-            ReferencedContainer = "container:iOS_HomeOwner_App.xcodeproj">
+            BlueprintIdentifier = "E2B96A281AD4A02A00BE08F1"
+            BuildableName = "iOS_Home_Owner_App.app"
+            BlueprintName = "iOS_Home_Owner_App"
+            ReferencedContainer = "container:iOS_Home_Owner_App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,10 +95,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2FB54251AB1436B003DE90B"
-            BuildableName = "iOS_HomeOwner_App.app"
-            BlueprintName = "iOS_HomeOwner_App"
-            ReferencedContainer = "container:iOS_HomeOwner_App.xcodeproj">
+            BlueprintIdentifier = "E2B96A281AD4A02A00BE08F1"
+            BuildableName = "iOS_Home_Owner_App.app"
+            BlueprintName = "iOS_Home_Owner_App"
+            ReferencedContainer = "container:iOS_Home_Owner_App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

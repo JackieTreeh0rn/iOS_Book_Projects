@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E20641E91ABBF94A00D9FE7C /* ZGCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E20641E81ABBF94A00D9FE7C /* ZGCItem.m */; };
+		E25EF6E51AD0E024004B5599 /* ZGCItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25EF6E41AD0E024004B5599 /* ZGCItemsTableViewController.m */; };
 		E269CE7D1ABD14D300C60E8E /* ZGCItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E269CE7C1ABD14D300C60E8E /* ZGCItemStore.m */; };
-		E2BABF2C1ABB608300695DB6 /* ZGCItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2BABF2A1ABB608300695DB6 /* ZGCItemsTableViewController.m */; };
 		E2FB542C1AB1436B003DE90B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB542B1AB1436B003DE90B /* main.m */; };
 		E2FB542F1AB1436B003DE90B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB542E1AB1436B003DE90B /* AppDelegate.m */; };
 		E2FB54311AB1436B003DE90B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2FB54301AB1436B003DE90B /* Images.xcassets */; };
@@ -30,10 +30,10 @@
 /* Begin PBXFileReference section */
 		E20641E71ABBF94A00D9FE7C /* ZGCItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItem.h; sourceTree = "<group>"; };
 		E20641E81ABBF94A00D9FE7C /* ZGCItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItem.m; sourceTree = "<group>"; };
+		E25EF6E31AD0E024004B5599 /* ZGCItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItemsTableViewController.h; sourceTree = "<group>"; };
+		E25EF6E41AD0E024004B5599 /* ZGCItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItemsTableViewController.m; sourceTree = "<group>"; };
 		E269CE7B1ABD14D300C60E8E /* ZGCItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItemStore.h; sourceTree = "<group>"; };
 		E269CE7C1ABD14D300C60E8E /* ZGCItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItemStore.m; sourceTree = "<group>"; };
-		E2BABF291ABB608300695DB6 /* ZGCItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZGCItemsTableViewController.h; path = iOS_HomeOwner_App/ZGCItemsTableViewController.h; sourceTree = "<group>"; };
-		E2BABF2A1ABB608300695DB6 /* ZGCItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZGCItemsTableViewController.m; path = iOS_HomeOwner_App/ZGCItemsTableViewController.m; sourceTree = "<group>"; };
 		E2FB54261AB1436B003DE90B /* iOS_HomeOwner_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_HomeOwner_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FB542A1AB1436B003DE90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2FB542B1AB1436B003DE90B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 			children = (
 				E2FB542D1AB1436B003DE90B /* AppDelegate.h */,
 				E2FB542E1AB1436B003DE90B /* AppDelegate.m */,
-				E2BABF291ABB608300695DB6 /* ZGCItemsTableViewController.h */,
-				E2BABF2A1ABB608300695DB6 /* ZGCItemsTableViewController.m */,
+				E25EF6E31AD0E024004B5599 /* ZGCItemsTableViewController.h */,
+				E25EF6E41AD0E024004B5599 /* ZGCItemsTableViewController.m */,
 			);
 			name = Controller;
 			path = ..;
@@ -252,9 +252,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2BABF2C1ABB608300695DB6 /* ZGCItemsTableViewController.m in Sources */,
 				E2FB542F1AB1436B003DE90B /* AppDelegate.m in Sources */,
 				E2FB542C1AB1436B003DE90B /* main.m in Sources */,
+				E25EF6E51AD0E024004B5599 /* ZGCItemsTableViewController.m in Sources */,
 				E269CE7D1ABD14D300C60E8E /* ZGCItemStore.m in Sources */,
 				E20641E91ABBF94A00D9FE7C /* ZGCItem.m in Sources */,
 			);
@@ -372,7 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iOS_HomeOwner_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -384,7 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iOS_HomeOwner_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

@@ -2,7 +2,7 @@
 //  ZGCItemsTableViewController.m
 //  iOS_HomeOwner_App
 //
-//  Created by EvilKernel on 3/19/15.
+//  Created by EvilKernel on 4/4/15.
 //  Copyright (c) 2015 Zerogravity. All rights reserved.
 //
 
@@ -29,7 +29,7 @@
     return self;
 }
 
-/* Override superclass designated initializer to call mine */
+/* Overriding superclass designated initializer to call mine */
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     return [self init]; // all instances will now use plainviewstyle
 }
@@ -38,7 +38,7 @@
     [super viewDidLoad];
     
     /* This is required to tell the tableview which kind of cell
-    it should instantiate if there are no cells in the reuse pool 
+     it should instantiate if there are no cells in the reuse pool
      when cellForView protocol method is called */
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
@@ -61,23 +61,24 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+
+    
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-// #warning Incomplete method implementation.
+    // #warning Incomplete method implementation.
     // Return the number of rows in the section. equals n. of items in array
     return [[[ZGCItemStore sharedStore] allItems] count];
     
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     /*
-    // Create an instance of UITableViewCell, with default apperance
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-    */
+     // Create an instance of UITableViewCell, with default apperance
+     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+     */
     
     // Using conventional method to create UITableViewCell object via resuable indent.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
@@ -90,7 +91,6 @@
     
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -123,22 +123,6 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 */
 
