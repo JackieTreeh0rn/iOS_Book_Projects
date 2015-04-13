@@ -42,6 +42,14 @@
      when cellForView protocol method is called */
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
+    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"UITableViewHeaderFooterView"];
+    
+    self.tableView.rowHeight = 60;
+
+    self.tableView.sectionFooterHeight = 44;
+    self.tableView.sectionHeaderHeight = 60;
+    
+    
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -77,7 +85,6 @@
         for (ZGCItem *i in items) {
             if (i.valueInDollars > 50.0) {
                 sum++;
-                NSLog(@" section has %d rows", sum);
             }
         }
     }
@@ -86,7 +93,6 @@
         for (ZGCItem *i in items) {
             if (i.valueInDollars < 50.0) {
                 sum++;
-                NSLog(@" section has %d rows", sum);
             }
         }
     }
@@ -105,22 +111,23 @@
     // Using conventional method to create UITableViewCell object via resuable indent.
    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
+    cell.textLabel.font = [UIFont systemFontOfSize:20];
+    
     // Set the text on the cell with the descripton of the item
     // that is at the nth index of items (n = row this cell will appear on)
     NSArray *items = [[ZGCItemStore sharedStore] allItems];
     
     // BRONZE CHALLENGE // -- using 2 sections, one for items > $50 bucks / one for <.
-    
     // Define two arrays to store rows (items) for each section
     NSMutableArray *section0 = [[NSMutableArray alloc] init];
     NSMutableArray *section1 = [[NSMutableArray alloc] init];
     
     
-    for (int i = 0; i < items.count; i++) {
-        if ([items[i] valueInDollars] > 50.0) {
-            [section0 addObject:items[i]];
+    for (ZGCItem *i in items) {
+        if (i.valueInDollars > 50.0) {
+            [section0 addObject:i];
         } else {
-            [section1 addObject:items[i]];
+            [section1 addObject:i];
         }
     }
     
@@ -135,13 +142,9 @@
     
     return cell;
     
-    
-  // ZGCItem *item = items[indexPath.row];
-  // cell.textLabel.text = [item description];
-  // return cell;
-    
 
 }
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -176,6 +179,32 @@
     return YES;
 }
 */
+
+#pragma mark - tableview delegate methods
+/// SILVER CHALLENGE /// - footer
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    UITableViewHeaderFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"UITableViewHeaderFooterView"];
+    footer.textLabel.text = @"No more items";
+    
+    return footer;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"UITableViewHeaderFooterView"];
+    
+    header.contentView.backgroundColor = [UIColor lightGrayColor];
+    
+    if (section == 0) {
+        header.textLabel.text = @"Items > $50";
+    }
+    if (section == 1) {
+    header.textLabel.text = @"Items < $50";
+    }
+    
+    return header;
+}
 
 /*
 #pragma mark - Navigation
