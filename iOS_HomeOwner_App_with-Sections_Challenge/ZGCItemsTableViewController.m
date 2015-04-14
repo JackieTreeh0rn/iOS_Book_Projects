@@ -42,16 +42,21 @@
      when cellForView protocol method is called */
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
+    /* same as above but for the footer/header object */
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"UITableViewHeaderFooterView"];
     
+    /* **GOLD CHALLENGE part** make rows size 60 */
     self.tableView.rowHeight = 60;
 
+    /* **SILVER CHALLENGE part** required by the delegate methods below that return footers/headers */
     self.tableView.sectionFooterHeight = 44;
     self.tableView.sectionHeaderHeight = 60;
     
+    /* ** GOLD CHALLENGE part** add background image to TableView */
+    UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1410296829223.jpg"]];
+    self.tableView.backgroundView = background;
     
-    
-    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -111,18 +116,19 @@
     // Using conventional method to create UITableViewCell object via resuable indent.
    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
+    /* **GOLD CHALLENGE part ** make text for rows text size 20 */
     cell.textLabel.font = [UIFont systemFontOfSize:20];
     
     // Set the text on the cell with the descripton of the item
     // that is at the nth index of items (n = row this cell will appear on)
     NSArray *items = [[ZGCItemStore sharedStore] allItems];
     
-    // BRONZE CHALLENGE // -- using 2 sections, one for items > $50 bucks / one for <.
+    /* ***BRONZE CHALLENGE*** // -- using 2 sections, one for items > $50 bucks / one for < */
     // Define two arrays to store rows (items) for each section
     NSMutableArray *section0 = [[NSMutableArray alloc] init];
     NSMutableArray *section1 = [[NSMutableArray alloc] init];
     
-    
+    // if value satisfy requireent, add to appropiate array
     for (ZGCItem *i in items) {
         if (i.valueInDollars > 50.0) {
             [section0 addObject:i];
@@ -131,6 +137,7 @@
         }
     }
     
+    // pull item from requested section out of respective array and configure cell object
     if (indexPath.section == 0) {
         ZGCItem *item = section0[indexPath.row];
         cell.textLabel.text = [item description];
@@ -181,11 +188,12 @@
 */
 
 #pragma mark - tableview delegate methods
-/// SILVER CHALLENGE /// - footer
+
+/// SILVER CHALLENGE /// - footer that says 'no more items!'(added header as well)
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     
     UITableViewHeaderFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"UITableViewHeaderFooterView"];
-    footer.textLabel.text = @"No more items";
+    footer.textLabel.text = @"No more items!";
     
     return footer;
 }
