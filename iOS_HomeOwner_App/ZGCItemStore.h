@@ -28,7 +28,10 @@
  via this Class method we are declaring */
 + (instancetype)sharedStore;
 
-- (ZGCItem *)createItem;
+- (ZGCItem *)createItem; // datasource calls this to create item
+- (void)removeItem:(ZGCItem *)item; // datasource calls this to remove item
+- (void)moveItemAtIndex:(NSUInteger)fromIndex
+                toIndex:(NSUInteger)toIndex; // datasource calls to move items order
 
 
 

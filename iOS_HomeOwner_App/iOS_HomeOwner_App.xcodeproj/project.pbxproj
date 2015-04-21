@@ -10,6 +10,7 @@
 		E20641E91ABBF94A00D9FE7C /* ZGCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E20641E81ABBF94A00D9FE7C /* ZGCItem.m */; };
 		E25EF6E51AD0E024004B5599 /* ZGCItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25EF6E41AD0E024004B5599 /* ZGCItemsTableViewController.m */; };
 		E269CE7D1ABD14D300C60E8E /* ZGCItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E269CE7C1ABD14D300C60E8E /* ZGCItemStore.m */; };
+		E2CB99311ADE1775002BFDFE /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CB99301ADE1775002BFDFE /* HeaderView.xib */; };
 		E2FB542C1AB1436B003DE90B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB542B1AB1436B003DE90B /* main.m */; };
 		E2FB542F1AB1436B003DE90B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB542E1AB1436B003DE90B /* AppDelegate.m */; };
 		E2FB54311AB1436B003DE90B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2FB54301AB1436B003DE90B /* Images.xcassets */; };
@@ -34,6 +35,7 @@
 		E25EF6E41AD0E024004B5599 /* ZGCItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItemsTableViewController.m; sourceTree = "<group>"; };
 		E269CE7B1ABD14D300C60E8E /* ZGCItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItemStore.h; sourceTree = "<group>"; };
 		E269CE7C1ABD14D300C60E8E /* ZGCItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItemStore.m; sourceTree = "<group>"; };
+		E2CB99301ADE1775002BFDFE /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		E2FB54261AB1436B003DE90B /* iOS_HomeOwner_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_HomeOwner_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FB542A1AB1436B003DE90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2FB542B1AB1436B003DE90B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		E269CE791ABD13E000C60E8E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E2CB99301ADE1775002BFDFE /* HeaderView.xib */,
 				E2FB54321AB1436B003DE90B /* LaunchScreen.xib */,
 			);
 			name = View;
@@ -233,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2CB99311ADE1775002BFDFE /* HeaderView.xib in Resources */,
 				E2FB54341AB1436B003DE90B /* LaunchScreen.xib in Resources */,
 				E2FB54311AB1436B003DE90B /* Images.xcassets in Resources */,
 			);

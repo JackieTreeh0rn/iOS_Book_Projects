@@ -55,4 +55,29 @@
     return item;
 }
 
+- (void)removeItem:(ZGCItem *)item {
+    /* not using 'removeObject' method as it uses isEqual: againts each object
+     isEqual method can vary per class's implementation (ie. ZGCItem could choose to
+     use isEqual to YES if valueInDollars is was the same). The 'removeObjectIdenticalTo:'
+     method looks for exact same object (uses object addresses) */
+    [self.privateItems removeObjectIdenticalTo:item];
+}
+
+- (void)moveItemAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
+    // First check
+    if (fromIndex == toIndex) {
+        return;
+    }
+    
+    // Get pointer to object being movd so you can reinsert it
+    ZGCItem *item = self.privateItems[fromIndex];
+    
+    // Remove item from array
+    [self.privateItems removeObjectAtIndex:fromIndex];
+    
+    // Insert item in array at new location
+    [self.privateItems insertObject:item atIndex:toIndex];
+    
+}
+
 @end

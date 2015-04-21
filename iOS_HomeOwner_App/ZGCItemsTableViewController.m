@@ -12,6 +12,9 @@
 
 @interface ZGCItemsTableViewController ()
 
+
+@property (nonatomic, strong) IBOutlet UIView *headerView; //using strong instead of weak as this will be a top level object in the XIB. Weak is used for objects that are owned directly/indirectly by the top level objects.
+
 @end
 
 @implementation ZGCItemsTableViewController
@@ -22,9 +25,9 @@
     // Call superclass designated initializer (rule)
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        for (int i = 0; i < 5; i++) {
-            [[ZGCItemStore sharedStore] createItem]; // initiates store, create 5 items
-        }
+   //     for (int i = 0; i < 5; i++) {
+   //         [[ZGCItemStore sharedStore] createItem]; // initiates store, create 5 items
+   //     }
     }
     return self;
 }
@@ -42,6 +45,11 @@
      when cellForView protocol method is called */
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
+    // Tell the table view about the headerview
+    UIView *header = self.headerView; // loaded from the NIB
+    [self.tableView setTableHeaderView:header]; // link to tableview
+    
+    
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -56,15 +64,70 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - Header Methods
+
+- (IBAction)addNewItem:(id)sender {
+    // Make a new indexpath for the section 0, last row
+    // NSInteger lastRow = [self.tableView numberOfRowsInSection:0];
+    
+    // Create a new ZGCItem and add it to the store
+    ZGCItem *newItem = [[ZGCItemStore sharedStore] createItem];
+    
+    // Figure out where that item is in the array
+    NSInteger lastRow = [[[ZGCItemStore sharedStore] allItems] indexOfObject:newItem];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    
+    // Insert this new row into the table
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    
+    /* the tableview is going to run through the datasource methods
+     immidiately after the above insertRowsAtIndexPaths is called to get
+     the actual cell content, details, etc */
+    
+    
+}
+
+- (IBAction)toggleEditingMode:(id)sender {
+    // If you are currently on editing mode...
+    if (self.isEditing) {
+        // Change text of button to inform user of state
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        // Turn off editing mode
+        [self setEditing:NO animated:YES];
+    } else {
+        // Change text of button to inform user of state
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        // Enter editing mode
+        
+        [self setEditing:YES animated:YES];
+    }
+    
+}
+
+#pragma mark - headerView getter method - loads header XIB
+- (UIView *)headerView {
+    // If you have not loaded the headerView yet...
+    if (!_headerView) {
+        // Load HeaderView.xib - an instance of nsbundle is automatocally created by your app
+        // when it launches. we are sending it a message 'mainbundle' and loading the
+        // NIB.  no need to specify suffix
+        // owner:self ensures file owner's placeholder (the controller) is the owner
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
+    }
+    return _headerView;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-
     
     return 1;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // #warning Incomplete method implementation.
@@ -88,9 +151,12 @@
     NSArray *items = [[ZGCItemStore sharedStore] allItems];
     ZGCItem *item = items[indexPath.row];
     cell.textLabel.text = [item description];
+   
     
     return cell;
-}
+
+    }
+    
 
 /*
 // Override to support conditional editing of the table view.
@@ -100,23 +166,48 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // If the tableview is asking to comit a delete command...
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        
+        // Lets get the item in the datastore
+        NSArray *items = [[ZGCItemStore sharedStore] allItems];
+        ZGCItem *item = [items objectAtIndex:indexPath.row];
+        
+        // Remove item from the datastore array
+        [[ZGCItemStore sharedStore] removeItem:item];
+        
+        // ...Also remove the row from the table view with an animation
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        // [self.tableView reloadData]; // <-- this method works too to refresh the table after a change but, with no animation
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
-// Override to support rearranging the table view.
+
+/* When the tableview checks with its datasource (self) and finds this method
+ implemented, it will add the re-ordering controls to the table when on editing mode
+  */
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    
+    // Unlike deleting a row, this method requires no additional confirmation, tableview moves the row on its own authority and reports the move to its datasource with this message:
+    [[ZGCItemStore sharedStore] moveItemAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
 }
-*/
+
+
+
+# pragma mark - delegate method
+
+////BRONZE CHALLENGE - RENAME DELETE BUTTON///
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return @"Remove";
+}
 
 /*
 // Override to support conditional rearranging of the table view.
