@@ -18,9 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    // A tableview controller
     ZGCItemsTableViewController *itemsViewController = [[ZGCItemsTableViewController alloc] init];
-    self.window.rootViewController = itemsViewController;
+    
+    // A navigationview controller
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
+    
+
+    self.window.rootViewController = navController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

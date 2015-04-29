@@ -10,8 +10,6 @@
 
 @interface ZGCItem ()
 
-@property (nonatomic, strong) NSDate *dateCreated;
-
 @end
 
 @implementation ZGCItem

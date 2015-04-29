@@ -9,13 +9,16 @@
 #import "ZGCItemsTableViewController.h"
 #import "ZGCItemStore.h"
 #import "ZGCItem.h"
+#import "ZGCDetailViewController.h" // using this tableviewcontroller as the object to push more viewcontrolers the navigation controller's stack
 
 @interface ZGCItemsTableViewController ()
 
-
+/* Using navigation bar now
 @property (nonatomic, strong) IBOutlet UIView *headerView; //using strong instead of weak as this will be a top level object in the XIB. Weak is used for objects that are owned directly/indirectly by the top level objects.
+*/
 
 @end
+
 
 @implementation ZGCItemsTableViewController
 
@@ -25,16 +28,48 @@
     // Call superclass designated initializer (rule)
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-   //     for (int i = 0; i < 5; i++) {
-   //         [[ZGCItemStore sharedStore] createItem]; // initiates store, create 5 items
-   //     }
-    }
+        // Assigning navigationitem properties for this controller during its init.
+        // navitem gets passed to navigation bar of navigation controller (a title, right button, left button)
+        UINavigationItem *navItem = self.navigationItem;
+        
+        /* navItem title */
+        navItem.title = @"HomeOwner";
+        
+        /* navItem right Button */ // <-- uses instances of UIBarButtonItem
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                             target:self
+                                                                             action:@selector(addNewItem:)];
+        navItem.rightBarButtonItem = bbi;
+        
+        /* navItem left Button */
+        // this editButtonitem UIViewController property is a UIBarButtonItem
+        // already preconfigured with a target:action: pair that sends the
+        // message setEditing:animated: to its UIViewController (this replaces our
+        // previous EDIT button implemtation used previously in the tableview's headerview.
+        navItem.leftBarButtonItem = self.editButtonItem; // <-- this property
+        
+        // for (int i = 0; i < 5; i++) {
+        // [[ZGCItemStore sharedStore] createItem]; // initiates store, create 5 items
+        }
+    
     return self;
 }
 
 /* Overriding superclass designated initializer to call mine */
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     return [self init]; // all instances will now use plainviewstyle
+}
+
+/* Overriding viewWillAppear: on this controller to 
+ reload the tableview and see changes made in detailViewController */
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated]; // you always call superclass implementation on this method
+    
+    // refresh tableview contents
+    [self.tableView reloadData];
+    
+
+    
 }
 
 - (void)viewDidLoad {
@@ -45,11 +80,11 @@
      when cellForView protocol method is called */
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
+/* //Using navigation bar now
     // Tell the table view about the headerview
     UIView *header = self.headerView; // loaded from the NIB
     [self.tableView setTableHeaderView:header]; // link to tableview
-    
-    
+*/
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -89,6 +124,7 @@
     
 }
 
+/* // Using Navigation Bar's edit  property now //
 - (IBAction)toggleEditingMode:(id)sender {
     // If you are currently on editing mode...
     if (self.isEditing) {
@@ -103,10 +139,13 @@
         
         [self setEditing:YES animated:YES];
     }
-    
-}
 
-#pragma mark - headerView getter method - loads header XIB
+}
+*/
+
+
+/* // Using Navigation Bar
+#pragma mark - custom headerView getter method - to load header XIB
 - (UIView *)headerView {
     // If you have not loaded the headerView yet...
     if (!_headerView) {
@@ -118,11 +157,13 @@
     }
     return _headerView;
 }
+*/
+
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+// #warning Potentially incomplete method implementation.
     // Return the number of sections.
     
     return 1;
@@ -200,13 +241,32 @@
 }
 
 
-
-# pragma mark - delegate method
+# pragma mark - delegate methods
 
 ////BRONZE CHALLENGE - RENAME DELETE BUTTON///
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return @"Remove";
+}
+
+// this is sent to the delegate (self) when a row is tapped - we going to use this to push detailViewController onto the stack
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // instantiate the detailViewController instance to add to the nav stack
+    ZGCDetailViewController *detailViewController = [[ZGCDetailViewController alloc] init];
+    
+    // Instantiate an instance of ZGCItem to the selected item/row per the indexPath
+    NSArray *items = [[ZGCItemStore sharedStore] allItems];
+    ZGCItem *selectedItem = items[indexPath.row];
+    
+    // Pass a pointer to the item to the detailViewController
+    detailViewController.item = selectedItem;
+    
+    // push it on top of the nav controller stack
+    // any object part of a nav controller has the navigationController property you can message - this controller is the rootviewcontroller of the nav contrllr.
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    
 }
 
 /*
