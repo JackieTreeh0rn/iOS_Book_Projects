@@ -42,16 +42,22 @@
     /// BRONZE CHALLENGE - DISPLAY A NUMBERPAD FOR THE VALUE FIELD ///
     self.valueField.keyboardType = UIKeyboardTypeNumberPad;
     
-    /// SILVER CHALLENGE part1 - DISMISSING A NUMBER PAD (adding a UItoolbar with a done button is my solution) ///
-    CGRect accessFrame = CGRectMake(0.0, 0.0, 768.0, 30.0);
-    UIToolbar *inputAccessoryView = [[UIToolbar alloc] initWithFrame:accessFrame];
+    /// SILVER CHALLENGE - DISMISSING A NUMBER PAD (adding a UItoolbar with a done button is my solution) ///
+    // Frame for my UItoolbar
+    CGRect accessoryFrame = CGRectMake(0.0, 0.0, 768.0, 30.0);
+    
+    // init and configure a UIToolbar
+    UIToolbar *inputAccessoryView = [[UIToolbar alloc] initWithFrame:accessoryFrame];
     inputAccessoryView.translucent = YES;
     inputAccessoryView.backgroundColor = [UIColor lightGrayColor];
+    
+    // init and configure a UIButton (for the toolbar - a 'done' button)
     UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self.valueField action:@selector(resignFirstResponder)];
     
-    
+    // add button to UIToolbar
     [inputAccessoryView setItems:@[done] animated:YES];
-
+    
+    // make the accessoryview property for the field, the toolbar (appears as view on top of keyboard)
     self.valueField.inputAccessoryView = inputAccessoryView;
     
 
@@ -107,7 +113,6 @@
     
 }
 
-/// SILVER CHALLENGE part2 ///
 # pragma mark - UITextField Delegate Methods
 // Using this delegate method to hide keyboard on each field when 'Return' is pressed
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

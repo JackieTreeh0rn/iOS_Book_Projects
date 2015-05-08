@@ -21,7 +21,6 @@
     
     // Date must be in the future - forcing  datepicker date to always be future 60 sec
     self.datePicker.minimumDate = [NSDate dateWithTimeIntervalSinceNow:60];
-    //self.navigationItem.hidesBackButton = YES;
     
 }
 
