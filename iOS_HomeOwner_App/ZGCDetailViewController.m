@@ -9,12 +9,13 @@
 #import "ZGCDetailViewController.h"
 #import "ZGCItem.h"
 
-@interface ZGCDetailViewController () <UITextFieldDelegate>
+@interface ZGCDetailViewController () <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @end
 
 @implementation ZGCDetailViewController
@@ -53,6 +54,7 @@
 
     self.valueField.inputAccessoryView = inputAccessoryView;
     
+    
 
     // Creating an NSDateFormatter  that will turn date into simple date string
     // again, static variables are not destroyed when method finishes - gets declared only once in this case, stays alove while app is in memory
@@ -87,6 +89,32 @@
     
 }
 
+# pragma mark - Target Actions
+
+- (IBAction)takePicture:(id)sender {
+    // Instantiate a new UIImagePickerController
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    // Define Source Type //
+    // If the device has a camera, take a picture, otherwise...
+    // Just pick from photo library
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    // Define delegate
+    imagePicker.delegate = self;
+    //imagePicker.showsCameraControls = YES;
+    
+    // Present the UIViewController's view on the screen -MODALLY-
+    [self presentViewController:imagePicker animated:YES completion:nil];
+    
+    
+}
+
+
 /* Overriding the synthetized setter method for the 'item' property
  in order to set the navItem property of the this view controller using this
  method (can't do it in its 'init' since we do not know what 'item' will be 
@@ -96,6 +124,19 @@
     _item = item;
     self.navigationItem.title = _item.itemName;
     
+}
+
+# pragma mark - UIImagePickerController Delegate Methods
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    // Get picked image from info dictionary
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    // Put image onto the screeen in our image view
+    self.imageView.image = image;
+    
+    // Take the image picker off the screen, call this dismiss method
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /// SILVER CHALLENGE part2 ///

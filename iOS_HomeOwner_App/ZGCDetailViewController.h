@@ -1,5 +1,4 @@
-//
-//  ZGCDetailViewController.h
+////  ZGCDetailViewController.h
 //  iOS_HomeOwner_App
 //
 //  Created by EvilKernel on 4/23/15.
