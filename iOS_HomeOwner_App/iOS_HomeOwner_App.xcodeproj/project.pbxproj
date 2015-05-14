@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E20641E91ABBF94A00D9FE7C /* ZGCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E20641E81ABBF94A00D9FE7C /* ZGCItem.m */; };
+		E21995B41B03E1CA00E385EF /* ZGCImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E21995B31B03E1CA00E385EF /* ZGCImageStore.m */; };
 		E25EF6E51AD0E024004B5599 /* ZGCItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25EF6E41AD0E024004B5599 /* ZGCItemsTableViewController.m */; };
 		E269CE7D1ABD14D300C60E8E /* ZGCItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E269CE7C1ABD14D300C60E8E /* ZGCItemStore.m */; };
 		E2CB99311ADE1775002BFDFE /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CB99301ADE1775002BFDFE /* HeaderView.xib */; };
@@ -33,6 +34,8 @@
 /* Begin PBXFileReference section */
 		E20641E71ABBF94A00D9FE7C /* ZGCItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItem.h; sourceTree = "<group>"; };
 		E20641E81ABBF94A00D9FE7C /* ZGCItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItem.m; sourceTree = "<group>"; };
+		E21995B21B03E1CA00E385EF /* ZGCImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCImageStore.h; sourceTree = "<group>"; };
+		E21995B31B03E1CA00E385EF /* ZGCImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCImageStore.m; sourceTree = "<group>"; };
 		E25EF6E31AD0E024004B5599 /* ZGCItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItemsTableViewController.h; sourceTree = "<group>"; };
 		E25EF6E41AD0E024004B5599 /* ZGCItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCItemsTableViewController.m; sourceTree = "<group>"; };
 		E269CE7B1ABD14D300C60E8E /* ZGCItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCItemStore.h; sourceTree = "<group>"; };
@@ -78,6 +81,8 @@
 				E20641E81ABBF94A00D9FE7C /* ZGCItem.m */,
 				E269CE7B1ABD14D300C60E8E /* ZGCItemStore.h */,
 				E269CE7C1ABD14D300C60E8E /* ZGCItemStore.m */,
+				E21995B21B03E1CA00E385EF /* ZGCImageStore.h */,
+				E21995B31B03E1CA00E385EF /* ZGCImageStore.m */,
 			);
 			name = Model;
 			path = ..;
@@ -267,6 +272,7 @@
 			files = (
 				E2D1F1751AE9EF3A00D2B6FF /* ZGCDetailViewController.m in Sources */,
 				E2FB542F1AB1436B003DE90B /* AppDelegate.m in Sources */,
+				E21995B41B03E1CA00E385EF /* ZGCImageStore.m in Sources */,
 				E2FB542C1AB1436B003DE90B /* main.m in Sources */,
 				E25EF6E51AD0E024004B5599 /* ZGCItemsTableViewController.m in Sources */,
 				E269CE7D1ABD14D300C60E8E /* ZGCItemStore.m in Sources */,

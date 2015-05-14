@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString *serialNumber;
 @property (nonatomic) int valueInDollars;
 @property (nonatomic, strong) NSDate *dateCreated;
+@property (nonatomic, copy) NSString *itemKey; // image dict. key
 
 
 // Class method

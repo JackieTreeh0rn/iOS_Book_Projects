@@ -8,6 +8,7 @@
 
 #import "ZGCItemStore.h"
 #import "ZGCItem.h" //import is required here (not @class)
+#import "ZGCImageStore.h"
 
 @interface ZGCItemStore ()
 @property (nonatomic) NSMutableArray *privateItems; // mutability hidden via extension
@@ -15,6 +16,8 @@
 @end
 
 @implementation ZGCItemStore
+
+#pragma mark - INIT Section
 
 + (instancetype)sharedStore {
     // Declaring this variable as static - static variable is not destroyed when method is done executing, It is not kept on the stack (just as a global variables)
@@ -27,12 +30,14 @@
     return sharedStore;
 }
 
+
 /* If a programmer calls [[ZGCItemStore alloc] init], let him know 
  the error of his ways */
 - (instancetype)init {
     @throw [NSException exceptionWithName:@"Singleton" reason:@"User +[ZGCItemStore sharedStore]" userInfo:nil];
     return nil;
 }
+
 
 /* Here is the real (secret) initiliazer */
 - (instancetype)initPrivate {
@@ -43,10 +48,14 @@
     return self;
 }
 
+
+#pragma mark - INSTANCE Methods
+
 /* Overriding getter for allItems to return privateItems (mutable version) as NSarray */
 - (NSArray *)allItems {
     return self.privateItems;  // returninig NSArray type (true way: [self.privateItems copy]
 }
+
 
 - (ZGCItem *)createItem {
     ZGCItem *item = [ZGCItem randomItem];
@@ -55,7 +64,14 @@
     return item;
 }
 
+
 - (void)removeItem:(ZGCItem *)item {
+    
+    /* remove from image store */
+    NSString *key = item.itemKey;
+    [[ZGCImageStore sharedStore] deleteImageForKey:key];
+    
+    /* Remove from array store */
     /* not using 'removeObject' method as it uses isEqual: againts each object
      isEqual method can vary per class's implementation (ie. ZGCItem could choose to
      use isEqual to YES if valueInDollars is was the same). The 'removeObjectIdenticalTo:'
@@ -63,13 +79,14 @@
     [self.privateItems removeObjectIdenticalTo:item];
 }
 
+
 - (void)moveItemAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
     // First check
     if (fromIndex == toIndex) {
         return;
     }
     
-    // Get pointer to object being movd so you can reinsert it
+    // Get pointer to object being moved so you can reinsert it after
     ZGCItem *item = self.privateItems[fromIndex];
     
     // Remove item from array

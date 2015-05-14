@@ -8,6 +8,8 @@
 
 #import "ZGCDetailViewController.h"
 #import "ZGCItem.h"
+#import "ZGCImageStore.h"
+
 
 @interface ZGCDetailViewController () <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -38,22 +40,21 @@
     self.serialNumberField.returnKeyType = UIReturnKeyDone;
     self.valueField.text = [NSString stringWithFormat:@"%d", item.valueInDollars];
     
-    /// BRONZE CHALLENGE - DISPLAY A NUMBERPAD FOR THE VALUE FIELD ///
+    // Using a numpad for thge valeu field
     self.valueField.keyboardType = UIKeyboardTypeNumberPad;
     
     
-    /// SILVER CHALLENGE part1 - DISMISSING A NUMBER BAD (adding a UItoolbar with a done button is my solution) ///
+    // Adding a UIToolbar with a 'done' button as a way to dismiss numpad
     CGRect accessFrame = CGRectMake(0.0, 0.0, 768.0, 30.0);
     UIToolbar *inputAccessoryView = [[UIToolbar alloc] initWithFrame:accessFrame];
     inputAccessoryView.translucent = YES;
     inputAccessoryView.backgroundColor = [UIColor lightGrayColor];
     UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self.valueField action:@selector(resignFirstResponder)];
     
-    
     [inputAccessoryView setItems:@[done] animated:YES];
 
+    // set toolbar as accessorypad for numpad/keyboard
     self.valueField.inputAccessoryView = inputAccessoryView;
-    
     
 
     // Creating an NSDateFormatter  that will turn date into simple date string
@@ -67,6 +68,9 @@
     
     // Use filtered NSDate object to set dateLabel contents
     self.dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
+    
+    // Define image for the item per what is stored in the image store (dictionary)
+    self.imageView.image = [[ZGCImageStore sharedStore] imageForKey:self.item.itemKey];
     
     
 }
@@ -92,13 +96,13 @@
 # pragma mark - Target Actions
 
 - (IBAction)takePicture:(id)sender {
-    // Instantiate a new UIImagePickerController
+    // Instantiate a new UIImagePickerController -  this is a Modal controller
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
     // Define Source Type //
     // If the device has a camera, take a picture, otherwise...
     // Just pick from photo library
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) { // <- convinience +method
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     } else {
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -106,13 +110,20 @@
     
     // Define delegate
     imagePicker.delegate = self;
-    //imagePicker.showsCameraControls = YES;
     
     // Present the UIViewController's view on the screen -MODALLY-
     [self presentViewController:imagePicker animated:YES completion:nil];
     
     
 }
+
+// Changed this view's class from UIView to UIControl so that it can respond to events (like being tapped)
+- (IBAction)backgroundTapped:(id)sender {
+    // tapping anywhere on the window (event: touchup inside) dismisses the keyboard (firstresponder)
+    [self.view endEditing:YES];
+}
+
+#
 
 
 /* Overriding the synthetized setter method for the 'item' property
@@ -127,20 +138,25 @@
 }
 
 # pragma mark - UIImagePickerController Delegate Methods
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     // Get picked image from info dictionary
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    UIImage *image = info[UIImagePickerControllerOriginalImage]; // keys in this dict. are defined constants - use reference
+    
+    // Store the image in the ZGCImageStore for this item's key
+    [[ZGCImageStore sharedStore] setImage:image forKey:self.item.itemKey];
     
     // Put image onto the screeen in our image view
     self.imageView.image = image;
     
-    // Take the image picker off the screen, call this dismiss method
+    // Take the image picker off the screen, call this dismiss Modal controller method
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/// SILVER CHALLENGE part2 ///
+
 # pragma mark - UITextField Delegate Methods
+
 // Using this delegate method to hide keyboard on each field when 'Return' is pressed
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];

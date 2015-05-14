@@ -47,6 +47,7 @@
     return newItem;
 }
 
+// designated initializer
 - (instancetype)initWithItemName:(NSString *)name
         valueInDollars:(int)value
           serialNumber:(NSString *)sNumber
@@ -59,7 +60,11 @@
         self.itemName = name;
         self.serialNumber = sNumber;
         self.valueInDollars = value;
-        self.dateCreated = [[NSDate alloc] init];
+        self.dateCreated = [[NSDate alloc] init]; // current date & time
+        // Create UUID via NSUUID object (a cocoa-touch class)
+        NSUUID *uuid = [[NSUUID alloc] init];
+        NSString *key = [uuid UUIDString];
+        _itemKey = key;
     }
     
     // Return the address of the newly initialized object
@@ -67,7 +72,7 @@
 }
 
 - (instancetype)initWithItemName:(NSString *)name
-{
+{   // call designated init
     return [self initWithItemName:name
                    valueInDollars:0
                      serialNumber:@""];
@@ -75,6 +80,7 @@
 
 
 - (instancetype)init {
+    // call designated init
     return [self initWithItemName:@"Item"
                    valueInDollars:0
                      serialNumber:@""];
