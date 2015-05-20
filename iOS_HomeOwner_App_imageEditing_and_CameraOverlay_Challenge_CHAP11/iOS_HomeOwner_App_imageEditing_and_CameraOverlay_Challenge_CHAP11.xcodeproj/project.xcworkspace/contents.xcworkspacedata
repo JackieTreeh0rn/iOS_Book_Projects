@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:iOS_HomeOwner_App.xcodeproj">
+      location = "self:iOS_HomeOwner_App_imageEditing_and_CameraOverlay_Challenge_CHAP11.xcodeproj">
    </FileRef>
 </Workspace>
