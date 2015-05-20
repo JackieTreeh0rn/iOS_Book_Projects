@@ -83,7 +83,7 @@
         // disable trash button
         self.trashButton.enabled = NO;
         
-    } //test
+    } //test//
 
 }
 
