@@ -218,7 +218,6 @@
 				TargetAttributes = {
 					E2FB54251AB1436B003DE90B = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 4BSV5S464U;
 					};
 					E2FB54381AB1436B003DE90B = {
 						CreatedOnToolsVersion = 6.1;
@@ -226,7 +225,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E2FB54211AB1436B003DE90B /* Build configuration list for PBXProject "iOS_HomeOwner_App_imageEditing_and_CameraOverlay_Challenge_CHAP11" */;
+			buildConfigurationList = E2FB54211AB1436B003DE90B /* Build configuration list for PBXProject "iOS_HomeOwner_App" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -392,13 +391,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iOS_HomeOwner_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -407,13 +403,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iOS_HomeOwner_App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -455,7 +448,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E2FB54211AB1436B003DE90B /* Build configuration list for PBXProject "iOS_HomeOwner_App_imageEditing_and_CameraOverlay_Challenge_CHAP11" */ = {
+		E2FB54211AB1436B003DE90B /* Build configuration list for PBXProject "iOS_HomeOwner_App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2FB54411AB1436B003DE90B /* Debug */,
