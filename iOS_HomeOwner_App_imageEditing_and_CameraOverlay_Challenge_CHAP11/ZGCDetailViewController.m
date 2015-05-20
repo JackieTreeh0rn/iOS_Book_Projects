@@ -82,6 +82,7 @@
         self.imageView.image = [UIImage imageNamed:@"no_image.jpg"];
         // disable trash button
         self.trashButton.enabled = NO;
+        
     }
 
 }
