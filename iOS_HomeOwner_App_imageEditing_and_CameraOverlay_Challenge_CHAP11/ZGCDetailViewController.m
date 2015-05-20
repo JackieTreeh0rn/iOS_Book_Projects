@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
 @end
-
+//
 @implementation ZGCDetailViewController
 
 /* UINavigationControllers send out viewWillAppear: and viewWillDissapear: to the 
