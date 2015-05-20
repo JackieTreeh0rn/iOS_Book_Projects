@@ -8,6 +8,7 @@
 
 #import "ZGCImageStore.h"
 
+
 @interface ZGCImageStore ()
 
 // declaring property to hold on to the images
@@ -29,7 +30,7 @@
     }
     return sharedStore;
 }
-/*
+
 
 /* Noone should call init */
 - (instancetype)init {
@@ -58,10 +59,6 @@
 
 - (UIImage *)imageForKey:(NSString *)key {
     
-    UIImage *image = self.dictionary[key];
-    if (!self.dictionary[key]) {
-        return [UIImage a
-    }
     // return [self.dictionary objectForKey:key];
     return self.dictionary[key]; // switching to shorthand
     

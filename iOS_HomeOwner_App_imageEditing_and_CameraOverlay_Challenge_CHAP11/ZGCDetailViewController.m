@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
 @end
 
 @implementation ZGCDetailViewController
@@ -70,13 +71,24 @@
     self.dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
     
     // Define image for the item per what is stored in the image store (dictionary)
-    self.imageView.image = [[ZGCImageStore sharedStore] imageForKey:self.item.itemKey];
-    
-    
+    UIImage *image = [[ZGCImageStore sharedStore] imageForKey:self.item.itemKey];
+    if (image) {
+        // Configure dictionary image
+        self.imageView.image = image;
+        // enable trash button
+        self.trashButton.enabled = YES;
+    } else {
+        // configure paceholder image
+        self.imageView.image = [UIImage imageNamed:@"no_image.jpg"];
+        // disable trash button
+        self.trashButton.enabled = NO;
+    }
+
 }
 
+
 /* Overriding viewWillDissapear: to set the properties
- of its 'item' to the contents of the textfields when 
+ of its 'item' to the contents of the textfields when
  popping it off the stack 
  */
 - (void)viewWillDisappear:(BOOL)animated {
@@ -93,6 +105,7 @@
     
 }
 
+
 # pragma mark - Target Actions
 
 - (IBAction)takePicture:(id)sender {
@@ -108,17 +121,35 @@
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     
+    // -- BRONZE CHALLENGE -- EDITING AN IMAGE / HANDING OVER EDITED VERSION - part1 -- //
+    // set editing property
+    
     // Allow Editing
     imagePicker.allowsEditing = YES;
-    
     // Define delegate
     imagePicker.delegate = self;
     
     // Present the UIViewController's view on the screen -MODALLY-
     [self presentViewController:imagePicker animated:YES completion:nil];
     
-    
 }
+
+
+// --- SILVER CHALLENGE -- // Add a clear picture button //
+- (IBAction)clearPicture:(id)sender {
+    
+    // Remove from image shared store
+    [[ZGCImageStore sharedStore] deleteImageForKey:self.item.itemKey];
+    
+    // Update imageview image
+    self.imageView.image = [UIImage imageNamed:@"no_image.jpg"];
+    
+    // Disable Trash button
+    self.trashButton.enabled = NO;
+    
+
+}
+
 
 // Changed this view's class from UIView to UIControl so that it can respond to events (like being tapped)
 - (IBAction)backgroundTapped:(id)sender {
@@ -140,18 +171,23 @@
     
 }
 
+
 # pragma mark - UIImagePickerController Delegate Methods
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
+    // -- BRONZE CHALLENGE -- EDITING AN IMAGE / HANDING OVER EDITED VERSION - part2 -- //
+    // supply edited version of image
+    
     // Get picked image from info dictionary
-    UIImage *image = info[UIImagePickerControllerOriginalImage]; // keys in this dict. are defined constants - use reference
+    UIImage *image = info[UIImagePickerControllerEditedImage]; // keys in this dict. are defined constants - use reference
     
     // Store the image in the ZGCImageStore for this item's key
     [[ZGCImageStore sharedStore] setImage:image forKey:self.item.itemKey];
     
     // Put image onto the screeen in our image view
     self.imageView.image = image;
+
     
     // Take the image picker off the screen, call this dismiss Modal controller method
     [self dismissViewControllerAnimated:YES completion:nil];
