@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
 @property (strong, nonatomic) IBOutlet UIView *overlayView;
-
 @end
 
 @implementation ZGCDetailViewController
@@ -119,22 +118,27 @@
     // If the device has a camera, take a picture, otherwise...
     // Just pick from photo library
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) { // <- convinience +method
+        // set source to camera
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        // playing with mediatypes, here setting to all available types for camera (video and stills)
+        // note: will crash when setting an UIImageview to a video
+        imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
         
         // GOLD CHALLENGE // - add overlay with crosshair when in camera mode
-        // imagePicker.showsCameraControls = NO;
-        [[NSBundle mainBundle] loadNibNamed:@"OverlayView.xib" owner:self options:nil]; // <- load XIB for my OverlayView
-        // self.overlayView.frame = imagePicker.cameraOverlayView.frame;
+        // In this case I could have proba. just add an UIImageView without a NIB since just presenting a crosshair.
+        // NIB would make more sense for more complex overlay
+        [[NSBundle mainBundle] loadNibNamed:@"OverlayView" owner:self options:nil]; // <- load XIB for my OverlayView
+        // self.overlayView.frame = imagePicker.cameraOverlayView.frame; // takes up entire screen - use your own camera controls
         imagePicker.cameraOverlayView = self.overlayView;
-        
+        self.overlayView = nil;
         
     } else {
+        
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
     }
     
     // -- BRONZE CHALLENGE -- EDITING AN IMAGE / HANDING OVER EDITED VERSION - part1 -- //
-    // set editing property
-    
     // Allow Editing
     imagePicker.allowsEditing = YES;
     // Define delegate

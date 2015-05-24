@@ -17,11 +17,12 @@
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="focusedx128" translatesAutoresizingMaskIntoConstraints="NO" id="AC6-oN-oZa">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="136" y="254" width="128" height="92"/>
+                        <rect key="frame" x="136" y="215" width="128" height="92"/>
                     </variation>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="AC6-oN-oZa"/>
