@@ -89,7 +89,7 @@
         // disable trash button
         self.trashButton.enabled = NO;
         
-    } //test//
+    }
 
 }
 
@@ -165,7 +165,8 @@
         
         imagePicker.cameraOverlayView = self.overlayView;
         
-        //self.overlayView = nil;
+        // self.overlayView = nil;
+        
         
     } else {
         
