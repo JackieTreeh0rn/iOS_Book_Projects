@@ -185,7 +185,7 @@
 }
 
 
-// --- SILVER CHALLENGE -- // Add a clear picture button //
+// -- SILVER CHALLENGE -- // Add a clear picture button //
 - (IBAction)clearPicture:(id)sender {
     
     // Remove from image shared store
