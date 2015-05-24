@@ -24,6 +24,7 @@
 
 @implementation ZGCDetailViewController
 
+# pragma mark - View life cycle
 /* UINavigationControllers send out viewWillAppear: and viewWillDissapear: to the 
  UIViewControllers as viewcontrollers are popped in and out of the stack */
 
@@ -31,9 +32,11 @@
  subviews of this controller's view to show the
  properties of the item 
  */
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated]; //you always call super on this method as per the reference
-    
+
     ZGCItem *item = self.item;
 
     self.nameField.text = item.itemName;
