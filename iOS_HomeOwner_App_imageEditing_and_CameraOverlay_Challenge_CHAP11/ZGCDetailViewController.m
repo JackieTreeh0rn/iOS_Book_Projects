@@ -79,8 +79,10 @@
     if (image) {
         // Configure dictionary image
         self.imageView.image = image;
+        
         // enable trash button
         self.trashButton.enabled = YES;
+        
     } else {
         // configure paceholder image
         self.imageView.image = [UIImage imageNamed:@"no_image.jpg"];
@@ -108,6 +110,31 @@
     item.serialNumber = self.serialNumberField.text;
     item.valueInDollars = [self.valueField.text intValue]; // NSString to int
     
+    
+}
+
+
+/* Overriding viewDidLoad to register for notifications 
+ to when a photo is taken or dismissed to hide the camera overlay
+ otherwise, overlay -crosshairs- appear on preview */
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // Found this online - allows me to log all notifications as they post to keep track
+    // You typically store observer objects used in notifications so that you can remove them later...
+    /*
+     [[NSNotificationCenter defaultCenter] addObserverForName:nil object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"Notification: %@", note.name);
+    }];
+     */
+    
+    // GOLD CHALLENGE - part 2 - notificaitons to hide overlayview when image is being previewed //
+    // Register for camera pick controller notifications
+    // note: always store the observer so you can remove it from notificaiton center when done
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideOverlay:) name:@"_UIImagePickerControllerUserDidCaptureItem" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideOverlay:) name:@"_UIImagePickerControllerUserDidRejectItem" object:nil];
+
+    
 }
 
 
@@ -123,17 +150,22 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) { // <- convinience +method
         // set source to camera
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        // playing with mediatypes, here setting to all available types for camera (video and stills)
-        // note: will crash when setting an UIImageview to a video
-        imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
         
-        // GOLD CHALLENGE // - add overlay with crosshair when in camera mode
-        // In this case I could have proba. just add an UIImageView without a NIB since just presenting a crosshair.
+        // Playing with mediatypes, here setting to all available types for camera mode (video and stills)
+        // note: will crash when setting an UIImageview to a video
+        // imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        
+        
+        // GOLD CHALLENGE - Part1 // - add overlay with crosshair when in camera mode
+        // In this case I could have just added an UIImageView without a NIB since just presenting a crosshair.
         // NIB would make more sense for more complex overlay
-        [[NSBundle mainBundle] loadNibNamed:@"OverlayView" owner:self options:nil]; // <- load XIB for my OverlayView
+        [[NSBundle mainBundle] loadNibNamed:@"OverlayView" owner:self options:nil]; // <- load XIB for my OverlayView - view has clear background
+        
         // self.overlayView.frame = imagePicker.cameraOverlayView.frame; // takes up entire screen - use your own camera controls
+        
         imagePicker.cameraOverlayView = self.overlayView;
-        self.overlayView = nil;
+        
+        //self.overlayView = nil;
         
     } else {
         
@@ -175,6 +207,22 @@
     [self.view endEditing:YES];
 }
 
+
+// Notification action - hidding overlay via notificaiton center observers,
+// during preview mode
+- (void)hideOverlay:(NSNotification *)note {
+    
+    // Log the notification
+    NSLog(@"%@", note.name);
+    
+    if ([note.name isEqualToString: @"_UIImagePickerControllerUserDidCaptureItem"]) {
+        self.overlayView.hidden = YES;
+    } else {
+        self.overlayView.hidden = NO;
+    }
+    
+}
+
 #
 
 
@@ -205,7 +253,6 @@
     
     // Put image onto the screeen in our image view
     self.imageView.image = image;
-
     
     // Take the image picker off the screen, call this dismiss Modal controller method
     [self dismissViewControllerAnimated:YES completion:nil];
