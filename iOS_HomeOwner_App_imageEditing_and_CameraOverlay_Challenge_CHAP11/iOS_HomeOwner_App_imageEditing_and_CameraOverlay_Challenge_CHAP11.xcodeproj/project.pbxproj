@@ -14,6 +14,7 @@
 		E2CB99311ADE1775002BFDFE /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2CB99301ADE1775002BFDFE /* HeaderView.xib */; };
 		E2D1F1751AE9EF3A00D2B6FF /* ZGCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D1F1731AE9EF3A00D2B6FF /* ZGCDetailViewController.m */; };
 		E2D1F1761AE9EF3A00D2B6FF /* ZGCDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D1F1741AE9EF3A00D2B6FF /* ZGCDetailViewController.xib */; };
+		E2EE7C221B11613F004B47EB /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2EE7C211B11613F004B47EB /* OverlayView.xib */; };
 		E2FB542C1AB1436B003DE90B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB542B1AB1436B003DE90B /* main.m */; };
 		E2FB542F1AB1436B003DE90B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FB542E1AB1436B003DE90B /* AppDelegate.m */; };
 		E2FB54311AB1436B003DE90B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2FB54301AB1436B003DE90B /* Images.xcassets */; };
@@ -44,6 +45,7 @@
 		E2D1F1721AE9EF3A00D2B6FF /* ZGCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCDetailViewController.h; sourceTree = "<group>"; };
 		E2D1F1731AE9EF3A00D2B6FF /* ZGCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCDetailViewController.m; sourceTree = "<group>"; };
 		E2D1F1741AE9EF3A00D2B6FF /* ZGCDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZGCDetailViewController.xib; sourceTree = "<group>"; };
+		E2EE7C211B11613F004B47EB /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 		E2FB54261AB1436B003DE90B /* iOS_HomeOwner_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_HomeOwner_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FB542A1AB1436B003DE90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2FB542B1AB1436B003DE90B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				E2D1F1741AE9EF3A00D2B6FF /* ZGCDetailViewController.xib */,
 				E2CB99301ADE1775002BFDFE /* HeaderView.xib */,
 				E2FB54321AB1436B003DE90B /* LaunchScreen.xib */,
+				E2EE7C211B11613F004B47EB /* OverlayView.xib */,
 			);
 			name = View;
 			path = ..;
@@ -218,6 +221,7 @@
 				TargetAttributes = {
 					E2FB54251AB1436B003DE90B = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 4BSV5S464U;
 					};
 					E2FB54381AB1436B003DE90B = {
 						CreatedOnToolsVersion = 6.1;
@@ -251,6 +255,7 @@
 			files = (
 				E2CB99311ADE1775002BFDFE /* HeaderView.xib in Resources */,
 				E2FB54341AB1436B003DE90B /* LaunchScreen.xib in Resources */,
+				E2EE7C221B11613F004B47EB /* OverlayView.xib in Resources */,
 				E2D1F1761AE9EF3A00D2B6FF /* ZGCDetailViewController.xib in Resources */,
 				E2FB54311AB1436B003DE90B /* Images.xcassets in Resources */,
 			);
@@ -391,10 +396,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iOS_HomeOwner_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -403,10 +411,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iOS_HomeOwner_App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

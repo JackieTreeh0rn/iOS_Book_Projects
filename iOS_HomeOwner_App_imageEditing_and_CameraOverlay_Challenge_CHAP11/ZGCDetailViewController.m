@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *trashButton;
+@property (strong, nonatomic) IBOutlet UIView *overlayView;
+
 @end
 
 @implementation ZGCDetailViewController
@@ -118,6 +120,14 @@
     // Just pick from photo library
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) { // <- convinience +method
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        // GOLD CHALLENGE // - add overlay with crosshair when in camera mode
+        // imagePicker.showsCameraControls = NO;
+        [[NSBundle mainBundle] loadNibNamed:@"OverlayView.xib" owner:self options:nil]; // <- load XIB for my OverlayView
+        // self.overlayView.frame = imagePicker.cameraOverlayView.frame;
+        imagePicker.cameraOverlayView = self.overlayView;
+        
+        
     } else {
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }

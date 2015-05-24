@@ -81,7 +81,7 @@
      when cellForView protocol method is called */
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
-/* //Using navigation bar now
+/*  //Using navigation bar now
     // Tell the table view about the headerview
     UIView *header = self.headerView; // loaded from the NIB
     [self.tableView setTableHeaderView:header]; // link to tableview

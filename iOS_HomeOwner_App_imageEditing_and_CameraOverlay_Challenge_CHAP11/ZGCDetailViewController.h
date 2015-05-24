@@ -9,7 +9,5 @@
 @class ZGCItem;
 
 @interface ZGCDetailViewController : UIViewController
-
 @property (nonatomic, strong) ZGCItem *item;
-
 @end
