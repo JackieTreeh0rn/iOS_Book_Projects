@@ -38,7 +38,7 @@
     [super viewWillAppear:animated]; //you always call super on this method as per the reference
 
     ZGCItem *item = self.item;
-
+    
     self.nameField.text = item.itemName;
     self.nameField.returnKeyType = UIReturnKeyDone;
     self.serialNumberField.text = item.serialNumber;
