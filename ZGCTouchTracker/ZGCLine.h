@@ -1,16 +1,23 @@
 //
-//  ZGCTouch.h
+//  ZGCLine.h
 //  ZGCTouchTracker
 //
-//  Created by EviLKerneL on 5/25/15.
+//  Created by EviLKerneL on 5/31/15.
 //  Copyright (c) 2015 EviLKerneL. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+// #import <Foundation/Foundation.h>
+ #import <UIKit/UIKit.h>
+// #import <CoreGraphics/CoreGraphics.h>
+
+
+
 
 @interface ZGCLine : NSObject
 
 @property (nonatomic) CGPoint begin;
 @property (nonatomic) CGPoint end;
+
+
 
 @end

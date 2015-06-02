@@ -12,9 +12,9 @@
 		E21D51E01B12DB17000D91EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21D51DF1B12DB17000D91EB /* Images.xcassets */; };
 		E21D51E31B12DB17000D91EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21D51E11B12DB17000D91EB /* LaunchScreen.xib */; };
 		E21D51EF1B12DB17000D91EB /* ZGCTouchTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E21D51EE1B12DB17000D91EB /* ZGCTouchTrackerTests.m */; };
-		E21D51FE1B12DDEA000D91EB /* ZGCLine.m in Sources */ = {isa = PBXBuildFile; fileRef = E21D51FD1B12DDEA000D91EB /* ZGCLine.m */; };
 		E21D52031B12E066000D91EB /* ZGCDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = E21D52021B12E066000D91EB /* ZGCDrawView.m */; };
 		E21D52061B12E0E8000D91EB /* ZGCDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21D52051B12E0E8000D91EB /* ZGCDrawViewController.m */; };
+		E22AE01A1B1B656B00AA994F /* ZGCLine.m in Sources */ = {isa = PBXBuildFile; fileRef = E22AE0191B1B656B00AA994F /* ZGCLine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,12 +38,12 @@
 		E21D51E81B12DB17000D91EB /* ZGCTouchTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZGCTouchTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21D51ED1B12DB17000D91EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21D51EE1B12DB17000D91EB /* ZGCTouchTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZGCTouchTrackerTests.m; sourceTree = "<group>"; };
-		E21D51FC1B12DDEA000D91EB /* ZGCLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCLine.h; sourceTree = "<group>"; };
-		E21D51FD1B12DDEA000D91EB /* ZGCLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCLine.m; sourceTree = "<group>"; };
 		E21D52011B12E066000D91EB /* ZGCDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCDrawView.h; sourceTree = "<group>"; };
 		E21D52021B12E066000D91EB /* ZGCDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCDrawView.m; sourceTree = "<group>"; };
 		E21D52041B12E0E8000D91EB /* ZGCDrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCDrawViewController.h; sourceTree = "<group>"; };
 		E21D52051B12E0E8000D91EB /* ZGCDrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCDrawViewController.m; sourceTree = "<group>"; };
+		E22AE0181B1B656B00AA994F /* ZGCLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCLine.h; sourceTree = "<group>"; };
+		E22AE0191B1B656B00AA994F /* ZGCLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGCLine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +124,8 @@
 		E21D51FB1B12DBA4000D91EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E21D51FC1B12DDEA000D91EB /* ZGCLine.h */,
-				E21D51FD1B12DDEA000D91EB /* ZGCLine.m */,
+				E22AE0181B1B656B00AA994F /* ZGCLine.h */,
+				E22AE0191B1B656B00AA994F /* ZGCLine.m */,
 			);
 			name = Model;
 			path = ..;
@@ -202,6 +202,7 @@
 				TargetAttributes = {
 					E21D51D11B12DB17000D91EB = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 4BSV5S464U;
 					};
 					E21D51E71B12DB17000D91EB = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -252,10 +253,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E21D51FE1B12DDEA000D91EB /* ZGCLine.m in Sources */,
 				E21D52061B12E0E8000D91EB /* ZGCDrawViewController.m in Sources */,
 				E21D52031B12E066000D91EB /* ZGCDrawView.m in Sources */,
 				E21D51DB1B12DB17000D91EB /* AppDelegate.m in Sources */,
+				E22AE01A1B1B656B00AA994F /* ZGCLine.m in Sources */,
 				E21D51D81B12DB17000D91EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +375,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ZGCTouchTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -384,7 +388,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ZGCTouchTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -443,6 +450,7 @@
 				E21D51F41B12DB17000D91EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E21D51F51B12DB17000D91EB /* Build configuration list for PBXNativeTarget "ZGCTouchTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +459,7 @@
 				E21D51F71B12DB17000D91EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

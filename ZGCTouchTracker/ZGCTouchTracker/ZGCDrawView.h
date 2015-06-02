@@ -1,13 +1,13 @@
 //
-//  ZGCLine.m
+//  ZGCDrawView.h
 //  ZGCTouchTracker
 //
 //  Created by EviLKerneL on 5/31/15.
 //  Copyright (c) 2015 EviLKerneL. All rights reserved.
 //
 
-#import "ZGCLine.h"
+#import <UIKit/UIKit.h>
 
-@implementation ZGCLine
+@interface ZGCDrawView : UIView
 
 @end

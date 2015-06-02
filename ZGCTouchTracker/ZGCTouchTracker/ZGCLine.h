@@ -1,13 +1,13 @@
 //
-//  ZGCLine.m
+//  ZGCLine.h
 //  ZGCTouchTracker
 //
 //  Created by EviLKerneL on 5/31/15.
 //  Copyright (c) 2015 EviLKerneL. All rights reserved.
 //
 
-#import "ZGCLine.h"
+#import <Foundation/Foundation.h>
 
-@implementation ZGCLine
+@interface ZGCLine : NSObject
 
 @end
