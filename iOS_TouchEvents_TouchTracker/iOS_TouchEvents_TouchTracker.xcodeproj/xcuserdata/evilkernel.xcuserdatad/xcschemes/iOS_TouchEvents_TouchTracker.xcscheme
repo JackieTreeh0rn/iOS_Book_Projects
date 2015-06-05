@@ -15,23 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
-               BuildableName = "ZGCTouchTracker.app"
-               BlueprintName = "ZGCTouchTracker"
-               ReferencedContainer = "container:ZGCTouchTracker.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E21D51E71B12DB17000D91EB"
-               BuildableName = "ZGCTouchTrackerTests.xctest"
-               BlueprintName = "ZGCTouchTrackerTests"
-               ReferencedContainer = "container:ZGCTouchTracker.xcodeproj">
+               BuildableName = "iOS_TouchEvents_TouchTracker.app"
+               BlueprintName = "iOS_TouchEvents_TouchTracker"
+               ReferencedContainer = "container:iOS_TouchEvents_TouchTracker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E21D51E71B12DB17000D91EB"
-               BuildableName = "ZGCTouchTrackerTests.xctest"
-               BlueprintName = "ZGCTouchTrackerTests"
-               ReferencedContainer = "container:ZGCTouchTracker.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
-            BuildableName = "ZGCTouchTracker.app"
-            BlueprintName = "ZGCTouchTracker"
-            ReferencedContainer = "container:ZGCTouchTracker.xcodeproj">
+            BuildableName = "iOS_TouchEvents_TouchTracker.app"
+            BlueprintName = "iOS_TouchEvents_TouchTracker"
+            ReferencedContainer = "container:iOS_TouchEvents_TouchTracker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
-            BuildableName = "ZGCTouchTracker.app"
-            BlueprintName = "ZGCTouchTracker"
-            ReferencedContainer = "container:ZGCTouchTracker.xcodeproj">
+            BuildableName = "iOS_TouchEvents_TouchTracker.app"
+            BlueprintName = "iOS_TouchEvents_TouchTracker"
+            ReferencedContainer = "container:iOS_TouchEvents_TouchTracker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
-            BuildableName = "ZGCTouchTracker.app"
-            BlueprintName = "ZGCTouchTracker"
-            ReferencedContainer = "container:ZGCTouchTracker.xcodeproj">
+            BuildableName = "iOS_TouchEvents_TouchTracker.app"
+            BlueprintName = "iOS_TouchEvents_TouchTracker"
+            ReferencedContainer = "container:iOS_TouchEvents_TouchTracker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

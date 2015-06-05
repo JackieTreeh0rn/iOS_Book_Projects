@@ -28,14 +28,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E21D51D21B12DB17000D91EB /* ZGCTouchTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZGCTouchTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E21D51D21B12DB17000D91EB /* iOS_TouchEvents_TouchTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_TouchEvents_TouchTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21D51D61B12DB17000D91EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21D51D71B12DB17000D91EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E21D51D91B12DB17000D91EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ZGCTouchTracker/AppDelegate.h; sourceTree = "<group>"; };
 		E21D51DA1B12DB17000D91EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ZGCTouchTracker/AppDelegate.m; sourceTree = "<group>"; };
 		E21D51DF1B12DB17000D91EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E21D51E21B12DB17000D91EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		E21D51E81B12DB17000D91EB /* ZGCTouchTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZGCTouchTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E21D51E81B12DB17000D91EB /* iOS_TouchEvents_TouchTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_TouchEvents_TouchTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21D51ED1B12DB17000D91EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21D51EE1B12DB17000D91EB /* ZGCTouchTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZGCTouchTrackerTests.m; sourceTree = "<group>"; };
 		E21D52011B12E066000D91EB /* ZGCDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGCDrawView.h; sourceTree = "<group>"; };
@@ -76,8 +76,8 @@
 		E21D51D31B12DB17000D91EB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E21D51D21B12DB17000D91EB /* ZGCTouchTracker.app */,
-				E21D51E81B12DB17000D91EB /* ZGCTouchTrackerTests.xctest */,
+				E21D51D21B12DB17000D91EB /* iOS_TouchEvents_TouchTracker.app */,
+				E21D51E81B12DB17000D91EB /* iOS_TouchEvents_TouchTrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,9 +156,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E21D51D11B12DB17000D91EB /* ZGCTouchTracker */ = {
+		E21D51D11B12DB17000D91EB /* iOS_TouchEvents_TouchTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E21D51F21B12DB17000D91EB /* Build configuration list for PBXNativeTarget "ZGCTouchTracker" */;
+			buildConfigurationList = E21D51F21B12DB17000D91EB /* Build configuration list for PBXNativeTarget "iOS_TouchEvents_TouchTracker" */;
 			buildPhases = (
 				E21D51CE1B12DB17000D91EB /* Sources */,
 				E21D51CF1B12DB17000D91EB /* Frameworks */,
@@ -168,14 +168,14 @@
 			);
 			dependencies = (
 			);
-			name = ZGCTouchTracker;
+			name = iOS_TouchEvents_TouchTracker;
 			productName = ZGCTouchTracker;
-			productReference = E21D51D21B12DB17000D91EB /* ZGCTouchTracker.app */;
+			productReference = E21D51D21B12DB17000D91EB /* iOS_TouchEvents_TouchTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E21D51E71B12DB17000D91EB /* ZGCTouchTrackerTests */ = {
+		E21D51E71B12DB17000D91EB /* iOS_TouchEvents_TouchTrackerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E21D51F51B12DB17000D91EB /* Build configuration list for PBXNativeTarget "ZGCTouchTrackerTests" */;
+			buildConfigurationList = E21D51F51B12DB17000D91EB /* Build configuration list for PBXNativeTarget "iOS_TouchEvents_TouchTrackerTests" */;
 			buildPhases = (
 				E21D51E41B12DB17000D91EB /* Sources */,
 				E21D51E51B12DB17000D91EB /* Frameworks */,
@@ -186,9 +186,9 @@
 			dependencies = (
 				E21D51EA1B12DB17000D91EB /* PBXTargetDependency */,
 			);
-			name = ZGCTouchTrackerTests;
+			name = iOS_TouchEvents_TouchTrackerTests;
 			productName = ZGCTouchTrackerTests;
-			productReference = E21D51E81B12DB17000D91EB /* ZGCTouchTrackerTests.xctest */;
+			productReference = E21D51E81B12DB17000D91EB /* iOS_TouchEvents_TouchTrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -210,7 +210,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E21D51CD1B12DB17000D91EB /* Build configuration list for PBXProject "ZGCTouchTracker" */;
+			buildConfigurationList = E21D51CD1B12DB17000D91EB /* Build configuration list for PBXProject "iOS_TouchEvents_TouchTracker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -223,8 +223,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E21D51D11B12DB17000D91EB /* ZGCTouchTracker */,
-				E21D51E71B12DB17000D91EB /* ZGCTouchTrackerTests */,
+				E21D51D11B12DB17000D91EB /* iOS_TouchEvents_TouchTracker */,
+				E21D51E71B12DB17000D91EB /* iOS_TouchEvents_TouchTrackerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -274,7 +274,7 @@
 /* Begin PBXTargetDependency section */
 		E21D51EA1B12DB17000D91EB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E21D51D11B12DB17000D91EB /* ZGCTouchTracker */;
+			target = E21D51D11B12DB17000D91EB /* iOS_TouchEvents_TouchTracker */;
 			targetProxy = E21D51E91B12DB17000D91EB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -380,7 +380,7 @@
 				INFOPLIST_FILE = ZGCTouchTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iOS_TouchEvents_TouchTracker;
 			};
 			name = Debug;
 		};
@@ -393,7 +393,7 @@
 				INFOPLIST_FILE = ZGCTouchTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iOS_TouchEvents_TouchTracker;
 			};
 			name = Release;
 		};
@@ -411,7 +411,7 @@
 				);
 				INFOPLIST_FILE = ZGCTouchTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iOS_TouchEvents_TouchTrackerTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZGCTouchTracker.app/ZGCTouchTracker";
 			};
 			name = Debug;
@@ -426,7 +426,7 @@
 				);
 				INFOPLIST_FILE = ZGCTouchTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iOS_TouchEvents_TouchTrackerTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZGCTouchTracker.app/ZGCTouchTracker";
 			};
 			name = Release;
@@ -434,7 +434,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E21D51CD1B12DB17000D91EB /* Build configuration list for PBXProject "ZGCTouchTracker" */ = {
+		E21D51CD1B12DB17000D91EB /* Build configuration list for PBXProject "iOS_TouchEvents_TouchTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E21D51F01B12DB17000D91EB /* Debug */,
@@ -443,7 +443,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E21D51F21B12DB17000D91EB /* Build configuration list for PBXNativeTarget "ZGCTouchTracker" */ = {
+		E21D51F21B12DB17000D91EB /* Build configuration list for PBXNativeTarget "iOS_TouchEvents_TouchTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E21D51F31B12DB17000D91EB /* Debug */,
@@ -452,7 +452,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E21D51F51B12DB17000D91EB /* Build configuration list for PBXNativeTarget "ZGCTouchTrackerTests" */ = {
+		E21D51F51B12DB17000D91EB /* Build configuration list for PBXNativeTarget "iOS_TouchEvents_TouchTrackerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E21D51F61B12DB17000D91EB /* Debug */,

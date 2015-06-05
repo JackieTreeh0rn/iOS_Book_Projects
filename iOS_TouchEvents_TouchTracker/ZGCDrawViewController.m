@@ -9,6 +9,13 @@
 #import "ZGCDrawViewController.h"
 #import "ZGCDrawView.h"
 
+// C helper function - retrieve docs path
+NSString *ZGCDocsPath() {
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); // foundation function
+    return [pathList[0] stringByAppendingPathComponent:@"lines.plist"];
+}
+
+
 @interface ZGCDrawViewController ()
 
 @end
