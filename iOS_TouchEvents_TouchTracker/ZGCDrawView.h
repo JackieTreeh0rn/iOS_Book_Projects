@@ -10,4 +10,8 @@
 
 @interface ZGCDrawView : UIView
 
+
+- (void)saveChanges;
+
+
 @end

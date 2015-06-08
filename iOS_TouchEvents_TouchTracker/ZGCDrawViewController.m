@@ -9,12 +9,6 @@
 #import "ZGCDrawViewController.h"
 #import "ZGCDrawView.h"
 
-// C helper function - retrieve docs path
-NSString *ZGCDocsPath() {
-    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); // foundation function
-    return [pathList[0] stringByAppendingPathComponent:@"lines.plist"];
-}
-
 
 @interface ZGCDrawViewController ()
 
@@ -29,6 +23,7 @@ NSString *ZGCDocsPath() {
     // overriding loadView method to load my own view
     self.view = [[ZGCDrawView alloc] initWithFrame:CGRectZero];
     
+    
 }
 
 - (void)viewDidLoad {
@@ -38,8 +33,10 @@ NSString *ZGCDocsPath() {
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

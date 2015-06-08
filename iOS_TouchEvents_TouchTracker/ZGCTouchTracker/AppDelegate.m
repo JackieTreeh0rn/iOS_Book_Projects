@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ZGCDrawViewController.h"
+#import "ZGCDrawView.h"
 
 @interface AppDelegate ()
 
@@ -36,6 +37,10 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    // Typecasting this variable in order to make it a ZGCDrawView type.
+    ZGCDrawView *theView = (ZGCDrawView *)self.window.rootViewController.view;
+    [theView saveChanges];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

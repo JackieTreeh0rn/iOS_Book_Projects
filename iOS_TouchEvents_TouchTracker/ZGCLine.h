@@ -12,7 +12,7 @@
 
 
 
-@interface ZGCLine : NSObject
+@interface ZGCLine : NSObject <NSCoding>
 
 @property (nonatomic) CGPoint begin;
 @property (nonatomic) CGPoint end;
