@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
                BuildableName = "iOS_TouchEvents_TouchTracker.app"
-               BlueprintName = "iOS_TouchEvents_TouchTracker"
-               ReferencedContainer = "container:iOS_TouchEvents_TouchTracker.xcodeproj">
+               BlueprintName = "iOS_TouchEvents_TouchTracker_wCircleSupport"
+               ReferencedContainer = "container:iOS_TouchEvents_TouchTracker_wCircleSupport.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
             BuildableName = "iOS_TouchEvents_TouchTracker.app"
-            BlueprintName = "iOS_TouchEvents_TouchTracker"
-            ReferencedContainer = "container:iOS_TouchEvents_TouchTracker.xcodeproj">
+            BlueprintName = "iOS_TouchEvents_TouchTracker_wCircleSupport"
+            ReferencedContainer = "container:iOS_TouchEvents_TouchTracker_wCircleSupport.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -54,8 +54,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
             BuildableName = "iOS_TouchEvents_TouchTracker.app"
-            BlueprintName = "iOS_TouchEvents_TouchTracker"
-            ReferencedContainer = "container:iOS_TouchEvents_TouchTracker.xcodeproj">
+            BlueprintName = "iOS_TouchEvents_TouchTracker_wCircleSupport"
+            ReferencedContainer = "container:iOS_TouchEvents_TouchTracker_wCircleSupport.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -73,8 +73,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
             BuildableName = "iOS_TouchEvents_TouchTracker.app"
-            BlueprintName = "iOS_TouchEvents_TouchTracker"
-            ReferencedContainer = "container:iOS_TouchEvents_TouchTracker.xcodeproj">
+            BlueprintName = "iOS_TouchEvents_TouchTracker_wCircleSupport"
+            ReferencedContainer = "container:iOS_TouchEvents_TouchTracker_wCircleSupport.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
