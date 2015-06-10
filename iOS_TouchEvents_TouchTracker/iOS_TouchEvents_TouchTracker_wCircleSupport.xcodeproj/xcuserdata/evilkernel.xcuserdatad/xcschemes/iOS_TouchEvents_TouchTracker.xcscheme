@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
-               BuildableName = "iOS_TouchEvents_TouchTracker.app"
+               BuildableName = "iOS_TouchEvents_TouchTracker_wCircleSupport.app"
                BlueprintName = "iOS_TouchEvents_TouchTracker_wCircleSupport"
                ReferencedContainer = "container:iOS_TouchEvents_TouchTracker_wCircleSupport.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
-            BuildableName = "iOS_TouchEvents_TouchTracker.app"
+            BuildableName = "iOS_TouchEvents_TouchTracker_wCircleSupport.app"
             BlueprintName = "iOS_TouchEvents_TouchTracker_wCircleSupport"
             ReferencedContainer = "container:iOS_TouchEvents_TouchTracker_wCircleSupport.xcodeproj">
          </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
-            BuildableName = "iOS_TouchEvents_TouchTracker.app"
+            BuildableName = "iOS_TouchEvents_TouchTracker_wCircleSupport.app"
             BlueprintName = "iOS_TouchEvents_TouchTracker_wCircleSupport"
             ReferencedContainer = "container:iOS_TouchEvents_TouchTracker_wCircleSupport.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E21D51D11B12DB17000D91EB"
-            BuildableName = "iOS_TouchEvents_TouchTracker.app"
+            BuildableName = "iOS_TouchEvents_TouchTracker_wCircleSupport.app"
             BlueprintName = "iOS_TouchEvents_TouchTracker_wCircleSupport"
             ReferencedContainer = "container:iOS_TouchEvents_TouchTracker_wCircleSupport.xcodeproj">
          </BuildableReference>

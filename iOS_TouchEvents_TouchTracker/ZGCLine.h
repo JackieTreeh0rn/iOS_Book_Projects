@@ -9,13 +9,18 @@
 // #import <Foundation/Foundation.h>
  #import <UIKit/UIKit.h>
 
+#pragma mark - Constants
+typedef NS_ENUM(char, lineType) {
+    arc,
+    straight
+};
 
 
-
+#pragma mark - properties
 @interface ZGCLine : NSObject <NSCoding>
-
 @property (nonatomic) CGPoint begin;
 @property (nonatomic) CGPoint end;
+@property (nonatomic) lineType lineType; // draw line or circle
 
 
 

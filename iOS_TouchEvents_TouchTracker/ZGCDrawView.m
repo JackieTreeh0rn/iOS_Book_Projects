@@ -10,50 +10,80 @@
 #import "ZGCLine.h"
 
 #pragma mark - C helper functions
-// Retrieve iOS docs path
+
+// declarations
+double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2);
+int ZGCQuadrantforAngle(CGFloat degrees);
+NSString *ZGCDocsPath(void);
+
+
+// retrieve iOS docs path
 NSString *ZGCDocsPath() {
     NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); // foundation function
     return [pathList[0] stringByAppendingPathComponent:@"lines.plist"];
 }
 
 // Calculate line angle (between two points / two vectors
-// multiple ways to go about this, here using atan2(point, point) to simplify operation
+// multiple ways to go about this, calculating thetas and cos (trigonemetry way)
+// but in this case using math function atan2(point, point) to simplify operations
 double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
-    
     // calculate the distance/vectors between both points
     CGFloat dx = point2.x - point1.x;
-    CGFloat dy = point1.y - point2.y;
+    // CGFloat dy = point2.y - point1.y;
+    CGFloat dy = point1.y - point2.y; // <-- adjusting sign (-pi / +pi) to correct quadrant location
 
-    // calculate angle
-    CGFloat radian = atan2f(dy, dx); // bearing in radians
+    // calculate angle (returns bearing in radians)
+    CGFloat angleRad = atan2f(dy, dx);
 
-    // convert to degrees
-    CGFloat angle = radian * 180 / M_PI;
+    // convert radians to degrees
+    CGFloat angleDeg = angleRad * 180 / M_PI;
     
-    // Output Angle (in degrees) and Quadrant #
-    if (radian >= 0 &&  radian < M_PI/2  ){
-        NSLog(@" %.2f degrees : 1st Quadrant", angle);
-    }
-    else if (radian >= M_PI/2 && radian <  M_PI) {
-        NSLog(@" %.2f degrees : 2nd Quadrant", angle);
-    }
-    else if (radian >= - M_PI && radian  < -(M_PI/2)) {
-        NSLog(@" %.2f degrees : 3rd Quadrant", angle);
-    }
-    else if (radian >= -(M_PI/2) && radian < 0) {
-        NSLog(@" %.2f degrees : 4th Quadrant", angle);
-    }
+    // get quadrant for angle/point
+    int quadrant = ZGCQuadrantforAngle(angleDeg);
     
-    return angle;
+    // Log Angle (in degrees) and Quadrant #, and return it
+    NSLog(@" %.2f degrees : Quadrant %d ", angleDeg, quadrant);
+
+    return angleDeg;
     
 }
+
+int ZGCQuadrantforAngle(CGFloat degrees) {
+    // convert angle to radians
+    CGFloat angleRad = degrees * M_PI / 180.0;
+    
+    // determine quadrant for angle / log it / return it
+    int quadrant = 0;
+    if (angleRad >= 0 &&  angleRad < M_PI/2  ){
+        quadrant +=1;
+        // NSLog(@" %dst Quadrant", quadrant);
+    }
+    else if (angleRad >= M_PI/2 && angleRad <  M_PI) {
+        quadrant +=2;
+        // NSLog(@"%dnd Quadrant", quadrant);
+    }
+    else if (angleRad >= - M_PI && angleRad  < -(M_PI/2)) {
+        quadrant +=3;
+        // NSLog(@" %drd Quadrant", quadrant);
+    }
+    else if (angleRad >= -(M_PI/2) && angleRad < 0) {
+        quadrant +=4;
+        // NSLog(@" %dth Quadrant", quadrant);
+    }
+    
+    return quadrant;
+}
+
 #
 
 
 @interface ZGCDrawView ()
 // @property (nonatomic, strong) ZGCLine *currentLine;  <-- switching to dictionary for multiple touches / lines
 @property (nonatomic, strong) NSMutableDictionary *linesInProgress;
+@property (nonatomic, strong) NSMutableDictionary *circlesInProgress;
 @property (nonatomic, strong) NSMutableArray *finishedLines;
+@property (nonatomic, strong) NSMutableArray *finishedCircles;
+@property (nonatomic) lineType currentLineType;
 @end
 
 @implementation ZGCDrawView
@@ -127,85 +157,91 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 }
 
+- (void)strokeArc:(ZGCLine *)line {
+    
+}
+
 - (void)clearLines {
     [self.finishedLines removeAllObjects];
+    [self.finishedCircles removeAllObjects];
     [self setNeedsDisplay];
 }
 
 - (UIColor *)colorFromAngle:(ZGCLine *)line {
     // Get angle for line (in degrees)
-    CGFloat angleIn = ZGCAngleBetweenTwoPoints(line.begin, line.end);
+    CGFloat angleDeg = ZGCAngleBetweenTwoPoints(line.begin, line.end);
     
     // converting degrees to radian for below calculations
-    CGFloat angle = angleIn * M_PI / 180.0;
+    CGFloat angleRad = angleDeg * M_PI / 180.0;
     
-    // normalize atan from [-pi,pi] to [0,2pi]
+    // normalize atan2's return from [-pi,pi] to [0,2pi]
     // need this for the color logic below, otherwise you get limited color range
-    if (angle < 0) {
-        angle += 2 * M_PI;
+    if (angleRad < 0) {
+        angleRad += 2 * M_PI;
     }
     
-    // Begin color logic
+    // Begin color logic //
+    // define color variables R, G, B
     CGFloat redVal, greenVal, blueVal;
     
     // each pi/3 interval gets different rules
     // 0 to 30deg
-    if (angle > 0 && angle <= 1 * M_PI / 6.0) {
-        redVal = [self normalizeAngle:angle
+    if (angleRad > 0 && angleRad <= 1 * M_PI / 6.0) {
+        redVal = [self normalizeAngle:angleRad
                                  from:-M_PI / 6.0
                                    to:M_PI / 6.0];
         greenVal = 1;
         blueVal = 0;
         
     //30 to 90deg
-    } else if (angle > 1 * M_PI / 6.0 && angle <= 3 * M_PI / 6.0){
+    } else if (angleRad > 1 * M_PI / 6.0 && angleRad <= 3 * M_PI / 6.0){
         redVal = 1;
-        greenVal = 1 - [self normalizeAngle:angle
+        greenVal = 1 - [self normalizeAngle:angleRad
                                        from:1 * M_PI / 6.0
                                          to:3 * M_PI / 6.0];
         blueVal = 0;
         
     //90 to 150deg
-    } else if (angle > 3 * M_PI / 6.0 && angle <= 5 * M_PI / 6.0){
+    } else if (angleRad > 3 * M_PI / 6.0 && angleRad <= 5 * M_PI / 6.0){
         redVal = 1;
         greenVal = 0;
-        blueVal = [self normalizeAngle:angle
+        blueVal = [self normalizeAngle:angleRad
                                   from:3 * M_PI / 6.0
                                     to:5 * M_PI / 6.0];
         
     //150 to 210deg
-    } else if (angle > 5 * M_PI / 6.0 && angle <= 7 * M_PI / 6.0) {
-        redVal = 1 - [self normalizeAngle:angle
+    } else if (angleRad > 5 * M_PI / 6.0 && angleRad <= 7 * M_PI / 6.0) {
+        redVal = 1 - [self normalizeAngle:angleRad
                                      from:5 * M_PI / 6.0
                                        to:7 * M_PI / 6.0];
         greenVal = 0;
         blueVal = 1;
         
     //210 to 270deg
-    } else if (angle > 7 * M_PI / 6.0 && angle <= 9 * M_PI / 6.0) {
+    } else if (angleRad > 7 * M_PI / 6.0 && angleRad <= 9 * M_PI / 6.0) {
         redVal = 0;
-        greenVal = [self normalizeAngle:angle
+        greenVal = [self normalizeAngle:angleRad
                                    from:7 * M_PI / 6.0
                                      to:9 * M_PI / 6.0];
         blueVal = 1;
     
     //270 to 330deg
-    } else if (angle > 9 * M_PI / 6.0 && angle <= 11 * M_PI / 6.0){
+    } else if (angleRad > 9 * M_PI / 6.0 && angleRad <= 11 * M_PI / 6.0){
         redVal = 0;
         greenVal = 1;
-        blueVal = 1 - [self normalizeAngle:angle
+        blueVal = 1 - [self normalizeAngle:angleRad
                                       from:9 * M_PI / 6.0
                                         to:11 * M_PI / 6.0];
     //330 to 360deg
     } else {
-        redVal = [self normalizeAngle:angle
+        redVal = [self normalizeAngle:angleRad
                                  from:11 * M_PI / 6.0
                                    to:13 * M_PI / 6.0];
         greenVal = 1;
         blueVal = 0;
     }
     
-    NSLog(@"radians:%f, R:%f, G:%f, B:%f", angle, redVal, greenVal, blueVal);
+    NSLog(@"Radians:%f, Color field: R:%f, G:%f, B:%f", angleRad, redVal, greenVal, blueVal);
     
     return [UIColor colorWithRed:redVal green:greenVal blue:blueVal alpha:1.0];
 
@@ -244,8 +280,7 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         
         // Output line angle and quadrant as it is drawn
         ZGCLine *line = self.linesInProgress[key];
-        ZGCAngleBetweenTwoPoints(line.begin, line.end);
-
+        ZGCQuadrantforAngle(ZGCAngleBetweenTwoPoints(line.begin, line.end)); // function returns but also NSLogs
 
     }
     
@@ -273,13 +308,52 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     // ...configure each line w/the location off the touch object
     // ...generate a key value based off of touch object's memory address
     // ...add the lines to the dictionary
+    
+    // Circles logic
+    // if two fingers are used and they are on opposite quadrants,
+    // draw arcs
+    NSUInteger touchCount = touches.count;
+    
     for (UITouch *t in touches) {
         CGPoint location = [t locationInView:self];
+        
         ZGCLine *line = [[ZGCLine alloc] init];
         line.begin = location;
         line.end = location;
+        
+        // get quadrant for line location
+        int quadrant = ZGCQuadrantforAngle(ZGCAngleBetweenTwoPoints(line.begin, line.end));
+        
+        // get a key based on object memory location
         NSValue *key = [NSValue valueWithNonretainedObject:t];
-        self.linesInProgress[key] = line;
+        
+        // define line type (arc or straight) based on opposite quadrants of 2 fingers
+        if (touchCount == 2) {
+            switch (quadrant) {
+                case 1:
+                case 3:
+                    line.lineType = arc;
+                    self.currentLineType = line.lineType;
+                    self.circlesInProgress[key] = line;
+                    break;
+                case 2:
+                case 4:
+                    line.lineType = arc;
+                    self.currentLineType = line.lineType;
+                    self.circlesInProgress[key] = line;
+                    break;
+                    
+                default:
+                    line.lineType = straight;
+                    self.currentLineType = line.lineType;
+                    self.linesInProgress[key] = line;
+                    break;
+            }
+        } else { // more or less than two fingers, draw straight lines
+            line.lineType = straight;
+            self.currentLineType = line.lineType;
+            self.linesInProgress[key] = line;
+        }
     }
 
 /* switched to multitouch enabled approach *
@@ -305,10 +379,17 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     
     for (UITouch *t in touches) {
         NSValue *key = [NSValue valueWithNonretainedObject:t];
-        ZGCLine *line = self.linesInProgress[key];
-        line.end = [t locationInView:self];
+        if (self.currentLineType == arc) {
+            ZGCLine *line = self.circlesInProgress[key];
+            line.end = [t locationInView:self];
+        } else {
+            ZGCLine *line = self.linesInProgress[key];
+            line.end = [t locationInView:self];
+        }
+        
     }
-    
+
+
 /*  switched to multitouch enabled approach *
     UITouch *t = [touches anyObject];
     
@@ -328,10 +409,15 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     
     for (UITouch *t in touches) {
         NSValue *key = [NSValue valueWithNonretainedObject:t];
+        if (self.currentLineType == arc) {
+            ZGCLine *line = self.circlesInProgress[key];
+            [self.finishedCircles addObject:line];
+            [self.circlesInProgress removeObjectForKey:key];
+        } else {
         ZGCLine *line = self.linesInProgress[key];
         [self.finishedLines addObject:line];
         [self.linesInProgress removeObjectForKey:key]; // could have use 'removeAllObjects' in this case
-               
+        }
     }
 
 /*  switched to multitouch enabled approach *
@@ -348,11 +434,15 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     // (a phone calls comes in, etc)
     
     // Let's put in a log statement to see the order of events
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    // NSLog(@"%@", NSStringFromSelector(_cmd));
     
     for (UITouch *t in touches) {
         NSValue *key = [NSValue valueWithNonretainedObject:t];
         [self.linesInProgress removeObjectForKey:key];
+        [self.circlesInProgress removeObjectForKey:key];
+        
+        // shouldnt have to nil currentlinetype as it should go nil after the line object
+        // is removed from memory when it leaves the dictionary container.
         
         [self setNeedsDisplay];
         
