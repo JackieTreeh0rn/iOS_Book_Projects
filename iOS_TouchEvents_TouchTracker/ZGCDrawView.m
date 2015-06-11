@@ -9,6 +9,12 @@
 #import "ZGCDrawView.h"
 #import "ZGCLine.h"
 
+#pragma mark - Constants
+typedef NS_ENUM(char, lineType) {
+    arc,
+    straight
+};
+
 #pragma mark - C helper functions
 
 // declarations
@@ -83,7 +89,7 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
 @property (nonatomic, strong) NSMutableDictionary *circlesInProgress;
 @property (nonatomic, strong) NSMutableArray *finishedLines;
 @property (nonatomic, strong) NSMutableArray *finishedCircles;
-@property (nonatomic) lineType currentLineType;
+@property (nonatomic) lineType lineType;
 @end
 
 @implementation ZGCDrawView
@@ -309,11 +315,6 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     // ...generate a key value based off of touch object's memory address
     // ...add the lines to the dictionary
     
-    // Circles logic
-    // if two fingers are used and they are on opposite quadrants,
-    // draw arcs
-    NSUInteger touchCount = touches.count;
-    
     for (UITouch *t in touches) {
         CGPoint location = [t locationInView:self];
         
@@ -321,39 +322,12 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
         line.begin = location;
         line.end = location;
         
-        // get quadrant for line location
-        int quadrant = ZGCQuadrantforAngle(ZGCAngleBetweenTwoPoints(line.begin, line.end));
-        
         // get a key based on object memory location
         NSValue *key = [NSValue valueWithNonretainedObject:t];
         
-        // define line type (arc or straight) based on opposite quadrants of 2 fingers
-        if (touchCount == 2) {
-            switch (quadrant) {
-                case 1:
-                case 3:
-                    line.lineType = arc;
-                    self.currentLineType = line.lineType;
-                    self.circlesInProgress[key] = line;
-                    break;
-                case 2:
-                case 4:
-                    line.lineType = arc;
-                    self.currentLineType = line.lineType;
-                    self.circlesInProgress[key] = line;
-                    break;
-                    
-                default:
-                    line.lineType = straight;
-                    self.currentLineType = line.lineType;
-                    self.linesInProgress[key] = line;
-                    break;
-            }
-        } else { // more or less than two fingers, draw straight lines
-            line.lineType = straight;
-            self.currentLineType = line.lineType;
-            self.linesInProgress[key] = line;
-        }
+        // add to lines in progress
+        self.linesInProgress[key] = line;
+        
     }
 
 /* switched to multitouch enabled approach *
@@ -377,19 +351,52 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     // Let's put in a log statement  to see the order of events
    // NSLog(@"%@", NSStringFromSelector(_cmd));
     
+    // define array for quadrant logic
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    ZGCLine *line;
     for (UITouch *t in touches) {
         NSValue *key = [NSValue valueWithNonretainedObject:t];
-        if (self.currentLineType == arc) {
-            ZGCLine *line = self.circlesInProgress[key];
-            line.end = [t locationInView:self];
-        } else {
-            ZGCLine *line = self.linesInProgress[key];
-            line.end = [t locationInView:self];
+        line = self.linesInProgress[key];
+        line.end = [t locationInView:self];
+        
+        // Begin circle logic //
+        // If touch set == 2 fingers, get and set quadrant for each line
+        // and add to an array for further evaluation
+        if (touches.count == 2) {
+            line.lineQuadrant = ZGCQuadrantforAngle(ZGCAngleBetweenTwoPoints(line.begin, line.end));
+            [array addObject:line];
         }
         
     }
+    
+    // ... continued circle logic
+    if (array.count) {
+        // define two quadrants off of line
+        int quadrant1 = [array[0] lineQuadrant];
+        int quadrant2 = [array[1] lineQuadrant];
+        
+        // if opposite quadrants
+        BOOL isCircle = quadrant1 + quadrant2 == 6 || quadrant1 + quadrant2 == 9 || quadrant1 + quadrant2 == 8;
+        
+        if (isCircle) {
+            NSLog(@"opposite quadrants detected - it's a circle");
+            // Define line type
+            self.lineType = arc;
+            // switch to circles dictionary (build via default linesInProgress dict.)
+            [self.circlesInProgress addEntriesFromDictionary:self.linesInProgress];
+        } else {
+            self.lineType = straight; // no on the same quadrant, draw straight line
+        }
+
+        } else {
+            // no array found / no two lines on opposite quadrant
+            // set line type as straight
+            self.lineType = straight;
+        }
+    
 
 
+    
 /*  switched to multitouch enabled approach *
     UITouch *t = [touches anyObject];
     
@@ -409,7 +416,7 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     
     for (UITouch *t in touches) {
         NSValue *key = [NSValue valueWithNonretainedObject:t];
-        if (self.currentLineType == arc) {
+        if (self.lineType == arc) {
             ZGCLine *line = self.circlesInProgress[key];
             [self.finishedCircles addObject:line];
             [self.circlesInProgress removeObjectForKey:key];
