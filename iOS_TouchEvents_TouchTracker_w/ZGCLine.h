@@ -10,11 +10,12 @@
  #import <UIKit/UIKit.h>
 
 
-#pragma mark - properties
+
+
 @interface ZGCLine : NSObject <NSCoding>
+
 @property (nonatomic) CGPoint begin;
 @property (nonatomic) CGPoint end;
-@property (nonatomic) int lineQuadrant;
 
 
 

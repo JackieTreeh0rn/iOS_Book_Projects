@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>0295DBB4-7E8F-4A6D-8E6A-84EBE915B55C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>iOS_TouchEvents_TouchTracker_wCircle_Support</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>F4EFF53437593020BC795363CDB52EE47A2CD5E2</key>
 		<string>https://github.com/fsck66/iOS_Book_Projects.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS_TouchEvents_TouchTracker_wCircle_Support/iOS_TouchEvents_TouchTracker_wCircle_Support.xcodeproj/project.xcworkspace</string>
+	<string>iOS_TouchEvents_TouchTracker_wCircle_Support/iOS_TouchEvents_TouchTracker_wCircle_Support.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>F4EFF53437593020BC795363CDB52EE47A2CD5E2</key>

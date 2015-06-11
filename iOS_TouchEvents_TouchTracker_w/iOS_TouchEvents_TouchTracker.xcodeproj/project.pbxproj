@@ -210,7 +210,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E21D51CD1B12DB17000D91EB /* Build configuration list for PBXProject "iOS_TouchEvents_TouchTracker_wCircle_Support" */;
+			buildConfigurationList = E21D51CD1B12DB17000D91EB /* Build configuration list for PBXProject "iOS_TouchEvents_TouchTracker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -434,7 +434,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E21D51CD1B12DB17000D91EB /* Build configuration list for PBXProject "iOS_TouchEvents_TouchTracker_wCircle_Support" */ = {
+		E21D51CD1B12DB17000D91EB /* Build configuration list for PBXProject "iOS_TouchEvents_TouchTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E21D51F01B12DB17000D91EB /* Debug */,
