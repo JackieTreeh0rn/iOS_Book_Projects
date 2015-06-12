@@ -162,7 +162,8 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
 
 }
 
-- (void)strokeArc:(ZGCLine *)line {
+- (void)strokeArc:(NSArray *)lines {
+    
     
 }
 
@@ -277,17 +278,21 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
         [lineColor set];
         [self strokeLine:line];
         
-        
     }
     
+    // Drawing lines in progress in red
     [[UIColor redColor] set];
     for (NSValue *key in self.linesInProgress) {
-        [self strokeLine:self.linesInProgress[key]];
+        if (self.lineType == straight) {
+            [self strokeLine:self.linesInProgress[key]];
+        } else if
+            (self.lineType == arc) {
+            [self strokeArc:self.linesInProgress[key]];
+        }
         
         // Output line angle and quadrant as it is drawn
         ZGCLine *line = self.linesInProgress[key];
         ZGCAngleBetweenTwoPoints(line.begin, line.end); // function returns but also NSLogs
-
     }
     
     
@@ -381,14 +386,13 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
         BOOL isCircle = quadrant1 + quadrant2 == 6 || quadrant1 + quadrant2 == 9 || quadrant1 + quadrant2 == 8 || quadrant1 + quadrant2 == 7;
         
         if (isCircle) {
-            NSLog(@"------opposite quadrants detected - it's a circle--------");
+            NSLog(@"//----opposite quadrants detected - it's a circle---//");
             // Define line type
             self.lineType = arc;
         } else {
             self.lineType = straight; // no on the same quadrant, draw straight line
         }
 
-        
         } else {
             
             // no array found / no two lines
