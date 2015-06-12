@@ -190,6 +190,7 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     CGFloat redVal, greenVal, blueVal;
     
     // each pi/3 interval gets different rules
+    // inspired by the color wheel of a color picker
     // 0 to 30deg
     if (angleRad > 0 && angleRad <= 1 * M_PI / 6.0) {
         redVal = [self normalizeAngle:angleRad
