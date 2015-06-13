@@ -166,21 +166,22 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     // since drawing a circle, will be using center of window as starting point
     // and line's begin/end points as 'end' for the line, for the angles (took serious time to figure out!!!)
     CGFloat startAngle = ZGCAngleBetweenTwoPoints(centerRect, line.begin) * M_PI / 180; // relative to center of screen
-    CGFloat endAngle =  ZGCAngleBetweenTwoPoints(centerRect, line.end) * M_PI / 180; // relative to center of screen
+    CGFloat endAngle = ZGCAngleBetweenTwoPoints(centerRect, line.end) * M_PI / 180; // relative to center of screen
     
     // RADIUS //
     // Get and Set quadrant for angle
     line.lineQuadrant = ZGCQuadrantforAngle(ZGCAngleBetweenTwoPoints(centerRect, line.end));
-    
+
     CGFloat radius = fabs((line.end.x - centerRect.x) + (line.end.y - centerRect.y)); // MAX(fabs(line.begin.x - line.end.x), fabs(line.end.y - line.end.y)) / 2;;
     NSLog(@"Radius: %.2f", radius);
 
-    // build path
+    
+    // PATH //
     UIBezierPath *bp = [UIBezierPath bezierPathWithArcCenter:centerRect
                                                       radius:radius
                                                   startAngle:startAngle
                                                     endAngle:endAngle
-                                                   clockwise:YES];
+                                                   clockwise:NO];
     bp.lineWidth = 15;
     bp.lineCapStyle = kCGLineCapRound;
     //[bp moveToPoint:line.end];
