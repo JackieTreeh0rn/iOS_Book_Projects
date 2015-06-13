@@ -11,8 +11,8 @@
 
 #pragma mark - Constants
 typedef NS_ENUM(char, lineType) {
-    arc,
-    straight
+    straight,
+    arc
 };
 
 #pragma mark - C helper functions
@@ -99,16 +99,9 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     self = [super initWithFrame:frame];
     if (self) {
         self.linesInProgress = [[NSMutableDictionary alloc] init];
+        self.finishedLines = [[NSMutableArray alloc] init];
+        self.finishedCircles = [[NSMutableArray alloc] init];
         
-        // load saved lines if they exist
-        NSArray *plist = [NSArray arrayWithContentsOfFile:ZGCDocsPath()];
-        if (plist) {
-            NSLog(@"_saved lines found, loading...\n\n %@", plist);
-            self.finishedLines = [plist mutableCopy];
-        } else {
-            NSLog(@"No saved lines found...");
-            self.finishedLines = [[NSMutableArray alloc] init];
-        }
         self.backgroundColor = [UIColor grayColor];
         self.multipleTouchEnabled = YES;
         
@@ -137,7 +130,6 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
 
 #pragma mark - view public methods
 - (void)saveChanges {
-    
     BOOL success = [self.finishedLines writeToFile:ZGCDocsPath() atomically:YES];
     // called by AppDelegate when exiting
     if (success) {
@@ -145,7 +137,6 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     } else {
         NSLog(@"Save location not found: %@", ZGCDocsPath());
     }
-    
 }
 #
 
@@ -162,8 +153,34 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
 
 }
 
-- (void)strokeArc:(NSArray *)lines {
+- (void)strokeArc:(ZGCLine *)line {
     
+    // center of window
+    CGPoint centerRect = {self.bounds.origin.x + self.bounds.size.width / 2, self.bounds.origin.y + self.bounds.size.height / 2};
+    
+    // Angles in radians
+    // since drawing a circle, will be using center of circumference as constant 'begin' point
+    // and line points as end of that angle (took serious time to figure out!!!)
+    CGFloat startAngle = ZGCAngleBetweenTwoPoints(centerRect, line.begin) * M_PI / 180;
+    CGFloat endAngle =  ZGCAngleBetweenTwoPoints(centerRect, line.end) * M_PI / 180;
+
+    // define radius
+    CGFloat radius = (line.end.x - centerRect.x) + (line.end.y - centerRect.y); // MAX(fabs(line.begin.x - line.end.x), fabs(line.end.y - line.end.y)) / 2;;
+    
+    if (radius < 0) {
+        radius = +fabs(radius);
+    }
+
+    // build path
+    UIBezierPath *bp = [UIBezierPath bezierPathWithArcCenter:centerRect
+                                                      radius:radius
+                                                  startAngle:startAngle
+                                                    endAngle:endAngle
+                                                   clockwise:YES];
+    bp.lineWidth = 15;
+    bp.lineCapStyle = kCGLineCapRound;
+    //[bp moveToPoint:line.end];
+    [bp stroke];
     
 }
 
@@ -277,8 +294,14 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
         UIColor *lineColor = [self colorFromAngle:line];
         [lineColor set];
         [self strokeLine:line];
-        
     }
+    
+    for (ZGCLine *line in self.finishedCircles) {
+        UIColor *lineColor = [self colorFromAngle:line];
+        [lineColor set];
+        [self strokeArc:line];
+    }
+    
     
     // Drawing lines in progress in red
     [[UIColor redColor] set];
@@ -287,7 +310,9 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
             [self strokeLine:self.linesInProgress[key]];
         } else if
             (self.lineType == arc) {
+                //NSArray *arcs;
             [self strokeArc:self.linesInProgress[key]];
+                NSLog(@"drawing circle");
         }
         
         // Output line angle and quadrant as it is drawn
@@ -295,7 +320,7 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
         ZGCAngleBetweenTwoPoints(line.begin, line.end); // function returns but also NSLogs
     }
     
-    
+
 /* switched to multitouch enabled approach *
     // If there is a line currently being drawned, do it in red
     if (self.currentLine) {
@@ -377,7 +402,7 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     }
     
     // ... continued circle logic
-    if (array.count) {
+    if (array.count) { /*
         // define two quadrants off of line
         int quadrant1 = [array[0] lineQuadrant];
         int quadrant2 = [array[1] lineQuadrant];
@@ -386,19 +411,20 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
         BOOL isCircle = quadrant1 + quadrant2 == 6 || quadrant1 + quadrant2 == 9 || quadrant1 + quadrant2 == 8 || quadrant1 + quadrant2 == 7;
         
         if (isCircle) {
-            NSLog(@"//----opposite quadrants detected - it's a circle---//");
+            NSLog(@"//----opposite quadrants detected - it's a circle---//"); */
             // Define line type
             self.lineType = arc;
         } else {
             self.lineType = straight; // no on the same quadrant, draw straight line
-        }
+       // }
 
-        } else {
+       // } else {
             
             // no array found / no two lines
-            self.lineType = straight;
+          //  self.lineType = straight;
         }
     
+     array = nil;
 
 
     
@@ -451,6 +477,7 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     for (UITouch *t in touches) {
         NSValue *key = [NSValue valueWithNonretainedObject:t];
         [self.linesInProgress removeObjectForKey:key];
+
         
         // shouldnt have to nil currentlinetype as it should go nil after the line object
         // is removed from memory when it leaves the dictionary container.

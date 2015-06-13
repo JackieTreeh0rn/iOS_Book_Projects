@@ -39,8 +39,8 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     // Typecasting this variable in order to make it a ZGCDrawView type.
-    ZGCDrawView *theView = (ZGCDrawView *)self.window.rootViewController.view;
-    [theView saveChanges];
+//    ZGCDrawView *theView = (ZGCDrawView *)self.window.rootViewController.view;
+//    [theView saveChanges];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
