@@ -380,6 +380,14 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     [self setNeedsDisplay];
 }
 
+// Playing with motion event (using it to clear lines)
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (event.type == UIEventTypeMotion && motion == UIEventSubtypeMotionShake) {
+        [self clearLines];
+    }
+    
+}
+
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     

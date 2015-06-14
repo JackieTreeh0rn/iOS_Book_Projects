@@ -70,17 +70,6 @@
                         <outlet property="delegate" destination="-1" id="U6R-sC-MAU"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="suT-5Q-Uxr">
-                    <rect key="frame" x="122" y="153" width="336" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="95" y="140" width="244" height="30"/>
-                    </variation>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="dv3-vb-55M"/>
-                    </connections>
-                </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVn-Qq-wrD">
                     <rect key="frame" x="247" y="275" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -116,6 +105,17 @@
                         <rect key="frame" x="35" y="545" width="318" height="44"/>
                     </variation>
                 </toolbar>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="suT-5Q-Uxr">
+                    <rect key="frame" x="122" y="153" width="336" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="95" y="139" width="244" height="30"/>
+                    </variation>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="dv3-vb-55M"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

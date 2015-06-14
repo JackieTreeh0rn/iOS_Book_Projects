@@ -63,12 +63,13 @@
     
 
     // Creating an NSDateFormatter  that will turn date into simple date string
-    // again, static variables are not destroyed when method finishes - gets declared only once in this case, stays alove while app is in memory
+    // again, static variables are not destroyed when method finishes - gets declared only once in this case, stays alive while app is in memory
     static NSDateFormatter *dateFormatter = nil;
     if (!dateFormatter) {
         dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateStyle = NSDateFormatterMediumStyle;
         dateFormatter.timeStyle = NSDateFormatterNoStyle;
+
     }
     
     // Use filtered NSDate object to set dateLabel contents
