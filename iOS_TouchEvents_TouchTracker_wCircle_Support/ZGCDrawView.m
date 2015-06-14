@@ -157,38 +157,48 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
 
 }
 
-- (void)strokeArc:(ZGCLine *)line {
+- (void)strokeArc:(NSArray *)array {
     
     // CENTER //
     CGPoint centerRect = {self.bounds.origin.x + self.bounds.size.width / 2, self.bounds.origin.y + self.bounds.size.height / 2};
+    ZGCLine *lineA = array[0];
+    ZGCLine *lineB = array[1];
+    for (ZGCLine *line in array) {
+        // ANGLES (radians) //
+        // since drawing a circle, will be using center of window as starting point
+        // and line's begin/end points as 'end' for the line, for the angles (took serious time to figure out!!!)
+        CGFloat startAngle = ZGCAngleBetweenTwoPoints(centerRect, line.begin) * M_PI / 180; // relative to center of screen
+        CGFloat endAngle = ZGCAngleBetweenTwoPoints(centerRect, line.end) * M_PI / 180; // relative to center of screen
+        
+        line.lineQuadrant = ZGCQuadrantforAngle(ZGCAngleBetweenTwoPoints(centerRect, line.end));
+        
+        // RADIUS //
+        // Get and Set quadrant for angle
+        CGFloat radius = (lineA.end.x - lineB.end.x) + (lineA.end.y - lineB.end.y); // MAX(fabs(line.begin.x - line.end.x), fabs(line.end.y - line.end.y)) / 2;;
+        NSLog(@"Radius: %.2f", radius);
+        
+        
+        // PATH //
+        UIBezierPath *bp = [UIBezierPath bezierPathWithArcCenter:centerRect
+                                                          radius:radius
+                                                      startAngle:startAngle
+                                                        endAngle:endAngle
+                                                       clockwise:NO];
+        bp.lineWidth = 15;
+        bp.lineCapStyle = kCGLineCapRound;
+        //[bp moveToPoint:line.end];
+        [bp stroke];
+        
+        // Log angle/quadrant info
+        ZGCAngleBetweenTwoPoints(centerRect, line.end); // function returns but also NSLogs
+    }
     
-    // ANGLES (radians) //
-    // since drawing a circle, will be using center of window as starting point
-    // and line's begin/end points as 'end' for the line, for the angles (took serious time to figure out!!!)
-    CGFloat startAngle = ZGCAngleBetweenTwoPoints(centerRect, line.begin) * M_PI / 180; // relative to center of screen
-    CGFloat endAngle = ZGCAngleBetweenTwoPoints(centerRect, line.end) * M_PI / 180; // relative to center of screen
-    
-    // RADIUS //
-    // Get and Set quadrant for angle
-    line.lineQuadrant = ZGCQuadrantforAngle(ZGCAngleBetweenTwoPoints(centerRect, line.end));
 
-    CGFloat radius = fabs((line.end.x - centerRect.x) + (line.end.y - centerRect.y)); // MAX(fabs(line.begin.x - line.end.x), fabs(line.end.y - line.end.y)) / 2;;
-    NSLog(@"Radius: %.2f", radius);
+    
+
 
     
-    // PATH //
-    UIBezierPath *bp = [UIBezierPath bezierPathWithArcCenter:centerRect
-                                                      radius:radius
-                                                  startAngle:startAngle
-                                                    endAngle:endAngle
-                                                   clockwise:NO];
-    bp.lineWidth = 15;
-    bp.lineCapStyle = kCGLineCapRound;
-    //[bp moveToPoint:line.end];
-    [bp stroke];
-    
-    // Log angle/quadrant info
-    ZGCAngleBetweenTwoPoints(centerRect, line.end); // function returns but also NSLogs
+   
     
 }
 
@@ -297,6 +307,7 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     
     // Drawing finished lines
     // [[UIColor blackColor] set]; // <-- switched to color based on angle
+    
     for (ZGCLine *line in self.finishedLines) {
         UIColor *lineColor = [self colorFromAngle:line];
         [lineColor set];
@@ -306,9 +317,10 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     for (ZGCLine *line in self.finishedCircles) {
         UIColor *lineColor = [self colorFromAngle:line];
         [lineColor set];
-        [self strokeArc:line];
+        NSArray *array = [NSArray arrayWithArray:self.finishedCircles];
+        [self strokeArc:array];
     }
-    
+
     
     // Drawing lines in progress in red
     [[UIColor redColor] set];
@@ -317,7 +329,8 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
             [self strokeLine:self.linesInProgress[key]];
         } else if
             (self.lineType == arc) {
-            [self strokeArc:self.linesInProgress[key]];
+                NSArray *array = [self.linesInProgress allValues];
+            [self strokeArc:array];
         }
         
         // Output line angle and quadrant as it is drawn
