@@ -340,6 +340,11 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
 
 #pragma mark - view touch events methods
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    /* test with tap count :)
+    UITouch *touch = [touches anyObject];
+    if (touch.tapCount == 2) {
+        [self clearLines];
+    } */
     
     // Let's put in a log statement to see the order of events
   //  NSLog(@"%@", NSStringFromSelector(_cmd));
@@ -379,15 +384,6 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     
     [self setNeedsDisplay];
 }
-
-// Playing with motion event (using it to clear lines)
-- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    if (event.type == UIEventTypeMotion && motion == UIEventSubtypeMotionShake) {
-        [self clearLines];
-    }
-    
-}
-
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
@@ -500,6 +496,15 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     }
     
 }
+
+// Playing with motion event (using it to clear lines)
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (event.type == UIEventTypeMotion && motion == UIEventSubtypeMotionShake) {
+        [self clearLines];
+    }
+    
+}
+
 #
 
 
