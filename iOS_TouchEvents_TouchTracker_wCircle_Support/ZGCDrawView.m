@@ -171,7 +171,7 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
     // RADIUS //
     // Get and Set quadrant for angle
     line.lineQuadrant = ZGCQuadrantforAngle(ZGCAngleBetweenTwoPoints(centerRect, line.end));
-
+    
     CGFloat radius = fabs((line.end.x - centerRect.x) + (line.end.y - centerRect.y)); // MAX(fabs(line.begin.x - line.end.x), fabs(line.end.y - line.end.y)) / 2;;
     NSLog(@"Radius: %.2f", radius);
 
@@ -363,7 +363,7 @@ int ZGCQuadrantforAngle(CGFloat degrees) {
         // add to lines in progress
         self.linesInProgress[key] = line;
         
-    }
+}
 
 /* switched to multitouch enabled approach *
     // retreieve a touch event from the set
