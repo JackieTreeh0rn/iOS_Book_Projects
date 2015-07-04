@@ -20,7 +20,7 @@
 #pragma mark - INIT Section
 
 + (instancetype)sharedStore {
-    // Declaring this variable as static - static variable is not destroyed when method is done executing, It is not kept on the stack (just as a global variables)
+    // Declaring this variable as static - static variable is not destroyed when method is done executing, It is not kept on the stack (works just as a global variables)
     static ZGCItemStore *sharedStore = nil;
     
     // Do I need to create a sharedStore?
