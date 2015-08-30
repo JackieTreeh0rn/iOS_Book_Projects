@@ -14,7 +14,7 @@
 		<string>https://github.com/fsck66/iOS_Book_Projects.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS_TouchEvents_TouchTracker_w/iOS_TouchEvents_TouchTracker.xcodeproj</string>
+	<string>iOS_TouchEvents_TouchTracker/iOS_TouchEvents_TouchTracker.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>F4EFF53437593020BC795363CDB52EE47A2CD5E2</key>
