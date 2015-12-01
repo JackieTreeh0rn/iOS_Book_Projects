@@ -16,7 +16,6 @@ typedef NS_ENUM(char, lineType) {
 };
 
 #pragma mark - C helper functions
-
 // declarations
 double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2);
 int ZGCQuadrantforAngle(CGFloat degrees);
