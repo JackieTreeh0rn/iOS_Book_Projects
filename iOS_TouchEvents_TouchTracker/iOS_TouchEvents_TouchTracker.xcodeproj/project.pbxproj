@@ -197,7 +197,7 @@
 		E21D51CA1B12DB17000D91EB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = EviLKerneL;
 				TargetAttributes = {
 					E21D51D11B12DB17000D91EB = {
@@ -312,6 +312,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -380,6 +381,7 @@
 				INFOPLIST_FILE = ZGCTouchTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "zerogravitycode.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = iOS_TouchEvents_TouchTracker;
 			};
 			name = Debug;
@@ -393,6 +395,7 @@
 				INFOPLIST_FILE = ZGCTouchTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "zerogravitycode.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = iOS_TouchEvents_TouchTracker;
 			};
 			name = Release;
@@ -411,6 +414,7 @@
 				);
 				INFOPLIST_FILE = ZGCTouchTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "zerogravitycode.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = iOS_TouchEvents_TouchTrackerTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZGCTouchTracker.app/ZGCTouchTracker";
 			};
@@ -426,6 +430,7 @@
 				);
 				INFOPLIST_FILE = ZGCTouchTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "zerogravitycode.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = iOS_TouchEvents_TouchTrackerTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZGCTouchTracker.app/ZGCTouchTracker";
 			};

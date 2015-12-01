@@ -93,6 +93,20 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         toolbar.items = @[flex1, clearLines, flex2];
         
         [self addSubview:toolbar];
+        
+        
+        // Adding a Gesture Recognizer (to clear screen when two taps are detected)
+        UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
+        doubleTapRecognizer.numberOfTapsRequired = 2;
+        doubleTapRecognizer.delaysTouchesBegan = YES; // delays first tap so view doesnt get it right away (keeps dot from being drawn before 2 taps occur)
+        [self addGestureRecognizer:doubleTapRecognizer];
+        
+        // Adding another Gesture Recognizer to allow for selecting a line
+        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+        tapRecognizer.delaysTouchesBegan = YES;
+        [tapRecognizer requireGestureRecognizerToFail:doubleTapRecognizer]; // to avoid multiple gesture recog. to be triggered (eg. a tap during a double tap)
+        [self addGestureRecognizer:tapRecognizer];
+        
 
 
     }
@@ -125,6 +139,18 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     [bp stroke];
     
 
+}
+
+- (void)doubleTap:(UIGestureRecognizer *)gr {
+    NSLog(@"Recognized double tap");
+    [self.linesInProgress removeAllObjects];
+    [self.finishedLines removeAllObjects];
+    [self setNeedsDisplay];
+    
+}
+
+- (void)tap:(UIGestureRecognizer *)gr {
+    NSLog(@"Recognized single tap");
 }
 
 - (void)clearLines {
