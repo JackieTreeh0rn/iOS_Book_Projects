@@ -110,6 +110,7 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 
     }
+    
     return self;
 }
 #
