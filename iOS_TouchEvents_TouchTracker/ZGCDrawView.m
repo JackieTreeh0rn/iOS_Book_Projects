@@ -156,6 +156,24 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     CGPoint point = [gr locationInView:self];
     self.selectedLine = [self lineAtPoint:point];
     
+    if (self.selectedLine) {
+        // Make ourselves the target of menu item action messages
+        [self becomeFirstResponder];
+        // Grab the menu controller (there is only one instance per app)
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        // Create a new "Delete" UIMenuItem
+        UIMenuItem *deleteItem = [[UIMenuItem alloc] initWithTitle:@"Delete" action:@selector(deleteLine:)];
+        menu.menuItems = @[deleteItem];
+        
+        // Tell the menu where it should come from and show it
+        [menu setTargetRect:CGRectMake(point.x, point.y, 2, 2) inView:self];
+        // show it
+        [menu setMenuVisible:YES animated:YES];
+    } else {
+        // Hide the menu item if no line is selected
+        [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+    }
+    
     [self setNeedsDisplay];
 }
 
@@ -184,6 +202,16 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     // if nothing is close enouhg to the tapped point, no line was selected
     return nil;
 }
+
+- (void)deleteLine:(id)sender {
+    // Remove the selected line from the list of _finished lines
+    [self.finishedLines removeObject:self.selectedLine];
+    
+    // Redraw everything
+    [self setNeedsDisplay];
+    
+}
+
 
 - (UIColor *)colorFromAngle:(ZGCLine *)line {
     // Get angle for line (in degrees)
@@ -275,6 +303,10 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 #
 
+// Overriding canBecomeFirstResponder method for this customer UIVIew so it can become first reponder when asked
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
 
 #pragma mark - view drawRect
 // Only override drawRect: if you perform custom drawing.
