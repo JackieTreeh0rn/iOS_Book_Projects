@@ -96,17 +96,22 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         [self addSubview:toolbar];
         
         
-        // Adding a Gesture Recognizer (to clear screen when two taps are detected)
+        // Adding a Tap Gesture Recognizer  - double tap (to clear screen when two taps are detected)
         UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
         doubleTapRecognizer.numberOfTapsRequired = 2;
         doubleTapRecognizer.delaysTouchesBegan = YES; // delays first tap so view doesnt get it right away (keeps dot from being drawn before 2 taps occur)
         [self addGestureRecognizer:doubleTapRecognizer];
         
-        // Adding another Gesture Recognizer to allow for selecting a line
+        // Adding a Tap Gesture Recognizer - single tap (to allow for selecting a line and deleting it)
         UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
         tapRecognizer.delaysTouchesBegan = YES;
         [tapRecognizer requireGestureRecognizerToFail:doubleTapRecognizer]; // to avoid multiple gesture recog. to be triggered (eg. a tap during a double tap)
         [self addGestureRecognizer:tapRecognizer];
+        
+        // Adding a "Long Press" and a "Pan" Gesture Recognizer to drag lines around
+        UILongPressGestureRecognizer *pressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+        [self addGestureRecognizer:pressRecognizer];
+        
         
 
 
@@ -172,6 +177,23 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     } else {
         // Hide the menu item if no line is selected
         [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+    }
+    
+    [self setNeedsDisplay];
+}
+
+- (void)longPress:(UIGestureRecognizer *)gr {
+    // Long press recognizers send their action messages whenever their states change (State Began and State Ended)
+    if (gr.state == UIGestureRecognizerStateBegan) { // longpress action sent when state began (termine point, if on line, make it selected line)
+        CGPoint point = [gr locationInView:self];
+        self.selectedLine = [self lineAtPoint:point];
+        
+        if (self.selectedLine) {
+            [self.linesInProgress removeAllObjects];
+        }
+        
+    } else if (gr.state == UIGestureRecognizerStateEnded) { // state changes to Ended, longPress action gets sent again, deselect line
+        self.selectedLine = nil;
     }
     
     [self setNeedsDisplay];
