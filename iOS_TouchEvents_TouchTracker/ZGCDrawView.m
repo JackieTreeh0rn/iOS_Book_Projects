@@ -54,6 +54,7 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 // @property (nonatomic, strong) ZGCLine *currentLine;  <-- switching to dictionary for multiple touches / lines
 @property (nonatomic, strong) NSMutableDictionary *linesInProgress;
 @property (nonatomic, strong) NSMutableArray *finishedLines;
+@property (nonatomic, weak) ZGCLine *selectedLine;
 @end
 
 @implementation ZGCDrawView
@@ -152,11 +153,36 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 - (void)tap:(UIGestureRecognizer *)gr {
     NSLog(@"Recognized single tap");
+    CGPoint point = [gr locationInView:self];
+    self.selectedLine = [self lineAtPoint:point];
+    
+    [self setNeedsDisplay];
 }
 
 - (void)clearLines {
     [self.finishedLines removeAllObjects];
     [self setNeedsDisplay];
+}
+
+- (ZGCLine *)lineAtPoint:(CGPoint)p {
+    // Find a line close to p
+    for (ZGCLine *l in self.finishedLines) {
+        CGPoint start = l.begin;
+        CGPoint end = l.end;
+        
+        // Check a few points on the line
+        for (float t = 0.0; t <= 1.0; t +=0.05) {
+            float x = start.x + t * (end.x - start.x);
+            float y = start.y + t * (end.y - start.y);
+            
+            // If the tapped point is within 20 points, lets return this line
+            if (hypot(x - p.x, y - p.y) < 20.0) {
+                return l;
+            }
+        }
+    }
+    // if nothing is close enouhg to the tapped point, no line was selected
+    return nil;
 }
 
 - (UIColor *)colorFromAngle:(ZGCLine *)line {
@@ -275,6 +301,13 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 
 
     }
+    
+    if (self.selectedLine) {
+        [[UIColor greenColor] set];
+        [self strokeLine:self.selectedLine];
+    }
+    
+    
     
     
 /* switched to multitouch enabled approach *
