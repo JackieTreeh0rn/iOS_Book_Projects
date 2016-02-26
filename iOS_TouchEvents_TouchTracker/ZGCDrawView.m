@@ -50,10 +50,12 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 #
 
 
-@interface ZGCDrawView ()
+@interface ZGCDrawView () <UIGestureRecognizerDelegate>
 // @property (nonatomic, strong) ZGCLine *currentLine;  <-- switching to dictionary for multiple touches / lines
+@property (nonatomic, strong) UIPanGestureRecognizer *moveRecognizer; // need to track this recognizer
 @property (nonatomic, strong) NSMutableDictionary *linesInProgress;
 @property (nonatomic, strong) NSMutableArray *finishedLines;
+
 @property (nonatomic, weak) ZGCLine *selectedLine;
 @end
 
@@ -108,12 +110,23 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         [tapRecognizer requireGestureRecognizerToFail:doubleTapRecognizer]; // to avoid multiple gesture recog. to be triggered (eg. a tap during a double tap)
         [self addGestureRecognizer:tapRecognizer];
         
-        // Adding a "Long Press" and a "Pan" Gesture Recognizer to drag lines around
+        // Adding a "Long Press" and a "Pan" Gesture Recognizer to drag lines around //
+        // UILongPress
         UILongPressGestureRecognizer *pressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
         [self addGestureRecognizer:pressRecognizer];
         
+        // UIPanGesture
+        // Note: Gesture recognizers typically do not share their touches, once intercepted, no other recognizers will intercept or have access to them
+        // this is a problem because the panning gesture to move a line will occur within an already recognized gesture (long press)
+        // we will go about this by tracking the panRecognizer with a property + using the UIGestureRecognizer protocol (delegate) methods.
+        // which will call a protocol method on its delegate if it detects another gesture recognizer has simultaneously detected another gesture simulatenously
+        self.moveRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveLine:)];
+        self.moveRecognizer.delegate = self;
+        self.moveRecognizer.cancelsTouchesInView = NO; // UIRecognizer property, defaults to YES.  IN this case, if we dont set to NO, it will eat the same type of touch we use to draw lines with this PAN recognizer and we wouldnt be able to draw ever.
+        [self addGestureRecognizer:self.moveRecognizer];
         
-
+        
+        
 
     }
     
@@ -156,6 +169,18 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
     
 }
 
+//- (void)copy:(id)sender {
+//    
+//}
+//
+//- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+//    if (action == @selector(copy:)) {
+//        return NO;
+//    }
+//    return [super canPerformAction:action withSender:sender];
+//    
+//}
+
 - (void)tap:(UIGestureRecognizer *)gr {
     NSLog(@"Recognized single tap");
     CGPoint point = [gr locationInView:self];
@@ -183,8 +208,8 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 }
 
 - (void)longPress:(UIGestureRecognizer *)gr {
-    // Long press recognizers send their action messages whenever their states change (State Began and State Ended)
-    if (gr.state == UIGestureRecognizerStateBegan) { // longpress action sent when state began (termine point, if on line, make it selected line)
+    // Long press recognizers send their action messages to their targets whenever, each and everytime, their state property changes (State Began and State Ended (state "possible" doesnt trigger it))
+    if (gr.state == UIGestureRecognizerStateBegan) { // longpress action sent when state "began" (locate press point, and if on a line, make it selected line)
         CGPoint point = [gr locationInView:self];
         self.selectedLine = [self lineAtPoint:point];
         
@@ -192,11 +217,48 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
             [self.linesInProgress removeAllObjects];
         }
         
-    } else if (gr.state == UIGestureRecognizerStateEnded) { // state changes to Ended, longPress action gets sent again, deselect line
+    } else if (gr.state == UIGestureRecognizerStateEnded) { // longpress action sent when state changes to "Ended", longPress action gets sent again, deselect line
         self.selectedLine = nil;
     }
     
     [self setNeedsDisplay];
+}
+
+- (void)moveLine:(UIPanGestureRecognizer *)gr { // <-- notice  because we send the gest. recog. a method from UIPanGestureRecognizer class (translationInView), this parameter is a pointer to an instance of UIPanGestureRecognizer rather than UIGestureRecognizer.
+    // if we have not selected a line, we do not do anything here
+    if (!self.selectedLine) {
+        return;
+    }
+    
+    // When the pan recognizer changes its position...
+    if (gr.state == UIGestureRecognizerStateChanged) { // when a pan recognizer enters this state, this moveLine action message gets sent repeadtely to target
+        // How far has the pan moved?
+        CGPoint translation = [gr translationInView:self]; // send this message to the gr to determine how far it moved (in CGPoint). When pan gestures begins, propery is at zero point, and increases from there.
+        
+        // Add the translation to the current beginning and end points of the line
+        CGPoint begin = self.selectedLine.begin;
+        CGPoint end = self.selectedLine.end;
+        begin.x += translation.x;
+        begin.y += translation.y;
+        end.x += translation.x;
+        end.y += translation.y;
+        
+        // Set the new begining and end points of the line
+        self.selectedLine.begin = begin;
+        self.selectedLine.end = end;
+        
+        // redraw the screen
+        [self setNeedsDisplay];
+        
+        // Reset translation value back to zero point
+        // (otherwise, line and finger are out of synch as it is adding the current translation over and over
+        // again to the line's original end points since it 'began' state moving)
+        // Here we make it so gr reports change in translation since the last time this method was called instead (since last event)
+        [gr setTranslation:CGPointZero inView:self];
+        
+        
+        
+    }
 }
 
 - (void)clearLines {
@@ -375,6 +437,18 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 }
 #
 
+#pragma mark - UIGestureRecognizer protocol methods
+// This is the only protocol method I am interested in here.
+// I will set to return YES so that when a touch recognizer detects other touches,
+// it shares them with other recognizers
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if (gestureRecognizer == self.moveRecognizer) {
+        return YES;
+    }
+    return NO;
+}
+
+#
 
 #pragma mark - view touch events methods
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
