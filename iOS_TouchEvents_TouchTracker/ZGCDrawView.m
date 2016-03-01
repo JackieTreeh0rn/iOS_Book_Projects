@@ -115,7 +115,7 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         UILongPressGestureRecognizer *pressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
         [self addGestureRecognizer:pressRecognizer];
         
-        // UIPanGesture
+        // Adding a Pan UIPanGesture recognizer
         // Note: Gesture recognizers typically do not share their touches, once intercepted, no other recognizers will intercept or have access to them
         // this is a problem because the panning gesture to move a line will occur within an already recognized gesture (long press)
         // we will go about this by tracking the panRecognizer with a property + using the UIGestureRecognizer protocol (delegate) methods.
