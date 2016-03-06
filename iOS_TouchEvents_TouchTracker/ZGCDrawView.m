@@ -453,6 +453,12 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 #pragma mark - view touch events methods
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
+    if (self.selectedLine) {
+        self.selectedLine = nil;
+        // Hide the menu item if no line is selected
+        [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+    }
+    
     // Let's put in a log statement to see the order of events
   //  NSLog(@"%@", NSStringFromSelector(_cmd));
     
