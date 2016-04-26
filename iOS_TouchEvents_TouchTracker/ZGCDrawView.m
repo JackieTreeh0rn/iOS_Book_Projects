@@ -125,8 +125,6 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
         self.moveRecognizer.cancelsTouchesInView = NO; // UIRecognizer property, defaults to YES.  IN this case, if we dont set to NO, it will eat the same type of touch we use to draw lines with this PAN recognizer and we wouldnt be able to draw ever.
         [self addGestureRecognizer:self.moveRecognizer];
         
-        
-        
 
     }
     
@@ -172,7 +170,7 @@ double ZGCAngleBetweenTwoPoints(CGPoint point1, CGPoint point2) {
 //- (void)copy:(id)sender {
 //    
 //}
-//
+
 //- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
 //    if (action == @selector(copy:)) {
 //        return NO;
