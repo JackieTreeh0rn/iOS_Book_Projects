@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DEB8F620-D3F9-40F0-9ECA-F779F001B444</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iOS_Views_and_the_View_Hierarchy-Hipnosister</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F4EFF53437593020BC795363CDB52EE47A2CD5E2</key>
+		<string>https://github.com/fsck66/iOS_Book_Projects.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS_Views_and_the_View_Hierarchy-Hipnosister/iOS_Views_and_the_View_Hierarchy-Hipnosister.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F4EFF53437593020BC795363CDB52EE47A2CD5E2</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/fsck66/iOS_Book_Projects.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F4EFF53437593020BC795363CDB52EE47A2CD5E2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F4EFF53437593020BC795363CDB52EE47A2CD5E2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS_Book_Projects</string>
+		</dict>
+	</array>
+</dict>
+</plist>
